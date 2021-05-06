@@ -16,7 +16,7 @@
                 <a class="nav-link" href="<?php echo URLROOT; ?>/pages/siki"><i class="fas fa-home"></i>Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="fa fa-clone"></i>About</a>
+                <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about"><i class="fa fa-clone"></i>About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0);"><i class="fas fa-chart-bar"></i>Stats</a>

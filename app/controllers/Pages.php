@@ -29,7 +29,7 @@
       'title' => 'home',
     ];
     
-    $this->view('pages/home', $data);
+    $this->view('pages/siki', $data);
 
   }
 
