@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-
+<!-- start navbar -->
 <nav class="navbar navbar-expand-lg navbar-mainbg">
     <a class="navbar-brand navbar-logo" href="#"><i class="fas fa-school"></i> GeeSchool</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,6 +34,8 @@
         </ul>
     </div>
 </nav>
+
+<!-- end navbar -->
 
 
 
