@@ -1,16 +1,17 @@
 <?php
   class Pages extends Controller {
     public function __construct(){
-     
+
     }
     
     public function index(){
       $data = [
         'title' => 'TraversyMVC',
       ];
-     
+      
       $this->view('pages/index', $data);
     }
+
 
     public function about(){
       $data = [
@@ -19,4 +20,17 @@
 
       $this->view('pages/about', $data);
     }
+
+
+
+
+  public function siki(){
+    $data = [
+      'title' => 'home',
+    ];
+    
+    $this->view('pages/home', $data);
+
+  }
+
   }
