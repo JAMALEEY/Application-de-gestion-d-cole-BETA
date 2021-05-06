@@ -24,12 +24,17 @@
 
 
 
-  public function siki(){
+  public function home(){
     $data = [
-      'title' => 'home',
+      'title' => 'collaborative',
+      'header' => 'Restez en control de votre école en toute sécurité, 
+        Notre plateforme permet à ses utilisateurs daccéder 
+        et de manager: Les Ressources de formation, 
+        Les personnes et encore plus à découvrir ... 
+        '
     ];
     
-    $this->view('pages/siki', $data);
+    $this->view('pages/home', $data);
 
   }
 
