@@ -40,49 +40,93 @@
 
 <!-- start page elements -->
 
-<div class="d-lg-flex align-items-lg-center height-85vh--lg">
-    <div class="container space-2 space-0--lg mt-lg-8">
-        <div class="row align-items-lg-center">
-            <div class="col-lg-5">
-                <!-- Signup Form -->
-                <div class="bg-white shadow-sm rounded p-6">
-                    <form class="js-validate" novalidate="novalidate">
-                        <div class="mb-4">
-                            <h2 class="h4">Get started for free</h2>
-                        </div>
 
-                        <!-- Input -->
-                        <div class="js-form-message mb-3">
-                            <div class="js-focus-state input-group input-group form">
-                                <input type="text" class="form-control form__input" name="username" required="" placeholder="Enter your username" aria-label="Enter your username">
+    <div class="container bg-danger mt-5">
+        <div class="container space-2 space-0--lg mt-5">
+            <div class="row align-items-lg-center">
+                <div class="col-lg-5">
+                    <!-- Signup Form -->
+                    <div class="bg-dark shadow-sm rounded p-6">
+                        <form class="js-validate" novalidate="novalidate">
+                            <div class="mb-4">
+                                <h2 class="h4">Get started for free</h2>
                             </div>
-                        </div>
-                        <!-- End Input -->
 
-                        <!-- Input -->
-                        <div class="js-form-message mb-3">
-                            <div class="js-focus-state input-group input-group form">
-                                <input type="email" class="form-control form__input" name="email" required="" placeholder="Enter your email address" aria-label="Enter your email address">
+                            <!-- Input -->
+                            <div class="js-form-message mb-3">
+                                <div class="js-focus-state input-group input-group form">
+                                    <input type="text" class="form-control form__input" name="username" required="" placeholder="Enter your username" aria-label="Enter your username">
+                                </div>
                             </div>
-                        </div>
-                        <!-- End Input -->
+                            <!-- End Input -->
 
-                        <!-- Input -->
-                        <div class="js-form-message mb-3">
-                            <div class="js-focus-state input-group input-group form">
-                                <input type="password" class="form-control form__input" name="password" required="" placeholder="Enter your password" aria-label="Enter your password">
+                            <!-- Input -->
+                            <div class="js-form-message mb-3">
+                                <div class="js-focus-state input-group input-group form">
+                                    <input type="email" class="form-control form__input" name="email" required="" placeholder="Enter your email address" aria-label="Enter your email address">
+                                </div>
                             </div>
-                        </div>
-                        <!-- End Input -->
+                            <!-- End Input -->
 
-                        <button type="submit" class="btn btn-block btn-primary">Get Started</button>
-                    </form>
+                            <!-- Input -->
+                            <div class="js-form-message mb-3">
+                                <div class="js-focus-state input-group input-group form">
+                                    <input type="password" class="form-control form__input" name="password" required="" placeholder="Enter your password" aria-label="Enter your password">
+                                </div>
+                            </div>
+                            <!-- End Input -->
+
+                            <button type="submit" class="btn btn-block btn-primary">Get Started</button>
+                        </form>
+                    </div>
+                    <!-- End Signup Form -->
                 </div>
-                <!-- End Signup Form -->
+
+
+                <div class="col-lg-5">
+                    <!-- Signup Form -->
+                    <div class="bg-white shadow-sm rounded p-6">
+                        <form class="js-validate" novalidate="novalidate">
+                            <div class="mb-4">
+                                <h2 class="h4">Get started for free</h2>
+                            </div>
+
+                            <!-- Input -->
+                            <div class="js-form-message mb-3">
+                                <div class="js-focus-state input-group input-group form">
+                                    <input type="text" class="form-control form__input" name="username" required="" placeholder="Enter your username" aria-label="Enter your username">
+                                </div>
+                            </div>
+                            <!-- End Input -->
+
+                            <!-- Input -->
+                            <div class="js-form-message mb-3">
+                                <div class="js-focus-state input-group input-group form">
+                                    <input type="email" class="form-control form__input" name="email" required="" placeholder="Enter your email address" aria-label="Enter your email address">
+                                </div>
+                            </div>
+                            <!-- End Input -->
+
+                            <!-- Input -->
+                            <div class="js-form-message mb-3">
+                                <div class="js-focus-state input-group input-group form">
+                                    <input type="password" class="form-control form__input" name="password" required="" placeholder="Enter your password" aria-label="Enter your password">
+                                </div>
+                            </div>
+                            <!-- End Input -->
+
+                            <button type="submit" class="btn btn-block btn-primary">Get Started</button>
+                        </form>
+                    </div>
+                    <!-- End Signup Form -->
+                </div>
+
+
+
+
             </div>
         </div>
     </div>
-</div>
 
 
 
