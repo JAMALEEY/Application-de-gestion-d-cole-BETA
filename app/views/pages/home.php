@@ -18,7 +18,7 @@
                                 pédagogique.</h1> <br>
                             <p> <?php echo $data['header']; ?> </p>
                             <button type="button" class="btn btn-dark">
-                                <a class="text-light" href="<?php echo URLROOT; ?>/pages/login">Explore</a>
+                                <a class="text-light" href="<?php echo URLROOT; ?>/admins/login">Explore</a>
                             </button>
 
                         </div>

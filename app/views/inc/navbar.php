@@ -25,7 +25,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo URLROOT; ?>/pages/login"><i class="fas fa-user"></i>Sign-in</a>
+                <a class="nav-link" href="<?php echo URLROOT; ?>/admins/login"><i class="fas fa-user"></i>Sign-in</a>
             </li>
 
         </ul>
