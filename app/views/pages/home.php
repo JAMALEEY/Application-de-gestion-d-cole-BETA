@@ -17,7 +17,10 @@
                             <h1> La plateforme <strong> <?php echo $data['title']; ?> </strong> du management
                                 pédagogique.</h1> <br>
                             <p> <?php echo $data['header']; ?> </p>
-                            <button class="btn btn-dark">Explore</button>
+                            <button type="button" class="btn btn-dark">
+                                <a class="text-light" href="<?php echo URLROOT; ?>/pages/login">Explore</a>
+                            </button>
+
                         </div>
 
                         <div class="col-xl py-2 mt-4">
