@@ -36,13 +36,13 @@
 </nav>
 
 <!-- end navbar -->
-<div class="container px-5 py-5 w-100 h-100 d-inline-block container-fluid" style="width: 920px">
+<div class="container px-5 py-5 w-100  d-inline-block container-fluid" style="height:100vh">
 
-    <div class="row">
+    <div class="row h-100">
         <div class="col-3 bg-light ">
 
         </div>
-        <div class="col-3 bg-danger">
+        <div class="col-3 bg-danger ">
             D
         </div>
         <div class="col-3 bg-dark">
