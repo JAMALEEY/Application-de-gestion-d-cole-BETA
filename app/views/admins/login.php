@@ -1,5 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
+<style>
 
+</style>
 <!-- start navbar -->
 <nav class="navbar navbar-expand-lg navbar-mainbg">
     <a class="navbar-brand navbar-logo" href="#"><i class="fas fa-school"></i> GeeSchool</a>
@@ -59,25 +61,36 @@
 
 <section class="Form my-4 mx-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-5">
-                <img src="../public/img/loginimg.png" alt="loginimg" class="img-fluid">
+        <div class="row no-gutters rounded ">
+            <div class="col-lg-5 shadow">
+                <img src="../public/img/fr.png" alt="loginimg" class="img-fluid">
             </div>
-            <div class="col-lg-7">
-                <form action="">
-                    <div class="form-row">
+
+
+            <div class="col-lg-7 px-5 shadow-lg p-3 mb-6  bg-white rounded">
+                <div class="col-lg-12 d-flex justify-content-center py-3 ">
+                    <img src="../public/img/shield.png" alt="shieldimg" class="img-fluid">
+                </div>
+                <form action="" class="">
+                    <div class="form-row d-flex justify-content-center py-3">
                         <div class="col-lg-7">
-                            <input type="email" placeholder="Email-Adress" class="form-control">
+                            <h5>
+                                E-mail
+                            </h5>
+                            <input type="email" placeholder="Your-email@mail.com" class="form-control">
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row d-flex justify-content-center py-3">
                         <div class="col-lg-7">
+                            <h5>
+                                Password
+                            </h5>
                             <input type="password" placeholder="*********" class="form-control">
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row d-flex justify-content-center py-3">
                         <div class="col-lg-7">
-                            <button type="button" class="btn1">Login</button>
+                            <button type="button" class="btn btn-dark btn-lg btn-block">Login</button>
                         </div>
                     </div>
                 </form>
@@ -87,7 +100,6 @@
 
     </div>
 </section>
-
 
 
 
