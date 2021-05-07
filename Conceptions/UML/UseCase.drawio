@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="OlCn4ncvfDHtXqMgbqvR" name="Page-1">
-        <mxGraphModel dx="1128" dy="860" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="806" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -117,12 +117,6 @@
                         <mxPoint x="720" y="200" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="53" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2" target="54" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="350" y="330" as="sourcePoint"/>
-                        <mxPoint x="400" y="280" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="54" value="Home" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="150" y="150" width="80" height="40" as="geometry"/>
                 </mxCell>
@@ -180,44 +174,11 @@
                 <mxCell id="81" value="UseCase Application de gestion d'école.&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="80" y="720" width="230" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="95" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                <mxCell id="95" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="30" y="190" width="30" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="96" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-                    <mxGeometry x="80" y="90" width="710" height="710" as="geometry"/>
-                </mxCell>
-                <mxCell id="97" value="Home" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="150" y="180" width="160" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="98" value="Dashboard" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="363" y="210" width="120" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="99" value="Delete" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="364" y="410" width="120" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="100" value="Log-out" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="364" y="470" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="101" value="Read" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="364" y="260" width="120" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="102" value="Creat" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="364" y="310" width="120" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="103" value="Update" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="364" y="360" width="120" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="104" value="UseCase Application de gestion d'école.&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="104" value="UseCase Application de gestion d'école.&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="90" y="30" width="230" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="105" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="95" target="97">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="80" y="250" as="sourcePoint"/>
-                        <mxPoint x="130" y="200" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="106" value="Authentification" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="364" y="120" width="120" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
