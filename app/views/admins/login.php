@@ -36,12 +36,13 @@
 </nav>
 
 <!-- end navbar -->
-<div class="container px-5 py-5 w-100  d-inline-block container-fluid" style="height:100vh">
 
-    <div class="row h-100">
-        <div class="col-3 bg-light ">
 
-        </div>
+
+<!-- <div class="container py-5" style="height:88vh"> -->
+<!-- WE GONNA TAKE 100% OF HEIGHT (container's height which means 88vh) -->
+<!-- <div class="row h-100 d-flex justify-content-center">
+
         <div class="col-3 bg-danger ">
             D
         </div>
@@ -52,9 +53,41 @@
 
 
 
-    </div>
+    </div> -->
 
-</div>
+<!-- </div> -->
+
+<section class="Form my-4 mx-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <img src="" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-7">
+                <form action="">
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="email" placeholder="Email-Adress" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="password" placeholder="*********" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <button type="button" class="btn1">Login</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
 
 
