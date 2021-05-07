@@ -61,7 +61,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-5">
-                <img src="" alt="" class="img-fluid">
+                <img src="../public/img/loginimg.png" alt="loginimg" class="img-fluid">
             </div>
             <div class="col-lg-7">
                 <form action="">
