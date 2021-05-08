@@ -13,6 +13,36 @@
     } */
 </style>
 
+
+<!-- teachers Modal -->
+<div class="modal fade" id="teachersModal" tabindex="-1" role="dialog" aria-labelledby="teachersModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="teachersModalLabel">Add Teacher</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    test micro
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
 <div class="container-fluid">
     <div class="row min-vh-100">
         <aside class=" col-12 col-md-3 col-xl-2 p-0  shadow-lg" style="background-color :black">
@@ -76,10 +106,15 @@
                             <div class="py-1 px-4 text-light">
                                 <h2>Teachers <b>Management</b></h2>
                             </div>
+
                             <div class="py-2 px-4">
-                                <a href="#" class="btn btn-light"> <i class="fa fa-user-plus"></i> </i> <span>Add </span></a>
+                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#teachersModal"> <i class="fa fa-user-plus"></i>
+                                    Add
+                                </button>
+
                                 <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>
                             </div>
+
                         </div>
 
                     </div>
@@ -107,55 +142,63 @@
                                 <td> Langue française</td>
                                 <td> 0634437444</td>
                                 <td>
-                                    <a href="#" class="text-center"> <i class="fa fa-users-cog"></i> </a>
+                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td><a href="#"> Paula Wilson</a></td>
-                                <td>05/08/2014</td>
-                                <td>Publisher</td>
-                                <td><span class="status text-success">&bull;</span> Active</td>
-                                <td><span class="status text-success">&bull;</span> 0634437444</td>
                                 <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                    <a href="#">
+                                        Michael Holz</a>
+                                </td>
+                                <td>04/10/2013</td>
+                                <td>3</td>
+                                <td> Langue française</td>
+                                <td> 0634437444</td>
+                                <td>
+                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td><a href="#"> Antonio Moreno</a></td>
-                                <td>11/05/2015</td>
-                                <td>Publisher</td>
-                                <td><span class="status text-danger">&bull;</span> Suspended</td>
-                                <td><span class="status text-success">&bull;</span> 0634437444</td>
                                 <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                    <a href="#">
+                                        Michael Holz</a>
+                                </td>
+                                <td>04/10/2013</td>
+                                <td>3</td>
+                                <td> Langue française</td>
+                                <td> 0634437444</td>
+                                <td>
+                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td><a href="#"> Mary Saveley</a></td>
-                                <td>06/09/2016</td>
-                                <td>Reviewer</td>
-                                <td><span class="status text-success">&bull;</span> Active</td>
-                                <td><span class="status text-success">&bull;</span> 0634437444</td>
                                 <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                    <a href="#">
+                                        Michael Holz</a>
+                                </td>
+                                <td>04/10/2013</td>
+                                <td>3</td>
+                                <td> Langue française</td>
+                                <td> 0634437444</td>
+                                <td>
+                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td><a href="#"> Martin Sommer</a></td>
-                                <td>12/08/2017</td>
-                                <td>Moderator</td>
-                                <td><span class="status text-warning">&bull;</span> Inactive</td>
-                                <td><span class="status text-success">&bull;</span> 0634437444</td>
                                 <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                    <a href="#">
+                                        Michael Holz</a>
+                                </td>
+                                <td>04/10/2013</td>
+                                <td>3</td>
+                                <td> Langue française</td>
+                                <td> 0634437444</td>
+                                <td>
+                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
                                 </td>
                             </tr>
                         </tbody>
@@ -176,6 +219,16 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
