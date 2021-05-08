@@ -87,10 +87,11 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Username</th>
-                                <th>E-mail</th>
-                                <th>Gender</th>
-                                <th>Register at</th>
+                                <th>Nom complet</th>
+                                <th>Genre</th>
+                                <th>Class</th>
+                                <th>Matiere</th>
+                                <th>Phone</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -104,6 +105,7 @@
                                 <td>04/10/2013</td>
                                 <td>Admin</td>
                                 <td><span class="status text-success">&bull;</span> Active</td>
+                                <td><span class="status text-success">&bull;</span> 0634437444</td>
                                 <td>
                                     <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                                     <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
