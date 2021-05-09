@@ -15,8 +15,8 @@
 
 
 <!-- teachers Modal -->
-<div class="modal fade teachersModal-lg" id="teachersModal" tabindex="-1" role="dialog" aria-labelledby="teachersModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="teachersModal" tabindex="-1" role="dialog" aria-labelledby="teachersModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="teachersModalLabel">Add Teacher</h5>
