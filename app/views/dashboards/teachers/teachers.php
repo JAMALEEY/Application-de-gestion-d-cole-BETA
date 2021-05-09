@@ -31,7 +31,7 @@
                         <h2>Add your new teacher below</h2>
                         <p>Please fill the informations below in order to add a new teacher.</p>
                         <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-                        <form action="<?php echo URLROOT; ?>/dashboard/teachers/teachers" method="post">
+                        <form action="<?php echo URLROOT; ?>/dashboards/teachers/teachers" method="post">
 
                             <div class="form-group">
 
@@ -78,7 +78,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-dark text-light" name="add_teacher">Add</button>
+                <input type="submit" class="btn btn-dark text-light" value="Add">
             </div>
             </form>
 

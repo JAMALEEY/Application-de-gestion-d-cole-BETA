@@ -1,7 +1,7 @@
 
 
 <?php
-class Dashboard extends Controller
+class Dashboards extends Controller
 {
 
     public function teachers()
@@ -13,15 +13,17 @@ class Dashboard extends Controller
             'teachermatiere' => '',
             'teacherphone' => ''
         ];
-        $this->view('dashboard/teachers/teachers', $data);
+        
+        $this->view('dashboards/teachers/teachers', $data);
+        
     }
     public function parents()
     {
-        $this->view('dashboard/parents/parents');
+        $this->view('dashboards/parents/parents');
     }
     public function students()
     {
-        $this->view('dashboard/students/students');
+        $this->view('dashboards/students/students');
     }
 
 
@@ -30,11 +32,21 @@ class Dashboard extends Controller
     {
 
 
-      
     }
 
 
             public function creatTeacher(){
+        $data = [
+            'teachername' => '',
+            'teachergender' => '',
+            'teacherclasse' => '',
+            'teachermatiere' => '',
+            'teacherphone' => ''
+        ];
+        $this->view('dashboards/teachers/teachers', $data);
+    
+
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 
@@ -71,7 +83,7 @@ class Dashboard extends Controller
                 $data['teacherphone_error'] = 'Entrez le telephone du professeur';
             }
             // make sure theres no errors
-            if ((empty($data['teachergender_error'])) && (empty($data['teacherphone_error'])) && (empty($data['teachermatiere_error'])) && (empty($data['teachername_error'])) && (empty($data['teacherclass_error']))) {
+            if (empty($data['teachergender_error']) && (empty($data['teacherphone_error'])) && (empty($data['teachermatiere_error'])) && (empty($data['teachername_error'])) && (empty($data['teacherphone_error'])) && (empty($data['teacherclass_error']))) {
                 // validated stuff
                 if ($this->teacherModel->creatTeacher($data)) {
                     header('location:teachers.php');
@@ -79,15 +91,15 @@ class Dashboard extends Controller
                     die('ERROR');
                 }
             } else {
-                $this->view('dashboard/teachers/teachers', $data);
+                $this->view('dashboards/teachers/teachers', $data);
             }
 
 
 
 
-            
-        } else {
 
+        } else {
+// we initialize data then
             $data = [
                 'teachername' => '',
                 'teachergender' => '',
@@ -95,7 +107,7 @@ class Dashboard extends Controller
                 'teachermatiere' => '',
                 'teacherphone' => ''
             ];
-            $this->view('dashboard/teachers/teachers', $data);
+            $this->view('dashboards/teachers/teachers', $data);
         }
     }
 
