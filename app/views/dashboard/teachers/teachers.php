@@ -15,7 +15,7 @@
 
 
 <!-- teachers Modal -->
-<div class="modal fade" id="teachersModal" tabindex="-1" role="dialog" aria-labelledby="teachersModalLabel" aria-hidden="true">
+<div class="modal fade teachersModal-lg" id="teachersModal" tabindex="-1" role="dialog" aria-labelledby="teachersModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -25,9 +25,67 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>
-                    test micro
-                </p>
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <!-- <div class="card card-body bg-info mt-5 text-center"> -->
+                        <h2>Creat An Account</h2>
+                        <p>REGISTER NOW FOR FREE !!!</p>
+                        <form action="<?php echo URLROOT; ?>/dashboard/teachers/teachers" method="post">
+
+                            <div class="form-group">
+
+                                <label for="name"> Nom complet: <sup>*</sup></label>
+                                <input type="text" name="name" class="form-control form-control-lg
+                        <?php echo (!empty($data['name_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['name']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="gender"> Genre: <sup>*</sup></label>
+                                <input type="text" name="teachergender" class="form-control form-control-lg
+                        <?php echo (!empty($data['teachergender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachergender']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['teachergender_error']; ?> </span>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="class"> Classe: <sup>*</sup></label>
+                                <input type="text" name="teacherclasse" class="form-control form-control-lg
+                        <?php echo (!empty($data['teacherclasse_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherclasse']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['teacherclasse_error']; ?> </span>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="matiere"> Matiere: <sup>*</sup></label>
+                                <input type="text" name="teachermatiere" class="form-control form-control-lg
+                        <?php echo (!empty($data['teachermatiere_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachermatiere']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['teachermatiere_error']; ?> </span>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="phone"> Phone: <sup>*</sup></label>
+                                <input type="text" name="teacherphone" class="form-control form-control-lg
+                        <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherphone']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <input type="submit" value="Register" class="btn btn-success btn-block">
+                                </div>
+                                <div class="col">
+                                    <a href="<?php echo URLROOT; ?>/users/signin" class="btn btn-light btn-block"> I have an account </a>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- </div> -->
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -82,7 +140,7 @@
                     <ul class="pt-5">
                         <li>
                             <a href="#" class="text-secondary">Logout
-                                <img src="../public/img/logout.png" alt="">
+                                <img src="../../public/img/logout.png" alt="">
                             </a>
 
                         </li>
@@ -106,17 +164,13 @@
                             <div class="py-1 px-4 text-light">
                                 <h2>Teachers <b>Management</b></h2>
                             </div>
-
                             <div class="py-2 px-4">
-                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#teachersModal"> <i class="fa fa-user-plus"></i>
-                                    Add
+                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#teachersModal">
+                                    <i class="fa fa-user-plus"></i> Add
                                 </button>
-
                                 <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>
                             </div>
-
                         </div>
-
                     </div>
                     <table class="table table-striped table-hover">
                         <thead>
@@ -242,3 +296,8 @@
     </div>
 
 </div>
+
+
+
+
+<?php require APPROOT . '/views/inc/footer.php'; ?>

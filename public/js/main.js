@@ -37,3 +37,7 @@ $(window).on('resize', function(){
 $(".navbar-toggler").click(function(){
   setTimeout(function(){ test(); });
 });
+
+$('#teachersModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
