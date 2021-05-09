@@ -77,9 +77,11 @@
                             <h5>
                                 E-mail
                             </h5>
-                            <input type="email" name="email" placeholder="Your-email@mail.com" class="form-control" <?php echo (!empty($data['email_error'])) ? 'is-invalid' : ''; ?> " value=" <?php echo $data['email']; ?>">
+                            <input type="email" name="email" placeholder="Your-email@mail.com" class="form-control <?php echo (!empty($data['email_error'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['email']; ?>">
                             <!-- if the email is invalid -->
-                            <span class="invalid-feedback"> <?php echo $data['email_error']; ?> </span>
+                            <span class="invalid-feedback">
+                                <?php echo $data['email_error']; ?>
+                            </span>
                         </div>
                     </div>
                     <div class="form-row d-flex justify-content-center py-3">
@@ -87,12 +89,13 @@
                             <h5>
                                 Password
                             </h5>
-                            <input type="password" placeholder="*********" class="form-control">
+                            <input type="password" placeholder="*********" name="password" class="form-control" <?php echo (!empty($data['password_error'])) ? 'is-invalid' : ''; ?> " value=" <?php echo $data['password']; ?>">
+                            <span class="invalid-feedback"> <?php echo $data['password_error']; ?> </span>
                         </div>
                     </div>
                     <div class="form-row d-flex justify-content-center py-3">
                         <div class="col-lg-7">
-                            <button type="button" class="btn btn-dark btn-lg btn-block">Login</button>
+                            <button type="submit" class="btn btn-dark btn-lg btn-block">Login</button>
                         </div>
                     </div>
                 </form>
