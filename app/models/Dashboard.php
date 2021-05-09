@@ -8,6 +8,10 @@ class Dashboard
     {
         $this->db = new Database;
     }
+
+ 
+
+
     public function creatTeacher($data)
     {
         $this->db->query('INSERT INTO teachers (teachername, teacher_id, teachergender, teacherclasse, teachermatiere, teacherphone) VALUES (:teachername, :teacher_id, :teachergender, :teacherclasse, :teachermatiere, :teacherphone)');

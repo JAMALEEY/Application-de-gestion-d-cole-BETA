@@ -6,6 +6,12 @@ class Admins extends Controller
 {
     public function __construct()
     {
+        if (!isLoggedIn()) {
+            redirect('dashboards/teachers/teachers');
+        }
+
+        $this->contactModel = $this->Model('Contact');
+        $this->userModel = $this->Model('User');
         $this->adminModel = $this->model('admin');
 
     }
@@ -22,7 +28,6 @@ class Admins extends Controller
             'teacherphone' => ''
         ];
         $this->view('dashboards/teachers/teachers', $data);
-        
     }
 
 

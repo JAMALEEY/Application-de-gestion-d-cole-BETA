@@ -12,8 +12,7 @@ class Dashboards extends Controller
             'teacherclasse' => '',
             'teachermatiere' => '',
             'teacherphone' => ''
-        ];
-        
+        ];    
         $this->view('dashboards/teachers/teachers', $data);
         
     }

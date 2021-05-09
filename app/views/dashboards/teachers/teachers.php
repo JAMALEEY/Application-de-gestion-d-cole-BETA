@@ -178,95 +178,40 @@
                                 <th>Manager</th>
                             </tr>
                         </thead>
-                        <?php foreach ($data['contacts'] as $contact) : ?>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="" class="" data-toggle="modal" data-target="#configfirstidModal"> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
+                        <?php foreach ($data['teachers'] as $teacher) : ?>
+                            <tbody>
+                                <tr>
+                                    <td><?php echo $teacher->id; ?></td>
+                                    <td>
+                                        <p><?php echo $teacher->teachername; ?></p>
+                                    </td>
+                                    <td><?php echo $teacher->teachergender; ?></td>
+                                    <td><?php echo $teacher->teacherclasse; ?></td>
+                                    <td> <?php echo $teacher->teachermatiere; ?></td>
+                                    <td> <?php echo $teacher->teacherphone; ?></td>
+                                    <td>
+                                        <a href="" class="" data-toggle="modal" data-target="#configfirstidModal"> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
 
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                        </tbody>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
                     </table>
 
-                    <div class="clearfix">
-                        <div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
-                        <ul class="pagination">
-                            <li class="page-item "><a href="#" class="page-link bg-dark text-light">Previous</a></li>
-                            <li class="page-item active"><a href="#" class="page-link bg-secondary border-dark">1</a></li>
-                            <li class="page-item"><a href="#" class="page-link text-dark">2</a></li>
-                            <li class="page-item "><a href="#" class="page-link text-dark">3</a></li>
-                            <li class="page-item"><a href="#" class="page-link text-dark">4</a></li>
-                            <li class="page-item"><a href="#" class="page-link text-dark">5</a></li>
-                            <li class="page-item"><a href="#" class="page-link bg-dark text-light">Next</a></li>
-                        </ul>
-                    </div>
+                <?php endforeach; ?>
+
+                <div class="clearfix">
+                    <div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
+                    <ul class="pagination">
+                        <li class="page-item "><a href="#" class="page-link bg-dark text-light">Previous</a></li>
+                        <li class="page-item active"><a href="#" class="page-link bg-secondary border-dark">1</a></li>
+                        <li class="page-item"><a href="#" class="page-link text-dark">2</a></li>
+                        <li class="page-item "><a href="#" class="page-link text-dark">3</a></li>
+                        <li class="page-item"><a href="#" class="page-link text-dark">4</a></li>
+                        <li class="page-item"><a href="#" class="page-link text-dark">5</a></li>
+                        <li class="page-item"><a href="#" class="page-link bg-dark text-light">Next</a></li>
+                    </ul>
+                </div>
                 </div>
             </div>
         </div>
