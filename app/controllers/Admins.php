@@ -6,21 +6,17 @@ class Admins extends Controller
 {
     public function __construct()
     {
-        if (!isLoggedIn()) {
-            redirect('dashboards/teachers/teachers');
-        }
-
-        $this->contactModel = $this->Model('Contact');
-        $this->userModel = $this->Model('User');
-        $this->adminModel = $this->model('admin');
-
+        $this->adminModel = $this->model('Admin');
+        $this->teacherModel = $this->Model('Teacher');
     }
 
 
 
     public function index()
     {
+        $teachers =  $this->teacherModel->getTeachers();
         $data = [
+            'teachers' => $teachers,
             'teachername' => '',
             'teachergender' => '',
             'teacherclasse' => '',
