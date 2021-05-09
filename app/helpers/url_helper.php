@@ -1,4 +1,3 @@
-                    <!-- header('location: ' . URLROOT . 'users/signin'); -->
 
                     <!-- simple page redirect -->
 <?php 

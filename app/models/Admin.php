@@ -32,5 +32,22 @@
             }
 
         }
+
+
+    public function findAdminByEmail($email)
+    {
+        $this->db->query('SELECT * FROM admins WHERE Email = :email');
+        //  we bind email value
+        $this->db->bind(':email', $email);
+
+        $row = $this->db->single();
+        // Check row
+        if ($this->db->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
         
     }

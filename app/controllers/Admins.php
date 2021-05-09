@@ -36,14 +36,14 @@ class Admins extends Controller
             }
 
 
-            // check for user/email
-            if ($this->userModel->findUserByEmail($data['email'])) {
+            // check for admin/email
+            if ($this->adminModel->findUserByEmail($data['email'])) {
                 // user found
 
 
             } else {
-                // User not found
-                $data['email_error'] = 'No User found with this E-mail please register first to access the platform ! ';
+                // admin not found
+                $data['email_error'] = 'No admin found with this E-mail please register first to access the platform ! ';
             }
 
 
@@ -85,12 +85,12 @@ class Admins extends Controller
 
 
 
-    public function createAdminSession($user)
+    public function createAdminSession($admin)
     {
-        $_SESSION['user_id'] = $user->id;
-        $_SESSION['user_email'] = $user->id;
-        $_SESSION['user_name'] = $user->id;
-        redirect('contacts');
+        $_SESSION['id'] = $admin->id;
+        $_SESSION['email'] = $admin->id;
+        $_SESSION['name'] = $admin->id;
+        redirect('dashboards');
     }
 
 
