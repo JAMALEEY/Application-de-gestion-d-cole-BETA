@@ -172,12 +172,13 @@
                                 <th>#</th>
                                 <th>Nom complet</th>
                                 <th>Genre</th>
-                                <th>Class</th>
+                                <th>Classe</th>
                                 <th>Matiere</th>
                                 <th>Phone</th>
                                 <th>Manager</th>
                             </tr>
                         </thead>
+                        <?php foreach ($data['contacts'] as $contact) : ?>
                         <tbody>
                             <tr>
                                 <td>1</td>
