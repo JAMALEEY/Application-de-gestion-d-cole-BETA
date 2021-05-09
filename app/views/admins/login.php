@@ -86,10 +86,11 @@
                     </div>
                     <div class="form-row d-flex justify-content-center py-3">
                         <div class="col-lg-7">
-                            <h5>
-                                Password
-                            </h5>
-                            <input type="password" placeholder="*********" name="password" class="form-control" <?php echo (!empty($data['password_error'])) ? 'is-invalid' : ''; ?> " value=" <?php echo $data['password']; ?>">
+                            <label for="password">
+                                <h5> Password </h5>
+                            </label>
+                            <input type="password" name="password" placeholder="************"  class="form-control form-control-lg 
+                        <?php echo (!empty($data['password_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['password']; ?>">
                             <span class="invalid-feedback"> <?php echo $data['password_error']; ?> </span>
                         </div>
                     </div>

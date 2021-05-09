@@ -37,7 +37,7 @@ class Admins extends Controller
 
 
             // check for admin/email
-            if ($this->adminModel->findUserByEmail($data['email'])) {
+            if ($this->adminModel->findAdminByEmail($data['email'])) {
                 // user found
 
 
@@ -50,21 +50,21 @@ class Admins extends Controller
             // Make sure errors are empty
             if (empty($data['email_error']) && empty($data['password_error'])) {
                 // Validated
-                // check and set logged in user
-                $signedInUser = $this->userModel->signin($data['email'], $data['password']);
-                if ($signedInUser) {
-                    $this->createAdminSession($signedInUser);
+                // check and set logged in admin
+                $signedInAdmin = $this->adminModel->signin($data['email'], $data['password']);
+                if ($signedInAdmin) {
+                    $this->createAdminSession($signedInAdmin);
 
                     // creat session variables
                     die('success');
                 } else {
                     $data['password_error'] = 'Password inccorect';
                     // load the view the page with the error msg
-                    $this->view('/users/signin', $data);
+                    $this->view('/admins/login', $data);
                 }
             } else {
                 // Load view with errors
-                $this->view('/users/signin', $data);
+                $this->view('/admins/login', $data);
             }
         } else {
             // Init data
@@ -76,7 +76,7 @@ class Admins extends Controller
             ];
 
             // Load view
-            $this->view('/users/signin', $data);
+            $this->view('/admins/login', $data);
             }
         }
 
