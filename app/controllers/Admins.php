@@ -38,7 +38,7 @@ class Admins extends Controller
 
             // check for admin/email
             if ($this->adminModel->findAdminByEmail($data['email'])) {
-                // user found
+                // admin found
 
 
             } else {
@@ -54,7 +54,6 @@ class Admins extends Controller
                 $signedInAdmin = $this->adminModel->login($data['email'], $data['password']);
                 if ($signedInAdmin) {
                     $this->createAdminSession($signedInAdmin);
-
                     // creat session variables
                     die('success');
                 } else {
@@ -90,7 +89,7 @@ class Admins extends Controller
         $_SESSION['id'] = $admin->id;
         $_SESSION['email'] = $admin->id;
         $_SESSION['name'] = $admin->id;
-        redirect('dashboards');
+        redirect('dashboards/teachers/teachers');
     }
 
 

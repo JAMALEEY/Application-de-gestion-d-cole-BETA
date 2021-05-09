@@ -17,12 +17,16 @@
                 return false;
             }
         }
-        // log in the user 
-        // go for email admin login
-        public function logIn($email, $password) {
-            $this->db->query('SELECT * FROM admins WHERE Email = :email AND Password = :password');
-            $this->db->bind(':email', $email);
-        }
+    // log in the admin 
+    // go for email admin login
+    public function login($email, $password)
+    {
+        $this->db->query('SELECT * FROM admins WHERE email = :email AND Password = :password');
+        $this->db->bind(':email', $email);
+        $this->db->bind(':password', $password);
+        $row = $this->db->single();
+        return $row;
+    }
 
 
     public function findAdminByEmail($email)
