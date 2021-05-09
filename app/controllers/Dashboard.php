@@ -64,13 +64,13 @@ class Dashboard extends Controller
             // make sure theres no errors
             if ((empty($data['teachergender_error'])) && (empty($data['teacherphone_error'])) && (empty($data['teachermatiere_error'])) && (empty($data['teachername_error'])) && (empty($data['teacherclass_error']))) {
                 // validated stuff
-                if ($this->contactModel->creatContact($data)) {
-                    redirect('contacts');
+                if ($this->teacherModel->creatTeacher($data)) {
+                    redirect('teachers');
                 } else {
                     die('ERROR');
                 }
             } else {
-                $this->view('contacts/creat', $data);
+                $this->view('dashboard/teachers/teachers', $data);
             }
         } else {
 
