@@ -6,13 +6,15 @@ class Dashboards extends Controller
 
     public function teachers()
     {
+        $teachers =  $this->teacherModel->getTeachers();
         $data = [
+            'teachers' => $teachers,
             'teachername' => '',
             'teachergender' => '',
             'teacherclasse' => '',
             'teachermatiere' => '',
             'teacherphone' => ''
-        ];    
+        ];
         $this->view('dashboards/teachers/teachers', $data);
         
     }
@@ -30,7 +32,8 @@ class Dashboards extends Controller
     public function __construct()
     {
 
-
+        $this->adminModel = $this->model('Admin');
+        $this->teacherModel = $this->Model('Teacher');
     }
 
 
