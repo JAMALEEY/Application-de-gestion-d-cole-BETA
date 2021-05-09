@@ -65,7 +65,7 @@ class Dashboard extends Controller
             if ((empty($data['teachergender_error'])) && (empty($data['teacherphone_error'])) && (empty($data['teachermatiere_error'])) && (empty($data['teachername_error'])) && (empty($data['teacherclass_error']))) {
                 // validated stuff
                 if ($this->teacherModel->creatTeacher($data)) {
-                    redirect('teachers');
+                    header('location:teachers.php');
                 } else {
                     die('ERROR');
                 }
