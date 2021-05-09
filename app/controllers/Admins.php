@@ -51,7 +51,7 @@ class Admins extends Controller
             if (empty($data['email_error']) && empty($data['password_error'])) {
                 // Validated
                 // check and set logged in admin
-                $signedInAdmin = $this->adminModel->signin($data['email'], $data['password']);
+                $signedInAdmin = $this->adminModel->login($data['email'], $data['password']);
                 if ($signedInAdmin) {
                     $this->createAdminSession($signedInAdmin);
 
