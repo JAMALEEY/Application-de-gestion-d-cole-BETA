@@ -73,9 +73,6 @@
                         <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherphone']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
                             </div>
-
-                        </form>
-                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -83,6 +80,9 @@
                 <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-dark text-light" name="add_teacher">Add</button>
             </div>
+            </form>
+            <!-- </div> -->
+
         </div>
     </div>
 </div>
@@ -157,6 +157,7 @@
                                 <h2>Teachers <b>Management</b></h2>
                             </div>
                             <div class="py-2 px-4">
+                                <!-- name add teacher a verifier -->
                                 <button type="button" name="add_teacher" class="btn btn-light" data-toggle="modal" data-target="#teachersModal">
                                     <i class="fa fa-user-plus"></i> Add
                                 </button>

@@ -6,7 +6,14 @@ class Dashboard extends Controller
 
     public function teachers()
     {
-        $this->view('dashboard/teachers/teachers');
+        $data = [
+            'teachername' => '',
+            'teachergender' => '',
+            'teacherclasse' => '',
+            'teachermatiere' => '',
+            'teacherphone' => ''
+        ];
+        $this->view('dashboard/teachers/teachers', $data);
     }
     public function parents()
     {
@@ -27,11 +34,8 @@ class Dashboard extends Controller
     }
 
 
-            public function creatTeacher()
-            {
-                
-        if ((isset($_POST['addini'])) && ($_SERVER['REQUEST_METHOD'] == 'POST'))
-            {
+            public function creatTeacher(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 
             // sanitize
