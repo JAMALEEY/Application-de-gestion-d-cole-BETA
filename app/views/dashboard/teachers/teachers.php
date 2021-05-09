@@ -35,7 +35,7 @@
 
                             <div class="form-group">
 
-                                <label for="name"> Nom complet: <sup>*</sup></label>
+                                <label for="teachername"> Nom complet: <sup>*</sup></label>
                                 <input type="text" name="name" class="form-control form-control-lg
                         <?php echo (!empty($data['name_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['name']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>

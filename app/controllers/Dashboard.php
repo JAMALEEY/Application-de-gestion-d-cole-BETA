@@ -33,31 +33,36 @@ class Dashboard extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'teacherphone' => trim($_POST['teacherphone']),
-                'phone' => trim($_POST['phone']),
+                'teachername' => trim($_POST['teachername']),
+                'teachergender' => trim($_POST['teachergender']),
+                'teacherclasse' => trim($_POST['teacherclasse']),
                 'teachermatiere' => trim($_POST['teachermatiere']),
                 'teacherphone' => trim($_POST['teacherphone']),
                 'user_id' => trim($_SESSION['user_id']),
                 // 'title' => trim($_POST['']),
-                'contactname_error' => '',
-                'phone_error' => '',
+                'teachername_error' => '',
+                'teachergender_error' => '',
+                'teacherclasse_error' => '',
                 'teachermatiere_error' => '',
                 'teacherphone_error' => ''
             ];
-            if (empty($data['contactname'])) {
-                $data['contactname_error'] = 'Please enter Contact Name';
+            if (empty($data['teachername'])) {
+                $data['teachername_error'] = 'Please enter Contact Name';
             }
-            if (empty($data['phone'])) {
-                $data['phone_error'] = 'Please enter phone number';
+            if (empty($data['teachergender'])) {
+                $data['teachergender_error'] = 'Please enter Contact Name';
+            }
+            if (empty($data['teacherclasse'])) {
+                $data['teacherclasse_error'] = 'Entrez la classe du professeur';
             }
             if (empty($data['teachermatiere'])) {
-                $data['teachermatiere_error'] = 'Please enter la matiere du professeur';
+                $data['teachermatiere_error'] = 'Entrez la matiere du professeur';
             }
             if (empty($data['teacherphone'])) {
-                $data['teacherphone_error'] = 'Please enter adresse';
+                $data['teacherphone_error'] = 'Entrez le telephone du professeur';
             }
             // make sure theres no errors
-            if ((empty($data['contactname_error'])) && (empty($data['teacherphone_error'])) && (empty($data['teachermatiere_error'])) && (empty($data['phone_error']))) {
+            if ((empty($data['teachergender_error'])) && (empty($data['teacherphone_error'])) && (empty($data['teachermatiere_error'])) && (empty($data['teachername_error'])) && (empty($data['teacherclass_error']))) {
                 // validated stuff
                 if ($this->contactModel->creatContact($data)) {
                     redirect('contacts');
