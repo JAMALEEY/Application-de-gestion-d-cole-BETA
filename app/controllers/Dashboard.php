@@ -81,6 +81,11 @@ class Dashboard extends Controller
             } else {
                 $this->view('dashboard/teachers/teachers', $data);
             }
+
+
+
+
+            
         } else {
 
             $data = [

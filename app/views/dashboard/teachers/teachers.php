@@ -78,9 +78,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-dark text-light" name="add_teacher">Add</button>
+                <button type="submit" class="btn btn-dark text-light" name="add_teacher">Add</button>
             </div>
             </form>
+
             <!-- </div> -->
 
         </div>

@@ -12,7 +12,8 @@ class Teacher
     }
     public function creatTeacher($data)
     {
-        $this->db->query('INSERT INTO teachers (teachername, teacher_id, teachergender, teacherclasse, teachermatiere, teacherphone ) VALUES (:teachername, :teacher_id, :teachergender, :teacherclasse, :teachermatiere, :teacherphone)');
+        $this->db->query('INSERT INTO teachers (teachername, teacher_id, teachergender, teacherclasse, teachermatiere, teacherphone) VALUES (:teachername, :teacher_id, :teachergender, :teacherclasse, :teachermatiere, teacherphone)');
+        
         // we bind values
         $this->db->bind(':teachername', $data['teachername']);
         $this->db->bind(':teacher_id', $data['teacher_id']);
