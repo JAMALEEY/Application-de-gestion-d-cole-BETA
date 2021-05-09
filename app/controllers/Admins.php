@@ -14,7 +14,15 @@ class Admins extends Controller
 
     public function index()
     {
-        $this->view('dashboards/teachers/teachers');
+        $data = [
+            'teachername' => '',
+            'teachergender' => '',
+            'teacherclasse' => '',
+            'teachermatiere' => '',
+            'teacherphone' => ''
+        ];
+        $this->view('dashboards/teachers/teachers', $data);
+        
     }
 
 
