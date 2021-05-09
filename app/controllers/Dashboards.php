@@ -4,6 +4,14 @@
 class Dashboards extends Controller
 {
 
+    public function __construct()
+    {
+
+        $this->adminModel = $this->model('Admin');
+        $this->teacherModel = $this->Model('Teacher');
+    }
+
+
     public function teachers()
     {
         $teachers =  $this->teacherModel->getTeachers();
@@ -29,23 +37,15 @@ class Dashboards extends Controller
 
 
 
-    public function __construct()
-    {
-
-        $this->adminModel = $this->model('Admin');
-        $this->teacherModel = $this->Model('Teacher');
-    }
-
-
             public function creatTeacher(){
-        $data = [
-            'teachername' => '',
-            'teachergender' => '',
-            'teacherclasse' => '',
-            'teachermatiere' => '',
-            'teacherphone' => ''
-        ];
-        $this->view('dashboards/teachers/teachers', $data);
+        // $data = [
+        //     'teachername' => '',
+        //     'teachergender' => '',
+        //     'teacherclasse' => '',
+        //     'teachermatiere' => '',
+        //     'teacherphone' => ''
+        // ];
+        // $this->view('dashboards/teachers/teachers', $data);
     
 
 
@@ -85,7 +85,7 @@ class Dashboards extends Controller
                 $data['teacherphone_error'] = 'Entrez le telephone du professeur';
             }
             // make sure theres no errors
-            if (empty($data['teachergender_error']) && (empty($data['teacherphone_error'])) && (empty($data['teachermatiere_error'])) && (empty($data['teachername_error'])) && (empty($data['teacherphone_error'])) && (empty($data['teacherclass_error']))) {
+            if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
                 // validated stuff
                 if ($this->teacherModel->creatTeacher($data)) {
                     header('location:teachers.php');
