@@ -86,9 +86,9 @@ class Admins extends Controller
 
     public function createAdminSession($admin)
     {
-        $_SESSION['id'] = $admin->id;
-        $_SESSION['email'] = $admin->id;
-        $_SESSION['name'] = $admin->id;
+        $_SESSION['admin_id'] = $admin->id;
+        $_SESSION['admin_email'] = $admin->id;
+        $_SESSION['admin_name'] = $admin->id;
         redirect('dashboards/teachers/teachers');
     }
 
