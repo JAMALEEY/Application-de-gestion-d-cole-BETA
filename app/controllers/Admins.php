@@ -53,7 +53,7 @@ class Admins extends Controller
                 // check and set logged in user
                 $signedInUser = $this->userModel->signin($data['email'], $data['password']);
                 if ($signedInUser) {
-                    $this->createUserSession($signedInUser);
+                    $this->createAdminSession($signedInUser);
 
                     // creat session variables
                     die('success');
@@ -79,4 +79,21 @@ class Admins extends Controller
             $this->view('/users/signin', $data);
             }
         }
+
+
+
+
+
+
+    public function createAdminSession($user)
+    {
+        $_SESSION['user_id'] = $user->id;
+        $_SESSION['user_email'] = $user->id;
+        $_SESSION['user_name'] = $user->id;
+        redirect('contacts');
+    }
+
+
+
+
     }

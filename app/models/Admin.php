@@ -6,9 +6,9 @@
             $this->db = new Database;
         }
         
-        public function checkAdmin($username){
-            $this->db->query("SELECT * FROM admins WHERE username = :username");
-            $this->db->bind(':username', $username);
+        public function checkAdmin($email){
+            $this->db->query("SELECT * FROM admins WHERE Email = :email");
+            $this->db->bind(':email', $email);
             $num_rows = $this->db->RowCount();
 
             if ($num_rows >= 1) {
@@ -18,9 +18,10 @@
             }
         }
         // log in the user 
-        public function logIn($username, $password) {
-            $this->db->query('SELECT * FROM admins WHERE username = :username');
-            $this->db->bind(':username', $username);
+        // go for email admin login
+        public function logIn($email, $password) {
+            $this->db->query('SELECT * FROM admins WHERE Email = :email');
+            $this->db->bind(':email', $email);
 
             $row = $this->db->single();
             $hashed_password = $row->password;
