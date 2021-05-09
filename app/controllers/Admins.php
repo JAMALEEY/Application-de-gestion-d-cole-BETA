@@ -10,6 +10,15 @@ class Admins extends Controller
 
     }
 
+
+
+    public function index()
+    {
+        $this->view('dashboards/teachers/teachers');
+    }
+
+
+
     public function login()
     {
         // Check for POST
@@ -89,7 +98,7 @@ class Admins extends Controller
         $_SESSION['admin_id'] = $admin->id;
         $_SESSION['admin_email'] = $admin->id;
         $_SESSION['admin_name'] = $admin->id;
-        redirect('dashboards/teachers/teachers');
+        header('location: dashboards/index/teachers');
     }
 
 
