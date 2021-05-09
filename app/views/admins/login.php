@@ -71,13 +71,15 @@
                 <div class="col-lg-12 d-flex justify-content-center py-3 ">
                     <img src="../public/img/shield.png" alt="shieldimg" class="img-fluid">
                 </div>
-                <form action="" class="">
+                <form action="<?php echo URLROOT; ?>/admins/login" method="post">
                     <div class="form-row d-flex justify-content-center py-3">
                         <div class="col-lg-7">
                             <h5>
                                 E-mail
                             </h5>
-                            <input type="email" placeholder="Your-email@mail.com" class="form-control">
+                            <input type="email" name="email" placeholder="Your-email@mail.com" class="form-control" <?php echo (!empty($data['email_error'])) ? 'is-invalid' : ''; ?> " value=" <?php echo $data['email']; ?>">
+                            <!-- if the email is invalid -->
+                            <span class="invalid-feedback"> <?php echo $data['email_error']; ?> </span>
                         </div>
                     </div>
                     <div class="form-row d-flex justify-content-center py-3">
