@@ -36,8 +36,8 @@
                             <div class="form-group">
 
                                 <label for="teachername"> Nom complet: <sup>*</sup></label>
-                                <input type="text" name="name" class="form-control form-control-lg
-                        <?php echo (!empty($data['name_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['name']; ?>">
+                                <input type="text" name="teachername" class="form-control form-control-lg
+                        <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachername']; ?> ">
                                 <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
                             </div>
 
@@ -157,7 +157,7 @@
                                 <h2>Teachers <b>Management</b></h2>
                             </div>
                             <div class="py-2 px-4">
-                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#teachersModal">
+                                <button type="button" name="add_teacher" class="btn btn-light" data-toggle="modal" data-target="#teachersModal">
                                     <i class="fa fa-user-plus"></i> Add
                                 </button>
                                 <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>

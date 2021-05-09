@@ -3,9 +3,6 @@
 <?php
 class Dashboard extends Controller
 {
-    public function __construct()
-    {
-    }
 
     public function teachers()
     {
@@ -22,10 +19,18 @@ class Dashboard extends Controller
 
 
 
+    public function __construct()
+    {
+
+
+      
+    }
+
 
             public function creatTeacher()
             {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset(($_POST['add_teacher'])))
+                
+        if ((isset($_POST['addini'])) && ($_SERVER['REQUEST_METHOD'] == 'POST'))
             {
                 
                 
@@ -75,12 +80,13 @@ class Dashboard extends Controller
         } else {
 
             $data = [
-                'contactname' => '',
-                'phone' => '',
-                'email' => '',
-                'contactadresse' => '',
+                'teachername' => '',
+                'teachergender' => '',
+                'teacherclasse' => '',
+                'teachermatiere' => '',
+                'teacherphone' => ''
             ];
-            $this->view('contacts/creat', $data);
+            $this->view('dashboard/teachers/teachers', $data);
         }
     }
 
