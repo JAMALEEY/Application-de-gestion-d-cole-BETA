@@ -26,10 +26,11 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-6 mx-auto">
+                    <div class="col-md-10 mx-auto">
                         <!-- <div class="card card-body bg-info mt-5 text-center"> -->
-                        <h2>Creat An Account</h2>
-                        <p>REGISTER NOW FOR FREE !!!</p>
+                        <h2>Add your new teacher below</h2>
+                        <p>Please fill the informations below in order to add a new teacher.</p>
+                        <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
                         <form action="<?php echo URLROOT; ?>/dashboard/teachers/teachers" method="post">
 
                             <div class="form-group">
@@ -73,23 +74,14 @@
                                 <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
                             </div>
 
-
-                            <div class="row">
-                                <div class="col">
-                                    <input type="submit" value="Register" class="btn btn-success btn-block">
-                                </div>
-                                <div class="col">
-                                    <a href="<?php echo URLROOT; ?>/users/signin" class="btn btn-light btn-block"> I have an account </a>
-                                </div>
-                            </div>
                         </form>
                         <!-- </div> -->
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-dark text-light" name="add_teacher">Add</button>
             </div>
         </div>
     </div>
@@ -196,7 +188,9 @@
                                 <td> Langue française</td>
                                 <td> 0634437444</td>
                                 <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
+                                    <a href="" class="" data-toggle="modal" data-target="#configfirstidModal"> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
+
+                                    </a>
                                 </td>
                             </tr>
                             <tr>
@@ -296,6 +290,9 @@
     </div>
 
 </div>
+
+
+
 
 
 
