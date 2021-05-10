@@ -37,7 +37,7 @@ class Dashboards extends Controller
 
 
 
-            public function creat(){
+            public function creatTeachers(){
         // $data = [
         //     'teachername' => '',
         //     'teachergender' => '',
@@ -114,7 +114,7 @@ class Dashboards extends Controller
     }
 
 
-    public function update($id)
+    public function updateTeachers($id)
     {
         $teacher = $this->teacherModel->getTeacherById($id);
         $data = [
