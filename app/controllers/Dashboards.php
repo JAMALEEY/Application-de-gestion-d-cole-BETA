@@ -211,7 +211,7 @@ class Dashboards extends Controller
                         die('Something went wrong');
                     }
                 } else {
-                    header('location: ../teachers.php');
+                    header('teachers.php');
                     }
                     
                 }
