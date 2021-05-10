@@ -188,7 +188,7 @@
                                 <th>Manager</th>
                             </tr>
                         </thead>
-                        <?php $count = 0; ?>
+                        <?php $count = 1; ?>
                         <?php foreach ($data['teachers'] as $teacher) : ?>
                             <tbody>
                                 <tr>
@@ -223,7 +223,7 @@
                                     <h2>Update your teacher's informations below</h2>
                                     <p>Please fill the informations below in order to update the teacher's informations.</p>
                                     <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-    <form action="<?php echo URLROOT; ?>/dashboards/updateTeachers/<?php echo $count; ?>" method="post">
+    <form action="<?php echo URLROOT; ?>/dashboards/update/<?php echo $count; ?>" method="post">
     <div class="form-group">
         <label for="teachername"> Nom complet: <sup>*</sup></label>
         <input type="text" name="teachername" class="form-control form-control-lg

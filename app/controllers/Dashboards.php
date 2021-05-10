@@ -88,7 +88,7 @@ class Dashboards extends Controller
             if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
                 // validated stuff
                 if ($this->teacherModel->creatTeacher($data)) {
-                    header('location:teachers.php');
+                    header('location: teachers.php');
                 } else {
                     die('ERROR');
                 }
@@ -114,7 +114,7 @@ class Dashboards extends Controller
     }
 
 
-    public function updateTeachers($id)
+    public function update($id)
     {
         $teacher = $this->teacherModel->getTeacherById($id);
         $data = [
@@ -157,7 +157,7 @@ class Dashboards extends Controller
             if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
                 // validated stuff
                 if ($this->teacherModel->updateTeachers($data)) {
-                    header('location:teachers.php');
+                    header('location: ../teachers.php');
                 } else {
                     die('ERROR');
                 }
