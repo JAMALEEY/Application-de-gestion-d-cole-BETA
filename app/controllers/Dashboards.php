@@ -61,7 +61,7 @@ class Dashboards extends Controller
                 'teacherclasse' => trim($_POST['teacherclasse']),
                 'teachermatiere' => trim($_POST['teachermatiere']),
                 'teacherphone' => trim($_POST['teacherphone']),
-                'user_id' => trim($_SESSION['user_id']),
+                // 'user_id' => trim($_SESSION['user_id']),
                 // 'title' => trim($_POST['']),
                 'teachername_error' => '',
                 'teachergender_error' => '',
@@ -189,7 +189,12 @@ class Dashboards extends Controller
                 }
             }
 
+
+
+
             public function deleteTeachers($id){
+
+
                 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])) {
                     // Get existing teacher from model
                     $teacher = $this->teacherModel->getTeacherById($id);
@@ -199,23 +204,16 @@ class Dashboards extends Controller
                     //     redirect('teachers');
                     // }
 
-                    if ($this->teacherModel->deleteTeacher($id)) {
-                        redirect('teachers');
+
+                    if ($this->teacherModel->deleteTeachers($id)) {
+                        header('location: ../teachers.php');
                     } else {
                         die('Something went wrong');
                     }
                 } else {
-                    redirect('teachers');
+                    header('location: ../teachers.php');
                     }
-                        $data = [
-                            'id' => $id,
-                            'teachername' => '',
-                            'teachergender' => $teacher->teachergender,
-                            'teacherclasse' => $teacher->teacherclasse,
-                            'teachermatiere' => $teacher->teachermatiere,
-                            'teacherphone' => $teacher->teacherphone,
-                        ];
-                        $this->view('dashboards/teachers/teachers', $data);
+                    
                 }
             }
 

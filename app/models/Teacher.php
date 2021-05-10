@@ -48,7 +48,8 @@ class Teacher
     }
 
 
-    public function updateTeachers($data){
+    public function updateTeachers($data)
+    {
         $this->db->query('UPDATE teachers SET teachername = :teachername, teachergender = :teachergender, teacherclasse = :teacherclasse, teachermatiere = :teachermatiere, teacherphone = :teacherphone WHERE id = :id');
         // we bind values
         $this->db->bind(':id', $data['id']);
@@ -66,7 +67,7 @@ class Teacher
     }
 
 
-    public function deleteTeacher($data)
+    public function deleteTeachers($data)
     {
         $this->db->query('DELETE FROM `teachers` WHERE id = :id');
         // bind values
