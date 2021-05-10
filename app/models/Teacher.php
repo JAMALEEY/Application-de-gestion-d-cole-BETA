@@ -66,6 +66,18 @@ class Teacher
     }
 
 
+    public function deleteTeacher($data)
+    {
+        $this->db->query('DELETE FROM `teachers` WHERE id = :id');
+        // bind values
+        $this->db->bind(':id', $data['id']);
+        // execute
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 

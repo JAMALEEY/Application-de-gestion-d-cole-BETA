@@ -269,10 +269,14 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
                         <input type="submit" class="btn btn-dark text-light" value="Update">
-                        <input type="submit" name="delete" class="btn btn-danger text-light" value="Delete">
-                    </div>
+                        
+                    
                     </form>
+<form action="<?php echo URLROOT; ?>/dashboards/deleteTeachers/<?php echo $count; ?>" method="post">
 
+<input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
+</div>
+</form>
                                                     <!-- </div> -->
 
                                                 </div>
