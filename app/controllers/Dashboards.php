@@ -10,22 +10,6 @@ class Dashboards extends Controller
         $this->adminModel = $this->model('Admin');
         $this->teacherModel = $this->Model('Teacher');
     }
-
-    public function index()
-    {
-        $teachers =  $this->teacherModel->getTeachers();
-        $data = [
-            'teachers' => $teachers,
-            'teachername' => '',
-            'teachergender' => '',
-            'teacherclasse' => '',
-            'teachermatiere' => '',
-            'teacherphone' => ''
-        ];
-        $this->view('dashboards/teachers/teachers', $data);
-    }
-
-
     public function parents()
     {
         $this->view('dashboards/parents/parents');
@@ -36,8 +20,21 @@ class Dashboards extends Controller
     }
 
 
+    public function index()
+    {
+        $teachers =  $this->teacherModel->getTeacher();
+        $data = [
+            'teachers' => $teachers
+            // 'teachername' => '',
+            // 'teachergender' => '',
+            // 'teacherclasse' => '',
+            // 'teachermatiere' => '',
+            // 'teacherphone' => ''
+        ];
+        $this->view('dashboards/teachers/teachers', $data);
+    }
 
-            public function creatTeachers(){
+            public function creatTeacher(){
         // $data = [
         //     'teachername' => '',
         //     'teachergender' => '',
@@ -114,7 +111,7 @@ class Dashboards extends Controller
     }
 
 
-    public function updateTeachers($id)
+    public function updateTeacher($id)
     {
         $teacher = $this->teacherModel->getTeacherById($id);
         $data = [
@@ -156,7 +153,7 @@ class Dashboards extends Controller
             // make sure theres no errors
             if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
                 // validated stuff
-                if ($this->teacherModel->updateTeachers($data)) {
+                if ($this->teacherModel->updateTeacher($data)) {
                     header('location: ../teachers.php');
                 } else {
                     die('ERROR');

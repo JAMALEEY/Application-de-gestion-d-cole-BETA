@@ -12,7 +12,7 @@ class Teacher
         $this->db = new Database;
     }
 
-    public function getTeachers()
+    public function getTeacher()
     {
         $this->db->query('SELECT * FROM teachers');
         $results = $this->db->resultSet();
@@ -33,11 +33,11 @@ class Teacher
         // prepare query
         $this->db->query('INSERT INTO teachers (teachername, teachergender, teacherclasse, teachermatiere, teacherphone) VALUES(:teachername, :teachergender, :teacherclasse, :teachermatiere, :teacherphone)');
         // we bind values
-        $this->db->bind(':teachername' ,$data['teachername']);
-        $this->db->bind(':teachergender' ,$data['teachergender']);
-        $this->db->bind(':teacherclasse' ,$data['teacherclasse']);
-        $this->db->bind(':teachermatiere' ,$data['teachermatiere']);
-        $this->db->bind(':teacherphone' ,$data['teacherphone']);
+        $this->db->bind(':teachername', $data['teachername']);
+        $this->db->bind(':teachergender', $data['teachergender']);
+        $this->db->bind(':teacherclasse', $data['teacherclasse']);
+        $this->db->bind(':teachermatiere', $data['teachermatiere']);
+        $this->db->bind(':teacherphone', $data['teacherphone']);
 
         // the execution
         if ($this->db->execute()) {
@@ -48,7 +48,7 @@ class Teacher
     }
 
 
-    public function updateTeachers($data)
+    public function updateTeacher($data)
     {
         $this->db->query('UPDATE teachers SET teachername = :teachername, teachergender = :teachergender, teacherclasse = :teacherclasse, teachermatiere = :teachermatiere, teacherphone = :teacherphone WHERE id = :id');
         // we bind values
@@ -67,7 +67,7 @@ class Teacher
     }
 
 
-    public function deleteTeachers($data)
+    public function deleteTeacher($data)
     {
         $this->db->query('DELETE FROM `teachers` WHERE id = :id');
         // bind values
@@ -80,7 +80,4 @@ class Teacher
         }
     }
 
-}
-
-
-?>
+} 
