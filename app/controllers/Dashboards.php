@@ -189,7 +189,9 @@ class Dashboards extends Controller
                 }
             }
 
-
+            public function deleteTeachers(){
+                    
+            }
 
 
 
