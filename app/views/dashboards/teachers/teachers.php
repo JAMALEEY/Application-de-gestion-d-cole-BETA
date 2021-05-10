@@ -269,10 +269,10 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
                         <input type="submit" class="btn btn-dark text-light" value="Update">
-                        
+                        <input type="submit" name="delete" class="btn btn-danger text-light" value="Delete">
                     </div>
                     </form>
-<input type="submit" class="btn btn-danger text-light" value="Delete">
+
                                                     <!-- </div> -->
 
                                                 </div>

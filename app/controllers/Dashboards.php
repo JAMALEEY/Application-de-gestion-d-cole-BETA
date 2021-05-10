@@ -189,11 +189,37 @@ class Dashboards extends Controller
                 }
             }
 
-            public function deleteTeachers(){
-                    
+            public function deleteTeachers($id){
+                if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])) {
+                    // Get existing teacher from model
+                    $teacher = $this->teacherModel->getTeacherById($id);
+
+                    // Check for owner
+                    if ($teacher->teacher_id != $_SESSION['teacher_id']) {
+                        redirect('teachers');
+                    }
+
+                    if ($this->contactModel->deleteContact($id)) {
+                        redirect('teachers');
+                    } else {
+                        die('Something went wrong');
+                    }
+                } else {
+                    redirect('teachers');
+                    }
+                        $data = [
+                            'id' => $id,
+                            'teachername' => '',
+                            'teachergender' => $teacher->teachergender,
+                            'teacherclasse' => $teacher->teacherclasse,
+                            'teachermatiere' => $teacher->teachermatiere,
+                            'teacherphone' => $teacher->teacherphone,
+                        ];
+                        $this->view('dashboards/teachers/teachers', $data);
+                }
             }
 
 
 
 
-}
+
