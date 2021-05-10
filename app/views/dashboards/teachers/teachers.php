@@ -31,11 +31,11 @@
                         <h2>Add your new teacher below</h2>
                         <p>Please fill the informations below in order to add a new teacher.</p>
                         <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-                        <form action="<?php echo URLROOT; ?>/dashboards/teachers/teachers" method="post">
+                        <form action="<?php echo URLROOT; ?>/dashboards/creat" method="post">
 
                             <div class="form-group">
 
-                                <label for="teachername"> Nom complet: <sup>*</sup></label>
+                                <label for="teachername"> Le Nom complet: <sup>*</sup></label>
                                 <input type="text" name="teachername" class="form-control form-control-lg
                         <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachername']; ?> ">
                                 <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
@@ -286,22 +286,21 @@
                                     </td>
                                 </tr>
                             </tbody>
+                        <?php endforeach; ?>
                     </table>
 
-                <?php endforeach; ?>
-
-                <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item "><a href="#" class="page-link bg-dark text-light">Previous</a></li>
-                        <li class="page-item active"><a href="#" class="page-link bg-secondary border-dark">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link text-dark">2</a></li>
-                        <li class="page-item "><a href="#" class="page-link text-dark">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link text-dark">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link text-dark">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link bg-dark text-light">Next</a></li>
-                    </ul>
-                </div>
+                    <div class="clearfix">
+                        <div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
+                        <ul class="pagination">
+                            <li class="page-item "><a href="#" class="page-link bg-dark text-light">Previous</a></li>
+                            <li class="page-item active"><a href="#" class="page-link bg-secondary border-dark">1</a></li>
+                            <li class="page-item"><a href="#" class="page-link text-dark">2</a></li>
+                            <li class="page-item "><a href="#" class="page-link text-dark">3</a></li>
+                            <li class="page-item"><a href="#" class="page-link text-dark">4</a></li>
+                            <li class="page-item"><a href="#" class="page-link text-dark">5</a></li>
+                            <li class="page-item"><a href="#" class="page-link bg-dark text-light">Next</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
