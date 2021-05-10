@@ -70,10 +70,10 @@ class Dashboards extends Controller
                 'teacherphone_error' => ''
             ];
             if (empty($data['teachername'])) {
-                $data['teachername_error'] = 'Please enter Contact Name';
+                $data['teachername_error'] = 'Please enter teacher Name';
             }
             if (empty($data['teachergender'])) {
-                $data['teachergender_error'] = 'Please enter Contact Name';
+                $data['teachergender_error'] = 'Please enter teacher Name';
             }
             if (empty($data['teacherclasse'])) {
                 $data['teacherclasse_error'] = 'Entrez la classe du professeur';
@@ -112,6 +112,27 @@ class Dashboards extends Controller
             $this->view('dashboards/teachers/teachers', $data);
         }
     }
+
+
+    public function updateTeacher($data)
+    {
+        $this->db->query('UPDATE teachers SET teachername = :teachername, phone = :phone, email = :email, teacheradresse = :teacheradresse WHERE id = :id');
+        // we bind values
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':teachername', $data['teachername']);
+        $this->db->bind(':phone', $data['phone']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':teacheradresse', $data['teacheradresse']);
+        //  the execution
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
 
 
 

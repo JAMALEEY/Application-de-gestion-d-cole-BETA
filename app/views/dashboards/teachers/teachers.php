@@ -278,9 +278,11 @@
                                     <td> <?php echo $teacher->teachermatiere; ?></td>
                                     <td> <?php echo $teacher->teacherphone; ?></td>
                                     <td>
-                                        <button type="button" name="update_teacher" class="btn btn-0" data-toggle="modal" data-target="#updateModal">
-                                            <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
-                                        </button>
+                                        <form action="<?php echo URLROOT; ?>/dashboards/teachers/teachers/<?php echo $data['id']; ?>" method="POST">
+                                            <button type="button" name="update_teacher" class="btn btn-0" data-toggle="modal" data-target="#updateModal">
+                                                <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             </tbody>
