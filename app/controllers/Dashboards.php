@@ -118,18 +118,19 @@ class Dashboards extends Controller
     {
         $teacher = $this->teacherModel->getTeacherById($id);
         $data = [
-            'contact' => $teacher,
+            'teacher' => $teacher,
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // sanitize
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
+                'id' => $id,
                 'teachername' => trim($_POST['teachername']),
                 'teachergender' => trim($_POST['teachergender']),
                 'teacherclasse' => trim($_POST['teacherclasse']),
                 'teachermatiere' => trim($_POST['teachermatiere']),
                 'teacherphone' => trim($_POST['teacherphone']),
-                'user_id' => trim($_SESSION['user_id']),
+                // 'admin_id' => trim($_SESSION['admin_id']),
                 // 'title' => trim($_POST['']),
                 'teachername_error' => '',
                 'teachergender_error' => '',
@@ -155,7 +156,7 @@ class Dashboards extends Controller
             // make sure theres no errors
             if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
                 // validated stuff
-                if ($this->teacherModel->creatTeacher($data)) {
+                if ($this->teacherModel->updateTeachers($data)) {
                     header('location:teachers.php');
                 } else {
                     die('ERROR');
@@ -171,17 +172,18 @@ class Dashboards extends Controller
             ];
 
             // check for owner
-            if ($teacher->admin_id != $_SESSION['admin_id']) {
+            // if ($teacher->admin_id != $_SESSION['admin_id']) {
 
-                redirect('teacher');
-            }
+            //     redirect('teacher');
+            // }
 
         $data = [
-                        'teachername' => '',
-                        'teachergender' => '',
-                        'teacherclasse' => '',
-                        'teachermatiere' => '',
-                        'teacherphone' => ''
+                'id' => $id,
+                'teachername' => '',
+                'teachergender' => $teacher->teachergender,
+                'teacherclasse' => $teacher->teacherclasse,
+                'teachermatiere' => $teacher->teachermatiere,
+                'teacherphone' => $teacher->teacherphone,
                     ];
                     $this->view('dashboards/teachers/teachers', $data);
                 }
