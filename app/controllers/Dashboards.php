@@ -194,10 +194,10 @@ class Dashboards extends Controller
                     // Get existing teacher from model
                     $teacher = $this->teacherModel->getTeacherById($id);
 
-                    // Check for owner
-                    if ($teacher->teacher_id != $_SESSION['teacher_id']) {
-                        redirect('teachers');
-                    }
+                    // Check for owner *optional i decide to laisser pour apres*
+                    // if ($teacher->teacher_id != $_SESSION['teacher_id']) {
+                    //     redirect('teachers');
+                    // }
 
                     if ($this->contactModel->deleteContact($id)) {
                         redirect('teachers');
