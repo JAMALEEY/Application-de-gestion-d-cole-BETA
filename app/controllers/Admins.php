@@ -12,20 +12,6 @@ class Admins extends Controller
 
 
 
-    public function index()
-    {
-        $teachers =  $this->teacherModel->getTeachers();
-        $data = [
-            'teachers' => $teachers,
-            'teachername' => '',
-            'teachergender' => '',
-            'teacherclasse' => '',
-            'teachermatiere' => '',
-            'teacherphone' => ''
-        ];
-        $this->view('dashboards/teachers/teachers', $data);
-    }
-
 
 
     public function login()
@@ -107,7 +93,7 @@ class Admins extends Controller
         $_SESSION['admin_id'] = $admin->id;
         $_SESSION['admin_email'] = $admin->id;
         $_SESSION['admin_name'] = $admin->id;
-        header('location: dashboards/index/teachers');
+        header('location: ../dashboards/teachers');
     }
 
 

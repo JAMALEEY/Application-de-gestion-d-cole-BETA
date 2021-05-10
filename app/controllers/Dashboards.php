@@ -11,6 +11,19 @@ class Dashboards extends Controller
         $this->teacherModel = $this->Model('Teacher');
     }
 
+    public function index()
+    {
+        $teachers =  $this->teacherModel->getTeachers();
+        $data = [
+            'teachers' => $teachers,
+            'teachername' => '',
+            'teachergender' => '',
+            'teacherclasse' => '',
+            'teachermatiere' => '',
+            'teacherphone' => ''
+        ];
+        $this->view('dashboards/teachers/teachers', $data);
+    }
 
 
     public function parents()
@@ -25,7 +38,6 @@ class Dashboards extends Controller
 
 
             public function creat(){
-                die('teacherde');
         // $data = [
         //     'teachername' => '',
         //     'teachergender' => '',
