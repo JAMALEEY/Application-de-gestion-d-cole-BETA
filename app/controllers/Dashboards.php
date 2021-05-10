@@ -199,7 +199,7 @@ class Dashboards extends Controller
                     //     redirect('teachers');
                     // }
 
-                    if ($this->contactModel->deleteContact($id)) {
+                    if ($this->teacherModel->deleteTeacher($id)) {
                         redirect('teachers');
                     } else {
                         die('Something went wrong');
