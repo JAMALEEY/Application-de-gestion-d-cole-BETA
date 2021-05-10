@@ -188,7 +188,7 @@
                                 <th>Manager</th>
                             </tr>
                         </thead>
-                        <?php $count = 1; ?>
+                        <?php $count = 0; ?>
                         <?php foreach ($data['teachers'] as $teacher) : ?>
                             <tbody>
                                 <tr>
