@@ -37,7 +37,7 @@ class Dashboards extends Controller
 
 
 
-            public function creatTeacher(){
+            public function creat(){
         // $data = [
         //     'teachername' => '',
         //     'teachergender' => '',
