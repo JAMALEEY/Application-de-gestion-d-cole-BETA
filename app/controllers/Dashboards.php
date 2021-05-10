@@ -114,7 +114,7 @@ class Dashboards extends Controller
     }
 
 
-    public function updateTeacher($data)
+    public function updateTeachers($data)
     {
         $this->db->query('UPDATE teachers SET teachername = :teachername, phone = :phone, email = :email, teacheradresse = :teacheradresse WHERE id = :id');
         // we bind values
