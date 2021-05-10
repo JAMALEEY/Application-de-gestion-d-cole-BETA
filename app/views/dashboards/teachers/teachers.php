@@ -31,13 +31,13 @@
                         <h2>Add your new teacher below</h2>
                         <p>Please fill the informations below in order to add a new teacher.</p>
                         <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-                        <form action="<?php echo URLROOT; ?>/dashboards/creatTeachers" method="post">
+                        <form action="<?php echo URLROOT; ?>/dashboards/creatTeacher" method="post">
 
                             <div class="form-group">
 
                                 <label for="teachername"> Le Nom complet: <sup>*</sup></label>
                                 <input type="text" name="teachername" class="form-control form-control-lg
-                        <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachername']; ?> ">
+                        <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachername']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
                             </div>
 
@@ -223,7 +223,7 @@
                                     <h2>Update your teacher's informations below</h2>
                                     <p>Please fill the informations below in order to update the teacher's informations.</p>
                                     <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-    <form action="<?php echo URLROOT; ?>/dashboards/updateTeachers/<?php echo $count; ?>" method="post">
+    <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/<?php echo $count; ?>" method="post">
     <div class="form-group">
         <label for="teachername"> Nom complet: <sup>*</sup></label>
         <input type="text" name="teachername" class="form-control form-control-lg
@@ -272,7 +272,7 @@
                         
                     
                     </form>
-<form action="<?php echo URLROOT; ?>/dashboards/deleteTeachers/<?php echo $count; ?>" method="post">
+<form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $count; ?>" method="post">
 
 <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
 </div>

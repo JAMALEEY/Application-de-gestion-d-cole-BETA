@@ -24,8 +24,8 @@ class Dashboards extends Controller
     {
         $teachers =  $this->teacherModel->getTeacher();
         $data = [
-            'teachers' => $teachers
-            // 'teachername' => '',
+            'teachers' => $teachers,
+            'teachername' => ''
             // 'teachergender' => '',
             // 'teacherclasse' => '',
             // 'teachermatiere' => '',
@@ -47,8 +47,9 @@ class Dashboards extends Controller
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                
-                
+
+            $teachers =  $this->teacherModel->getTeacher();
+            $teachername =  $this->teacherModel->getTeacher();
             // sanitize
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -115,7 +116,7 @@ class Dashboards extends Controller
     {
         $teacher = $this->teacherModel->getTeacherById($id);
         $data = [
-            'teacher' => $teacher,
+            'teacher' => $teacher
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // sanitize
@@ -165,7 +166,7 @@ class Dashboards extends Controller
             // get existing contact from model
             $teacher = $this->teacherModel->getTeacherById($id);
             $data = [
-                'teacher' => $teacher,
+                'teacher' => $teacher
             ];
 
             // check for owner
@@ -176,7 +177,7 @@ class Dashboards extends Controller
 
         $data = [
                 'id' => $id,
-                'teachername' => '',
+                'teachername' => $teacher->teachername,
                 'teachergender' => $teacher->teachergender,
                 'teacherclasse' => $teacher->teacherclasse,
                 'teachermatiere' => $teacher->teachermatiere,
@@ -189,7 +190,7 @@ class Dashboards extends Controller
 
 
 
-            public function deleteTeachers($id){
+            public function deleteTeacher($id){
 
 
                 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])) {
@@ -202,7 +203,7 @@ class Dashboards extends Controller
                     // }
 
 
-                    if ($this->teacherModel->deleteTeachers($id)) {
+                    if ($this->teacherModel->deleteTeacher($id)) {
                         header('location: ../teachers.php');
                     } else {
                         die('Something went wrong');
