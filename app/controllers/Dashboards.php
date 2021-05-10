@@ -114,21 +114,10 @@ class Dashboards extends Controller
     }
 
 
-    public function updateTeachers($data)
+    public function updateTeachers($id)
     {
-        $this->db->query('UPDATE teachers SET teachername = :teachername, phone = :phone, email = :email, teacheradresse = :teacheradresse WHERE id = :id');
-        // we bind values
-        $this->db->bind(':id', $data['id']);
-        $this->db->bind(':teachername', $data['teachername']);
-        $this->db->bind(':phone', $data['phone']);
-        $this->db->bind(':email', $data['email']);
-        $this->db->bind(':teacheradresse', $data['teacheradresse']);
-        //  the execution
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
-        }
+        $contact = $this->contactModel->getContactById($id);
+        
     }
 
 
