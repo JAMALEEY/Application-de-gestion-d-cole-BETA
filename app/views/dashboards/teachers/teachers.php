@@ -12,7 +12,6 @@
         background-color: #fff;
     } */
 </style>
-<pre><?php var_dump($data); ?></pre>
 
 <!-- teachers Modal add -->
 <div class="modal fade" id="teachersModal" tabindex="-1" role="dialog" aria-labelledby="teachersModalLabel" aria-hidden="true">
@@ -27,11 +26,6 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-10 mx-auto">
-                        <pre>
-
-                    <?php var_dump($data); ?>
-                    </pre>
-
                         <!-- <div class="card card-body bg-info mt-5 text-center"> -->
                         <h2>Add your new teacher below</h2>
                         <p>Please fill the informations below in order to add a new teacher.</p>
@@ -197,7 +191,9 @@
                         <?php foreach ($data['teachers'] as $teacher) : ?>
                             <tbody>
                                 <tr>
-                                    <td id="id_<?php echo $count; ?>"><?php echo $teacher->id; ?></td>
+                                    <td>
+                                        <p><?php echo $teacher->id; ?></p>
+                                    </td>
                                     <td>
                                         <p><?php echo $teacher->teachername; ?></p>
                                     </td>
@@ -217,10 +213,6 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update Teacher</h5>
-                                                        <pre>
-
-                            <?php var_dump($data); ?>
-                            </pre>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -252,7 +244,7 @@
 
                                                                         <label for="class"> Classe: <sup>*</sup></label>
                                                                         <input type="text" name="teacherclasse" class="form-control form-control-lg
-                        <?php echo (!empty($data['teacherclasse_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherclasse']; ?>">
+                        <?php echo (!empty($data['teacherclasse_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teacherclasse; ?>">
                                                                         <span class="invalid-feedback"> <?php echo $data['teacherclasse_error']; ?> </span>
                                                                     </div>
 
@@ -261,7 +253,7 @@
 
                                                                         <label for="matiere"> Matiere: <sup>*</sup></label>
                                                                         <input type="text" name="teachermatiere" class="form-control form-control-lg
-                        <?php echo (!empty($data['teachermatiere_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachermatiere']; ?>">
+                        <?php echo (!empty($data['teachermatiere_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachermatiere; ?>">
                                                                         <span class="invalid-feedback"> <?php echo $data['teachermatiere_error']; ?> </span>
                                                                     </div>
 
@@ -269,7 +261,7 @@
 
                                                                         <label for="phone"> Phone: <sup>*</sup></label>
                                                                         <input type="text" name="teacherphone" class="form-control form-control-lg
-                        <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherphone']; ?>">
+                        <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teacherphone; ?>">
                                                                         <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
                                                                     </div>
                                                             </div>
