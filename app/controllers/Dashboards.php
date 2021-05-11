@@ -23,27 +23,33 @@ class Dashboards extends Controller
     public function index()
     {
         $teachers =  $this->teacherModel->getTeacher();
+
         $data = [
             'teachers' => $teachers,
-            'teachername' => ''
             // 'teachergender' => '',
             // 'teacherclasse' => '',
             // 'teachermatiere' => '',
             // 'teacherphone' => ''
+            'teachername' => '',
+            'teachergender' => '',
+            'teacherclasse' => '',
+            'teachermatiere' => '',
+            'teacherphone' => ''
         ];
         $this->view('dashboards/teachers/teachers', $data);
     }
 
-            public function creatTeacher(){
-        // $data = [
-        //     'teachername' => '',
-        //     'teachergender' => '',
-        //     'teacherclasse' => '',
-        //     'teachermatiere' => '',
-        //     'teacherphone' => ''
-        // ];
-        // $this->view('dashboards/teachers/teachers', $data);
-    
+    public function creatTeacher()
+    {
+        $data = [
+            'teachername' => '',
+            'teachergender' => '',
+            'teacherclasse' => '',
+            'teachermatiere' => '',
+            'teacherphone' => ''
+        ];
+        $this->view('dashboards/teachers/teachers', $data);
+
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -93,13 +99,8 @@ class Dashboards extends Controller
             } else {
                 $this->view('dashboards/teachers/teachers', $data);
             }
-
-
-
-
-
         } else {
-// we initialize data then
+            // we initialize data then
             $data = [
                 'teachername' => '',
                 'teachergender' => '',
@@ -116,7 +117,7 @@ class Dashboards extends Controller
     {
         $teacher = $this->teacherModel->getTeacherById($id);
         $data = [
-            'teacher' => $teacher
+            'UPDATE' => $teacher
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // sanitize
@@ -160,9 +161,12 @@ class Dashboards extends Controller
                     die('ERROR');
                 }
             } else {
+
+                
                 $this->view('dashboards/teachers/teachers', $data);
             }
         } else {
+            die('test2');
             // get existing contact from model
             $teacher = $this->teacherModel->getTeacherById($id);
             $data = [
@@ -175,47 +179,43 @@ class Dashboards extends Controller
             //     redirect('teacher');
             // }
 
-        $data = [
+            $data = [
                 'id' => $id,
                 'teachername' => $teacher->teachername,
                 'teachergender' => $teacher->teachergender,
                 'teacherclasse' => $teacher->teacherclasse,
                 'teachermatiere' => $teacher->teachermatiere,
                 'teacherphone' => $teacher->teacherphone,
-                    ];
-                    $this->view('dashboards/teachers/teachers', $data);
-                }
+            ];
+            
+            $this->view('dashboards/teachers/teachers', $data);
+        }
+    }
+
+
+
+
+    public function deleteTeacher($id)
+    {
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])) {
+            // Get existing teacher from model
+            $teacher = $this->teacherModel->getTeacherById($id);
+
+            // Check for owner *optional i decide to laisser pour apres*
+            // if ($teacher->teacher_id != $_SESSION['teacher_id']) {
+            //     redirect('teachers');
+            // }
+
+
+            if ($this->teacherModel->deleteTeacher($id)) {
+                header('location: ../teachers.php');
+            } else {
+                die('Something went wrong');
             }
-
-
-
-
-            public function deleteTeacher($id){
-
-
-                if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])) {
-                    // Get existing teacher from model
-                    $teacher = $this->teacherModel->getTeacherById($id);
-
-                    // Check for owner *optional i decide to laisser pour apres*
-                    // if ($teacher->teacher_id != $_SESSION['teacher_id']) {
-                    //     redirect('teachers');
-                    // }
-
-
-                    if ($this->teacherModel->deleteTeacher($id)) {
-                        header('location: ../teachers.php');
-                    } else {
-                        die('Something went wrong');
-                    }
-                } else {
-                    header('teachers.php');
-                    }
-                    
-                }
-            }
-
-
-
-
-
+        } else {
+            header('teachers.php');
+        }
+    }
+}
