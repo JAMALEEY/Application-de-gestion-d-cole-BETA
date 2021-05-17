@@ -139,7 +139,8 @@
                 <div class="pt-5" id="">
                     <ul class="pt-5">
                         <li>
-                            <a href="#" class="text-secondary">Logout
+                        <?php if (isset($_SESSION['admin_id'])) : ?>
+                            <a href="<?php echo URLROOT . '/admins/logout';?>" class="text-secondary">Logout
                                 <img src="../public/img/logout.png" alt="">
                             </a>
 
