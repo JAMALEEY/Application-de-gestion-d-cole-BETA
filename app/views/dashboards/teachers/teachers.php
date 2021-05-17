@@ -140,7 +140,7 @@
                     <ul class="pt-5">
                         <li>
                             <a href="#" class="text-secondary">Logout
-                                <img src="../../public/img/logout.png" alt="">
+                                <img src="../public/img/logout.png" alt="">
                             </a>
 
                         </li>
