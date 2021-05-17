@@ -137,10 +137,10 @@
                 </div>
 
                 <div class="pt-5" id="">
-                    <ul class="pt-5">
+                    <ul class="pt-5" style="list-style-type: none;">
                         <li>
-                        <?php if (isset($_SESSION['admin_id'])) : ?>
-                            <a href="<?php echo URLROOT . '/admins/logout';?>" class="text-secondary">Logout
+
+                            <a href="<?php echo URLROOT . '/admins/logout'; ?>" class="text-secondary" style=" text-decoration:none ">Logout
                                 <img src="../public/img/logout.png" alt="">
                             </a>
 

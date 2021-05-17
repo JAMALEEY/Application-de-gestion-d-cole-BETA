@@ -101,8 +101,8 @@ class Admins extends Controller
     public function logout()
     {
         unset($_SESSION['admin_id']);
-        unset($_SESSION['admin_id']);
-        unset($_SESSION['admin_id']);
+        unset($_SESSION['admin_email']);
+        unset($_SESSION['admin_name']);
         session_destroy();
         header('location: ../admins/login');
     }
