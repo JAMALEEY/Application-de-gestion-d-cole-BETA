@@ -106,10 +106,11 @@
         <aside class=" col-12 col-md-3 col-xl-2 p-0  shadow-lg" style="background-color :black">
             <nav class="navbar navbar-expand-md navbar-dark bd-dark flex-md-column flex-row align-items-conter py-2 text-center sticky-top" id="sidebar">
                 <div class="text-center p-1">
-                    <img src="" alt="">
+
 
                     <form class="px-2  pt-5" method="POST">
-                        <input class="form-control py-1 px-3 bg-dark border-0 text-light h-50 " type="text" placeholder="Search" name="search" aria-label="Search">
+                        <input class="form-control py-1 px-3 bg-dark border-0 text-light h-50 " type="text" placeholder="Search" name="search" id="search" aria-label="Search">
+                        <div id="output"></div>
                     </form>
 
                 </div>
