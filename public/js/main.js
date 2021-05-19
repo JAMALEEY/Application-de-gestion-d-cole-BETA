@@ -44,6 +44,11 @@ $('#teachersModal').on('shown.bs.modal', function () {
 })
 
 
-$('#myModal').on('shown.bs.modal', function () {
+$('#studentsModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
+
+$('#parentsModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
