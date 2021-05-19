@@ -9,11 +9,11 @@
 
 
 <!-- student Modal add -->
-<div class="modal fade" id="studentsModal" tabindex="-1" role="dialog" aria-labelledby="studentsModalLabel" aria-hidden="true">
+<div class="modal fade show" id="studentsModal" tabindex="-1" role="dialog" aria-labelledby="studentsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="studentsModalLabel">Add Teacher</h5>
+                <h5 class="modal-title" id="studentsModalLabel">Add student</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -31,8 +31,8 @@
 
                                 <label for="studentname"> Le Nom complet: <sup>*</sup></label>
                                 <input type="text" name="studentname" class="form-control form-control-lg
-                        <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachername']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
+                        <?php echo (!empty($data['studentname_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentname']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['student_error']; ?> </span>
                             </div>
 
                             <div class="form-group">
@@ -144,20 +144,28 @@
         <div class="container col-10 pt-5">
             <div class="table-responsive pt-5">
                 <div class="table-wrapper">
-                    <div class="table-title">
-                        <!-- LES PROPRIETES DU TQBLEAU -->
-                        <div class="row d-flex justify-content-between " style="background-color: black;">
 
-                            <div class="py-1 px-4 text-light">
-                                <h2>Students <b>Management</b></h2>
-                            </div>
-                            <div class="py-2 px-4">
-                                <a href="#" class="btn btn-light"> <i class="fa fa-user-plus"></i> </i> <span>Add </span></a>
-                                <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>
-                            </div>
-                        </div>
 
-                    </div>
+        <div class="table-title">
+            <!-- LES PROPRIETES DU TQBLEAU -->
+            <div class="row d-flex justify-content-between " style="background-color: black;">
+
+                <div class="py-1 px-4 text-light">
+                    <h2>Students <b>Management</b></h2>
+                </div>
+                <div class="py-2 px-4">
+                    <!-- name add teacher a verifier -->
+                    <button type="button" name="add_student" class="btn btn-light" data-toggle="modal" data-target="#studentsModal">
+                        <i class="fa fa-user-plus"></i> Add
+                    </button>
+                    <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>
+                </div>
+            </div>
+        </div>
+
+
+
+
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -261,18 +269,7 @@
 
 
 
-        <!-- pagination -->
-        <div class="clearfix">
-            <div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
-            <ul class="pagination">
-                <li class="page-item "><a href="#" class="page-link bg-dark text-light">Previous</a></li>
-                <li class="page-item active"><a href="#" class="page-link bg-secondary border-dark">1</a></li>
-                <li class="page-item"><a href="#" class="page-link text-dark">2</a></li>
-                <li class="page-item "><a href="#" class="page-link text-dark">3</a></li>
-                <li class="page-item"><a href="#" class="page-link text-dark">4</a></li>
-                <li class="page-item"><a href="#" class="page-link text-dark">5</a></li>
-                <li class="page-item"><a href="#" class="page-link bg-dark text-light">Next</a></li>
-            </ul>
+      
         </div>
 
 
