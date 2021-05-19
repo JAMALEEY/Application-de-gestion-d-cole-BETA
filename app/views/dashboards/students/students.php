@@ -51,9 +51,9 @@
                             <div class="form-group">
 
                                 <label for="class"> Classe: <sup>*</sup></label>
-                                <input type="text" name="teacherclasse" class="form-control form-control-lg
-                        <?php echo (!empty($data['teacherclasse_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherclasse']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['teacherclasse_error']; ?> </span>
+                                <input type="text" name="studentclass" class="form-control form-control-lg
+                        <?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentclass']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
                             </div>
 
 
