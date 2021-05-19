@@ -54,28 +54,31 @@ class Dashboards extends Controller
 
     //  CREAT STUDENT CONTROLLER
 
-    public function creatTeacher()
+    public function creatStudent()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $teachers =  $this->teacherModel->getTeacher();
-            $teachername =  $this->teacherModel->getTeacher();
+            $students =  $this->studentModel->getStudent();
+            $studentname =  $this->studentModel->getStudent();
             // sanitize
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'teachername' => trim($_POST['teachername']),
-                'teachergender' => trim($_POST['teachergender']),
-                'teacherclasse' => trim($_POST['teacherclasse']),
-                'teachermatiere' => trim($_POST['teachermatiere']),
-                'teacherphone' => trim($_POST['teacherphone']),
-                // 'user_id' => trim($_SESSION['user_id']),
-                // 'title' => trim($_POST['']),
-                'teachername_error' => '',
-                'teachergender_error' => '',
-                'teacherclasse_error' => '',
-                'teachermatiere_error' => '',
-                'teacherphone_error' => ''
+                'id' => $id,
+                'studentsname' => trim($_POST['studentsname']),
+                'studentsgender' => trim($_POST['studentsgender']),
+                'studentsclass' => trim($_POST['studentsclass']),
+                'parents' => trim($_POST['parents']),
+                'studentadress' => trim($_POST['studentadress']),
+                'studentbirth' => trim($_POST['studentbirth']),
+                'studentemail' => trim($_POST['studentemail']),
+                'studentsname_error' => '',
+                'studentsgender_error' => '',
+                'studentsclass_error' => '',
+                'parents_error' => '',
+                'studentadress_error' => '',
+                'studentbirth_error' => '',
+                'studentemail_error' => ''
             ];
             if (empty($data['teachername'])) {
                 $data['teachername_error'] = 'Please enter teacher Name';
@@ -125,7 +128,7 @@ class Dashboards extends Controller
 
 
 
-    
+
 
 
 
@@ -246,10 +249,8 @@ class Dashboards extends Controller
         }
 
 
-        
+
         $this->view('dashboards/search');
-        
-        
     }
 
 
@@ -459,5 +460,4 @@ class Dashboards extends Controller
             header('teachers.php');
         }
     }
-
 }
