@@ -1,6 +1,6 @@
 
 <?php
-class Teacher
+class Student
 {
     private $db;
 
@@ -9,8 +9,7 @@ class Teacher
         $this->db = new Database;
     }
 
-    public function getTeacher()
-    {
+    public function getStudent(){
         $this->db->query('SELECT `id`, `teachername`, `teachergender`, `teacherclasse`, `teachermatiere`, `teacherphone` FROM `teachers`');
         $this->db->bind(':teachername', 'teachername');
         $this->db->bind(':teachergender', 'teachergender');
