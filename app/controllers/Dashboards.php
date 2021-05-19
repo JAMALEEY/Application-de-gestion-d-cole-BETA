@@ -19,7 +19,16 @@ class Dashboards extends Controller
         $students =  $this->studentModel->getStudent();
 
         $data = [
-            'students' => $students];
+            'students' => $students,
+            'studentsname' => '',
+            'studentsgender' => '',
+            'studentsclass' => '',
+            'parents' => '',
+            'studentadress' => '',
+            'studentbirth' => '',
+            'studentemail' => ''
+
+        ];
         $this->view('dashboards/students/students', $data);
     }
 

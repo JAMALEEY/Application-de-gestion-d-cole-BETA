@@ -94,7 +94,7 @@
         </thead>
 
  <?php $count = 0; ?>
-    <?php foreach ($data['student'] as $student) : ?>
+    <?php foreach ($data['students'] as $student) : ?>
         <tbody>
             <tr>
                 <td>
@@ -152,7 +152,7 @@
                             <li class="page-item"><a href="#" class="page-link bg-dark text-light">Next</a></li>
                         </ul>
                     </div>
-                </div>
+                
             </div>
         </div>
 
