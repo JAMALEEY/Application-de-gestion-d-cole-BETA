@@ -14,7 +14,7 @@
 
 
 <!-- student Modal add -->
-<div class="modal fade show" id="studentsModal" tabindex="-1" role="dialog" aria-labelledby="studentsModalLabel" aria-hidden="true">
+<div class="modal fade" id="studentsModal" tabindex="-1" role="dialog" aria-labelledby="studentsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -27,9 +27,9 @@
                 <div class="row">
                     <div class="col-md-10 mx-auto">
                         <!-- <div class="card card-body bg-info mt-5 text-center"> -->
-                        <h2>Add your new teacher below</h2>
-                        <p>Please fill the informations below in order to add a new teacher.</p>
-                        <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
+                        <h2>Add your new student below</h2>
+                        <p>Please fill the informations below in order to add a new student.</p>
+                        <p>Ps: Elements marked with "*" are important !</p>
                         <form action="<?php echo URLROOT; ?>/dashboards/creatStudent" method="post">
 
                             <div class="form-group">
@@ -43,9 +43,9 @@
                             <div class="form-group">
 
                                 <label for="gender"> Genre: <sup>*</sup></label>
-                                <input type="text" name="teachergender" class="form-control form-control-lg
-                        <?php echo (!empty($data['teachergender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachergender']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['teachergender_error']; ?> </span>
+                                <input type="text" name="studentgender" class="form-control form-control-lg
+                        <?php echo (!empty($data['studentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentgender']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['studentgender_error']; ?> </span>
                             </div>
 
                             <div class="form-group">

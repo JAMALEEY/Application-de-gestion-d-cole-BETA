@@ -27,13 +27,13 @@ class Dashboards extends Controller
 
     public function students()
     {
+        
         $students =  $this->studentModel->getStudent();
-
         $data = [
             'students' => $students,
-            'studentsname' => '',
-            'studentsgender' => '',
-            'studentsclass' => '',
+            'studentname' => '',
+            'studentgender' => '',
+            'studentclass' => '',
             'parents' => '',
             'studentadress' => '',
             'studentbirth' => '',
@@ -64,16 +64,16 @@ class Dashboards extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'studentsname' => trim($_POST['studentsname']),
-                'studentsgender' => trim($_POST['studentsgender']),
-                'studentsclass' => trim($_POST['studentsclass']),
+                'studentname' => trim($_POST['studentsname']),
+                'studentgender' => trim($_POST['studentsgender']),
+                'studentclass' => trim($_POST['studentsclass']),
                 'parents' => trim($_POST['parents']),
                 'studentadress' => trim($_POST['studentadress']),
                 'studentbirth' => trim($_POST['studentbirth']),
                 'studentemail' => trim($_POST['studentemail']),
-                'studentsname_error' => '',
-                'studentsgender_error' => '',
-                'studentsclass_error' => '',
+                'studentname_error' => '',
+                'studentgender_error' => '',
+                'studentclass_error' => '',
                 'parents_error' => '',
                 'studentadress_error' => '',
                 'studentbirth_error' => '',
@@ -97,7 +97,7 @@ class Dashboards extends Controller
             // make sure theres no errors
             if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
                 // validated stuff
-                if ($this->teacherModel->creatTeacher($data)) {
+                if ($this->teacherModel->creatStudent($data)) {
                     header('location: students.php');
                 } else {
                     die('ERROR');
@@ -108,8 +108,8 @@ class Dashboards extends Controller
         } else {
             // we initialize data then
             $data = [
-                'teachername' => '',
-                'teachergender' => '',
+                'studentname' => '',
+                'studentgender' => '',
                 'teacherclasse' => '',
                 'teachermatiere' => '',
                 'teacherphone' => ''
