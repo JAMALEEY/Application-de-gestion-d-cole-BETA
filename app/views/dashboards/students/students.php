@@ -77,20 +77,20 @@
                             <!-- student birth add input modal -->
                             <div class="form-group">
 
-                                <label for="adress"> Adresse: <sup>*</sup></label>
-                                <input type="text" name="studentadress" class="form-control form-control-lg
-                        <?php echo (!empty($data['studentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentadress']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['studentadress_error']; ?> </span>
+                                <label for="birthday"> Date of birth: <sup>*</sup></label>
+                                <input type="text" name="studentbirth" class="form-control form-control-lg
+                        <?php echo (!empty($data['studentbirth_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentbirth']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['studentbirth_error']; ?> </span>
                             </div>
 
 
                             <!-- student email add input modal -->
                             <div class="form-group">
 
-                                <label for="adress"> Adresse: <sup>*</sup></label>
-                                <input type="text" name="studentadress" class="form-control form-control-lg
-                        <?php echo (!empty($data['studentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentadress']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['studentadress_error']; ?> </span>
+                                <label for="email"> E-mail: <sup>*</sup></label>
+                                <input type="email" name="studentemail" class="form-control form-control-lg
+                        <?php echo (!empty($data['studentemail_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentemail']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['studentemail_error']; ?> </span>
                             </div>
 
                     </div>
