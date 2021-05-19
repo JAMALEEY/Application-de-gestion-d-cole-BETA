@@ -9,11 +9,11 @@
 
 
 <!-- student Modal add -->
-<div class="modal fade" id="teachersModal" tabindex="-1" role="dialog" aria-labelledby="teachersModalLabel" aria-hidden="true">
+<div class="modal fade" id="studentsModal" tabindex="-1" role="dialog" aria-labelledby="studentsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="teachersModalLabel">Add Teacher</h5>
+                <h5 class="modal-title" id="studentsModalLabel">Add Teacher</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -25,12 +25,12 @@
                         <h2>Add your new teacher below</h2>
                         <p>Please fill the informations below in order to add a new teacher.</p>
                         <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-                        <form action="<?php echo URLROOT; ?>/dashboards/creatTeacher" method="post">
+                        <form action="<?php echo URLROOT; ?>/dashboards/creatStudent" method="post">
 
                             <div class="form-group">
 
-                                <label for="teachername"> Le Nom complet: <sup>*</sup></label>
-                                <input type="text" name="teachername" class="form-control form-control-lg
+                                <label for="studentname"> Le Nom complet: <sup>*</sup></label>
+                                <input type="text" name="studentname" class="form-control form-control-lg
                         <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachername']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
                             </div>
