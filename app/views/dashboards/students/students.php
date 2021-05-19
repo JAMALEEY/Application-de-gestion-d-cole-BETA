@@ -59,19 +59,40 @@
 
                             <div class="form-group">
 
-                                <label for="matiere"> Matiere: <sup>*</sup></label>
-                                <input type="text" name="teachermatiere" class="form-control form-control-lg
-                        <?php echo (!empty($data['teachermatiere_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachermatiere']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['teachermatiere_error']; ?> </span>
+                                <label for="parents"> Parent de l'apprenant: <sup>*</sup></label>
+                                <input type="text" name="parents" class="form-control form-control-lg
+                        <?php echo (!empty($data['parents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['parents']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['parents_error']; ?> </span>
                             </div>
 
                             <div class="form-group">
 
-                                <label for="phone"> Phone: <sup>*</sup></label>
-                                <input type="text" name="teacherphone" class="form-control form-control-lg
-                        <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherphone']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
+                                <label for="adress"> Adresse: <sup>*</sup></label>
+                                <input type="text" name="studentadress" class="form-control form-control-lg
+                        <?php echo (!empty($data['studentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentadress']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['studentadress_error']; ?> </span>
                             </div>
+
+
+                            <!-- student birth add input modal -->
+                            <div class="form-group">
+
+                                <label for="adress"> Adresse: <sup>*</sup></label>
+                                <input type="text" name="studentadress" class="form-control form-control-lg
+                        <?php echo (!empty($data['studentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentadress']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['studentadress_error']; ?> </span>
+                            </div>
+
+
+                            <!-- student email add input modal -->
+                            <div class="form-group">
+
+                                <label for="adress"> Adresse: <sup>*</sup></label>
+                                <input type="text" name="studentadress" class="form-control form-control-lg
+                        <?php echo (!empty($data['studentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentadress']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['studentadress_error']; ?> </span>
+                            </div>
+
                     </div>
                 </div>
             </div>
