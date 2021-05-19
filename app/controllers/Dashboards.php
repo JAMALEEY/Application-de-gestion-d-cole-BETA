@@ -149,7 +149,6 @@ class Dashboards extends Controller
             // sanitize
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
-                'id' => $id,
                 'studentsname' => trim($_POST['studentsname']),
                 'studentsgender' => trim($_POST['studentsgender']),
                 'studentsclass' => trim($_POST['studentsclass']),
