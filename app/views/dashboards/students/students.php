@@ -8,6 +8,11 @@
 </style>
 
 
+
+
+
+
+
 <!-- student Modal add -->
 <div class="modal fade show" id="studentsModal" tabindex="-1" role="dialog" aria-labelledby="studentsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -146,22 +151,22 @@
                 <div class="table-wrapper">
 
 
-        <div class="table-title">
-            <!-- LES PROPRIETES DU TQBLEAU -->
-            <div class="row d-flex justify-content-between " style="background-color: black;">
+                    <div class="table-title">
+                        <!-- LES PROPRIETES DU TQBLEAU -->
+                        <div class="row d-flex justify-content-between " style="background-color: black;">
 
-                <div class="py-1 px-4 text-light">
-                    <h2>Students <b>Management</b></h2>
-                </div>
-                <div class="py-2 px-4">
-                    <!-- name add teacher a verifier -->
-                    <button type="button" name="add_student" class="btn btn-light" data-toggle="modal" data-target="#studentsModal">
-                        <i class="fa fa-user-plus"></i> Add
-                    </button>
-                    <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>
-                </div>
-            </div>
-        </div>
+                            <div class="py-1 px-4 text-light">
+                                <h2>Students <b>Management</b></h2>
+                            </div>
+                            <div class="py-2 px-4">
+                                <!-- name add teacher a verifier -->
+                                <button type="button" name="add_student" class="btn btn-light" data-toggle="modal" data-target="#studentsModal">
+                                    <i class="fa fa-user-plus"></i> Add
+                                </button>
+                                <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>
+                            </div>
+                        </div>
+                    </div>
 
 
 
@@ -269,10 +274,16 @@
 
 
 
-      
-        </div>
-
 
     </div>
 
+
 </div>
+
+</div>
+
+
+
+
+
+<?php require APPROOT . '/views/inc/footer.php'; ?>

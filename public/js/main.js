@@ -28,6 +28,7 @@ function test(){
     });
   });
 }
+
 $(document).ready(function(){
   setTimeout(function(){ test(); });
 });
@@ -39,5 +40,10 @@ $(".navbar-toggler").click(function(){
 });
 
 $('#teachersModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
+
+$('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
