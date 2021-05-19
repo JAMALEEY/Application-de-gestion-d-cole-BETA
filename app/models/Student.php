@@ -10,12 +10,15 @@ class Student
     }
 
     public function getStudent(){
-        $this->db->query('SELECT `id`, `teachername`, `teachergender`, `teacherclasse`, `teachermatiere`, `teacherphone` FROM `teachers`');
-        $this->db->bind(':teachername', 'teachername');
-        $this->db->bind(':teachergender', 'teachergender');
-        $this->db->bind(':teacherclasse', 'teacherclasse');
-        $this->db->bind(':teachermatiere', 'teachermatiere');
-        $this->db->bind(':teacherphone', 'teacherphone');
+        $this->db->query('SELECT `id`, `studentname`, `studentgender`, `studentclass`, `parents`, `studentadress`, `studentbirth`, `studentemail` FROM `students`');
+        $this->db->bind(':studentname', 'studentname');
+        $this->db->bind(':studentgender', 'studentgender');
+        $this->db->bind(':studentclass', 'studentclass');
+        $this->db->bind(':parents', 'parents');
+        $this->db->bind(':studentadress', 'studentadress');
+        $this->db->bind(':studentbirth', 'studentbirth');
+        $this->db->bind(':studentemail', 'studentemail');
         $results = $this->db->resultSet();
         return $results;
     }
+}
