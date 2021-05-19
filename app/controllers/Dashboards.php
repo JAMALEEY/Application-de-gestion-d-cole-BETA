@@ -64,9 +64,9 @@ class Dashboards extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'studentname' => trim($_POST['studentsname']),
-                'studentgender' => trim($_POST['studentsgender']),
-                'studentclass' => trim($_POST['studentsclass']),
+                'studentname' => trim($_POST['studentname']),
+                'studentgender' => trim($_POST['studentgender']),
+                'studentclass' => trim($_POST['studentclass']),
                 'parents' => trim($_POST['parents']),
                 'studentadress' => trim($_POST['studentadress']),
                 'studentbirth' => trim($_POST['studentbirth']),
@@ -79,25 +79,25 @@ class Dashboards extends Controller
                 'studentbirth_error' => '',
                 'studentemail_error' => ''
             ];
-            if (empty($data['teachername'])) {
-                $data['teachername_error'] = 'Please enter teacher Name';
+            if (empty($data['studentname'])) {
+                $data['studentname_error'] = 'Please enter student Name';
             }
-            if (empty($data['teachergender'])) {
-                $data['teachergender_error'] = 'Please enter teacher Name';
+            if (empty($data['studentgender'])) {
+                $data['studentgender_error'] = 'Please enter student Name';
             }
-            if (empty($data['teacherclasse'])) {
-                $data['teacherclasse_error'] = 'Entrez la classe du professeur';
+            if (empty($data['studentclass'])) {
+                $data['studentclasse_error'] = 'Entrez la classe du student';
             }
-            if (empty($data['teachermatiere'])) {
-                $data['teachermatiere_error'] = 'Entrez la matiere du professeur';
+            if (empty($data['studentmatiere'])) {
+                $data['studentmatiere_error'] = 'Entrez la matiere du student';
             }
-            if (empty($data['teacherphone'])) {
-                $data['teacherphone_error'] = 'Entrez le telephone du professeur';
+            if (empty($data['studentemail'])) {
+                $data['studentemail_error'] = 'Entrez l\'email du student';
             }
             // make sure theres no errors
             if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
                 // validated stuff
-                if ($this->teacherModel->creatStudent($data)) {
+                if ($this->studentModel->creatStudent($data)) {
                     header('location: students.php');
                 } else {
                     die('ERROR');

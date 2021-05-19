@@ -20,7 +20,6 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-10 mx-auto">
-                        <!-- <div class="card card-body bg-info mt-5 text-center"> -->
                         <h2>Add your new teacher below</h2>
                         <p>Please fill the informations below in order to add a new teacher.</p>
                         <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
@@ -66,6 +65,10 @@
                         <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherphone']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
                             </div>
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -102,6 +105,7 @@
                 <div class="text-center p-1 ">
 
 
+                    <!-- search -->
                     <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-4 pt-5 d-flex">
                         <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50" type="text" placeholder="Search" name="search">
                         <button name="find" type="submit" class="bg-dark border-0 text-light">
@@ -157,6 +161,10 @@
             <div class="table-responsive pt-5">
                 <div class="table-wrapper">
                     <div class="table-title">
+
+
+
+
                         <!-- LES PROPRIETES DU TQBLEAU -->
                         <div class="row d-flex justify-content-between " style="background-color: black;">
 
@@ -174,6 +182,10 @@
                             </div>
                         </div>
                     </div>
+
+
+
+
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -186,6 +198,8 @@
                                 <th>Manager</th>
                             </tr>
                         </thead>
+
+
                         <?php $count = 0; ?>
                         <?php foreach ($data['teachers'] as $teacher) : ?>
                             <tbody>
@@ -200,31 +214,35 @@
                                     <td><?php echo $teacher->teacherclasse; ?></td>
                                     <td> <?php echo $teacher->teachermatiere; ?></td>
                                     <td> <?php echo $teacher->teacherphone; ?></td>
+
+
+
+                                    <!-- modal update button -->
                                     <td>
 
                                         <button type="button" name="update_teacher" class="btn btn-0" data-toggle="modal" data-target="#updateModal<?php echo $count; ?>">
                                             <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
                                         </button>
 
-                                        <!-- teachers Modal updatedelete -->
-<div class="modal fade" id="updateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="updateModal<?php echo $count; ?>Label" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update Teacher</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-md-10 mx-auto">
-                                                                <!-- <div class="card card-body bg-info mt-5 text-center"> -->
-                                                                <h2>Update your teacher's informations below</h2>
-                                                                <p>Please fill the informations below in order to update the teacher's informations.</p>
-                                                                <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-                                                                <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/5 ?>" method="post">
-                                                                    <div class="form-group">
+    <!-- teachers Modal updatedelete -->
+    <div class="modal fade" id="updateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="updateModal<?php echo $count; ?>Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update Teacher</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <h2>Update your teacher's informations below</h2>
+            <p>Please fill the informations below in order to update the teacher's informations.</p>
+            <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
+            <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/5 ?>" method="post">
+            
+                <div class="form-group">
                                                                         <label for="teachername"> Nom complet: <sup>*</sup></label>
                                                                         <input type="text" name="teachername" class="form-control form-control-lg
     <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachername; ?> ">
