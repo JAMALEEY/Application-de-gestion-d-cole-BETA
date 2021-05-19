@@ -21,4 +21,70 @@ class Student
         $results = $this->db->resultSet();
         return $results;
     }
+
+    //  the teachers insert query
+
+    public function getStudentById($id)
+    {
+        $this->db->query('SELECT * FROM students WHERE id = :id');
+        $this->db->bind(':id', $id);
+        $row = $this->db->single();
+        return $row;
+    }
+
+    public function creatStudent($data)
+    {
+        // prepare query
+        $this->db->query('INSERT INTO students (studentname, studentgender, studentclass, parents, studentadress, studentbirth, studentemail) VALUES(:studentname, :studentgender, :studentclass, :parents, :studentadress, :studentbirth, :studentemail)');
+        // we bind values
+        $this->db->bind(':studentname', $data['studentname']);
+        $this->db->bind(':studentgender', $data['studentgender']);
+        $this->db->bind(':studentclass', $data['studentclass']);
+        $this->db->bind(':parents', $data['parents']);
+        $this->db->bind(':studentadress', $data['studentadress']);
+        $this->db->bind(':studentbirth', $data['studentbirth']);
+        $this->db->bind(':studentemail', $data['studentemail']);
+
+        // the execution
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function updateStudent($data)
+    {
+        $this->db->query('UPDATE students SET studentname = :studentname, studentgender = :studentgender, studentclass = :studentclass, parents = :parents, studentadress = :studentadress, studentbirth = :studentbirth, studentemail = :studentemail WHERE id = :id');
+        // we bind values
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':studentname', $data['studentname']);
+        $this->db->bind(':studentgender', $data['studentgender']);
+        $this->db->bind(':studentclass', $data['studentclass']);
+        $this->db->bind(':parents', $data['parents']);
+        $this->db->bind(':studentadress', $data['studentadress']);
+        $this->db->bind(':studentbirth', $data['studentbirth']);
+        $this->db->bind(':studentemail', $data['studentemail']);
+        //  the execution
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function deletStudent($data)
+    {
+        $this->db->query('DELETE FROM `students` WHERE id = :id');
+        // bind values
+        $this->db->bind(':id', $data['id']);
+        // execute
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

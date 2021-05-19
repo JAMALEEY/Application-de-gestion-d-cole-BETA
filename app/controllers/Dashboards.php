@@ -10,10 +10,21 @@ class Dashboards extends Controller
         $this->teacherModel = $this->Model('Teacher');
         $this->studentModel = $this->Model('Student');
     }
+
+
+
+
+
     public function parents()
     {
         $this->view('dashboards/parents/parents');
     }
+
+
+
+
+
+
     public function students()
     {
         $students =  $this->studentModel->getStudent();
@@ -31,6 +42,110 @@ class Dashboards extends Controller
         ];
         $this->view('dashboards/students/students', $data);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    public function updateStudent($id)
+    {
+        $student = $this->studentModel->getStudentById($id);
+        $data = [
+            'UPDATE' => $student
+        ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // sanitize
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = [
+                'id' => $id,
+                'studentsname' => trim($_POST['studentsname']),
+                'studentsgender' => trim($_POST['studentsgender']),
+                'studentsclass' => trim($_POST['studentsclass']),
+                'parents' => trim($_POST['parents']),
+                'studentadress' => trim($_POST['studentadress']),
+                'studentbirth' => trim($_POST['studentbirth']),
+                'studentemail' => trim($_POST['studentemail']),
+                'studentsname_error' => '',
+                'studentsgender_error' => '',
+                'studentsclass_error' => '',
+                'parents_error' => '',
+                'studentadress_error' => '',
+                'studentbirth_error' => '',
+                'studentemail_error' => ''
+            ];
+            if (empty($data['studentsname'])) {
+                $data['studentsname_error'] = 'Please enter student Name';
+            }
+            if (empty($data['studentsgender'])) {
+                $data['studentsgender_error'] = 'Please enter student gender';
+            }
+            if (empty($data['studentsclass'])) {
+                $data['studentsclass_error'] = 'Entrez la classe de l\'etudiant';
+            }
+            if (empty($data['parents'])) {
+                $data['parents_error'] = 'Entrez la matiere du professeur';
+            }
+            if (empty($data['studentadress'])) {
+                $data['studentadress_error'] = 'Entrez l\'adresse de l\'etudiant';
+            }
+            if (empty($data['studentbirth'])) {
+                $data['studentbirth_error'] = 'Entrez la date de naissance de l\'etudiant';
+            }
+            if (empty($data['studentemail'])) {
+                $data['studentemail_error'] = 'Entrez l\'E-mail de l\'etudiant';
+            }
+            // make sure theres no errors
+            if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
+                // validated stuff
+                if ($this->teacherModel->updateTeacher($data)) {
+                    header('location: ../teachers.php');
+                } else {
+                    die('ERROR');
+                }
+            } else {
+
+
+                $this->view('dashboards/teachers/teachers', $data);
+            }
+        } else {
+            // get existing contact from model
+            $teacher = $this->teacherModel->getTeacherById($id);
+            $data = [
+                'teacher' => $teacher
+            ];
+
+            // check for owner
+            // if ($teacher->admin_id != $_SESSION['admin_id']) {
+
+            //     redirect('teacher');
+            // }
+
+            $data = [
+                'id' => $id,
+                'teachername' => $teacher->teachername,
+                'teachergender' => $teacher->teachergender,
+                'teacherclasse' => $teacher->teacherclasse,
+                'teachermatiere' => $teacher->teachermatiere,
+                'teacherphone' => $teacher->teacherphone,
+            ];
+
+            $this->view('dashboards/teachers/teachers', $data);
+        }
+    }
+
+
+
+
+
+
+
 
 
     public function search()
@@ -57,6 +172,9 @@ class Dashboards extends Controller
 
 
 
+
+
+
     public function index()
     {
         $teachers =  $this->teacherModel->getTeacher();
@@ -72,6 +190,12 @@ class Dashboards extends Controller
         ];
         $this->view('dashboards/teachers/teachers', $data);
     }
+
+
+
+
+
+
 
     public function creatTeacher()
     {
@@ -134,6 +258,12 @@ class Dashboards extends Controller
             $this->view('dashboards/teachers/teachers', $data);
         }
     }
+
+
+
+
+
+
 
 
     public function updateTeacher($id)
@@ -213,6 +343,16 @@ class Dashboards extends Controller
             $this->view('dashboards/teachers/teachers', $data);
         }
     }
+
+
+
+
+
+
+
+
+
+
 
 
 

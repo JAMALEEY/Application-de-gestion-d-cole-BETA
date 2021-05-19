@@ -7,6 +7,86 @@
     }
 </style>
 
+
+<!-- student Modal add -->
+<div class="modal fade" id="teachersModal" tabindex="-1" role="dialog" aria-labelledby="teachersModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="teachersModalLabel">Add Teacher</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-10 mx-auto">
+                        <!-- <div class="card card-body bg-info mt-5 text-center"> -->
+                        <h2>Add your new teacher below</h2>
+                        <p>Please fill the informations below in order to add a new teacher.</p>
+                        <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
+                        <form action="<?php echo URLROOT; ?>/dashboards/creatTeacher" method="post">
+
+                            <div class="form-group">
+
+                                <label for="teachername"> Le Nom complet: <sup>*</sup></label>
+                                <input type="text" name="teachername" class="form-control form-control-lg
+                        <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachername']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="gender"> Genre: <sup>*</sup></label>
+                                <input type="text" name="teachergender" class="form-control form-control-lg
+                        <?php echo (!empty($data['teachergender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachergender']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['teachergender_error']; ?> </span>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="class"> Classe: <sup>*</sup></label>
+                                <input type="text" name="teacherclasse" class="form-control form-control-lg
+                        <?php echo (!empty($data['teacherclasse_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherclasse']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['teacherclasse_error']; ?> </span>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="matiere"> Matiere: <sup>*</sup></label>
+                                <input type="text" name="teachermatiere" class="form-control form-control-lg
+                        <?php echo (!empty($data['teachermatiere_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachermatiere']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['teachermatiere_error']; ?> </span>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="phone"> Phone: <sup>*</sup></label>
+                                <input type="text" name="teacherphone" class="form-control form-control-lg
+                        <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherphone']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-dark text-light" value="Add">
+            </div>
+            </form>
+
+            <!-- </div> -->
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 <div class="container-fluid">
     <div class="row min-vh-100">
         <aside class=" col-12 col-md-3 col-xl-2 p-0  shadow-lg" style="background-color :black">
@@ -114,26 +194,30 @@
 
                                     <!-- modal update button -->
                                     <td>
-                                        <button type="button" name="update_student" class="btn btn-0" data-toggle="modal" data-target="#studentUpdateModal<?php echo $count; ?>">
+                                        <button type="button" name="update_student" class="btn btn-0" data-toggle="modal" data-target="#updateModal<?php echo $count; ?>">
                                             <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
                                         </button>
-                                    </td>
 
 
 
-                                    <!-- Student Modal UpdateDelete -->
-                                    <div class="modal fade" id="studentUpdateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="studentUpdateModal<?php echo $count; ?>Label" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="studentUpdateModal<?php echo $count; ?>Label">Update Student</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-md-10 mx-auto">
+
+                                        <!-- Student Modal UpdateDelete -->
+                                        <div class="modal fade" id="updateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="updateModal<?php echo $count; ?>Label" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update Student</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-md-10 mx-auto">
+                                                                <h2>Update your teacher's informations below</h2>
+                                                                <p>Please fill the informations below in order to update the teacher's informations.</p>
+                                                                <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
+                                                                <form action="<?php echo URLROOT; ?>/dashboards/updateStudent ?>" method="post">
 
 
                                 </tr>
