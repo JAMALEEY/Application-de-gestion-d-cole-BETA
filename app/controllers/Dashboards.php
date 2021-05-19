@@ -99,12 +99,12 @@ class Dashboards extends Controller
             if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
                 // validated stuff
                 if ($this->teacherModel->creatTeacher($data)) {
-                    header('location: teachers.php');
+                    header('location: students.php');
                 } else {
                     die('ERROR');
                 }
             } else {
-                $this->view('dashboards/teachers/teachers', $data);
+                $this->view('dashboards/students/students', $data);
             }
         } else {
             // we initialize data then
@@ -115,7 +115,7 @@ class Dashboards extends Controller
                 'teachermatiere' => '',
                 'teacherphone' => ''
             ];
-            $this->view('dashboards/teachers/teachers', $data);
+            $this->view('dashboards/students/students', $data);
         }
     }
 
