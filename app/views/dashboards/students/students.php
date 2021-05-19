@@ -109,11 +109,32 @@
                                     <td> <?php echo $student->studentadress; ?></td>
                                     <td> <?php echo $student->studentbirth; ?></td>
                                     <td> <?php echo $student->studentemail; ?></td>
-                                    <td>
 
-                                        <button type="button" name="update_student" class="btn btn-0" data-toggle="modal" data-target="#studentupdateModal<?php echo $count; ?>">
+
+
+                                    <!-- modal update button -->
+                                    <td>
+                                        <button type="button" name="update_student" class="btn btn-0" data-toggle="modal" data-target="#studentUpdateModal<?php echo $count; ?>">
                                             <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
                                         </button>
+                                    </td>
+
+
+
+                                    <!-- Student Modal UpdateDelete -->
+                                    <div class="modal fade" id="studentUpdateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="studentUpdateModal<?php echo $count; ?>Label" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="studentUpdateModal<?php echo $count; ?>Label">Update Student</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-md-10 mx-auto">
+
 
                                 </tr>
                             </tbody>
@@ -147,31 +168,30 @@
 
 
 
-                        <div class="clearfix">
-                            <div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
-                            <ul class="pagination">
-                                <li class="page-item "><a href="#" class="page-link bg-dark text-light">Previous</a></li>
-                                <li class="page-item active"><a href="#" class="page-link bg-secondary border-dark">1</a></li>
-                                <li class="page-item"><a href="#" class="page-link text-dark">2</a></li>
-                                <li class="page-item "><a href="#" class="page-link text-dark">3</a></li>
-                                <li class="page-item"><a href="#" class="page-link text-dark">4</a></li>
-                                <li class="page-item"><a href="#" class="page-link text-dark">5</a></li>
-                                <li class="page-item"><a href="#" class="page-link bg-dark text-light">Next</a></li>
-                            </ul>
-                        </div>
+
 
                 </div>
+
             </div>
-
-
-
-
-
-
-
-
-
-
         </div>
+
+
+
+        <!-- pagination -->
+        <div class="clearfix">
+            <div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
+            <ul class="pagination">
+                <li class="page-item "><a href="#" class="page-link bg-dark text-light">Previous</a></li>
+                <li class="page-item active"><a href="#" class="page-link bg-secondary border-dark">1</a></li>
+                <li class="page-item"><a href="#" class="page-link text-dark">2</a></li>
+                <li class="page-item "><a href="#" class="page-link text-dark">3</a></li>
+                <li class="page-item"><a href="#" class="page-link text-dark">4</a></li>
+                <li class="page-item"><a href="#" class="page-link text-dark">5</a></li>
+                <li class="page-item"><a href="#" class="page-link bg-dark text-light">Next</a></li>
+            </ul>
+        </div>
+
+
     </div>
+
 </div>
