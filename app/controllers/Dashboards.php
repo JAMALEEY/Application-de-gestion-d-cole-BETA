@@ -8,7 +8,7 @@ class Dashboards extends Controller
     {
         $this->adminModel = $this->model('Admin');
         $this->teacherModel = $this->Model('Teacher');
-        $this->teacherModel = $this->Model('Student');
+        $this->studentModel = $this->Model('Student');
     }
     public function parents()
     {
