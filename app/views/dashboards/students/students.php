@@ -109,7 +109,12 @@
                                     <td> <?php echo $student->studentadress; ?></td>
                                     <td> <?php echo $student->studentbirth; ?></td>
                                     <td> <?php echo $student->studentemail; ?></td>
-                                    <td> </td>
+                                    <td>
+
+                                        <button type="button" name="update_student" class="btn btn-0" data-toggle="modal" data-target="#studentupdateModal<?php echo $count; ?>">
+                                            <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
+                                        </button>
+
                                 </tr>
                             </tbody>
                             <?php $count++; ?>
