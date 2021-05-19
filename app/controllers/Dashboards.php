@@ -6,9 +6,9 @@ class Dashboards extends Controller
 
     public function __construct()
     {
-
         $this->adminModel = $this->model('Admin');
         $this->teacherModel = $this->Model('Teacher');
+        $this->teacherModel = $this->Model('Student');
     }
     public function parents()
     {
@@ -16,8 +16,36 @@ class Dashboards extends Controller
     }
     public function students()
     {
-        $this->view('dashboards/students/students');
+        $students =  $this->studentModel->getStudent();
+
+        $data = [
+            'students' => $students];
+        $this->view('dashboards/students/students', $data);
     }
+
+
+    public function search()
+    {
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $stmt = $this->db->prepare();
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    extract($row);
+                    echo $teachername;
+                }
+            }
+        }
+
+
+        
+        $this->view('dashboards/search');
+        
+        
+    }
+
 
 
     public function index()
@@ -201,20 +229,4 @@ class Dashboards extends Controller
         }
     }
 
-        public function search(){
-        if (isset($_POST['query'])) {
-
-            $query = "SELECT * FROM users WHERE name LIKE '{$_POST['query']}%' LIMIT 100";
-            $result = mysqli_query($conn, $query);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($user = mysqli_fetch_array($result)) {
-                    echo $user['name'] . "<br/>";
-                }
-            } else {
-                echo "<p style='color:red'>User not found...</p>";
-            }
-        }
-        }
-    
 }

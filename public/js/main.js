@@ -1,37 +1,3 @@
-
-
-// search
-<script type="text/javascript">
-    $(document).ready(function(){
-       $("#search").keyup(function(){
-          var query = $(this).val();
-          if (query != "") {
-            $.ajax({
-              url: 'ajax-db-search.php',
-              method: 'POST',
-              data: {query:query},
-              success: function(data){
- 
-                $('#output').html(data);
-                $('#output').css('display', 'block');
- 
-                $("#search").focusout(function(){
-                    $('#output').css('display', 'none');
-                });
-                $("#search").focusin(function(){
-                    $('#output').css('display', 'block');
-                });
-              }
-            });
-          } else {
-          $('#output').css('display', 'none');
-        }
-      })
-    })
-  </script>
-
-
-
 // ---------Responsive-navbar-active-animation-----------
 function test(){
   var tabsNewAnim = $('#navbarSupportedContent');
@@ -75,5 +41,3 @@ $(".navbar-toggler").click(function(){
 $('#teachersModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
-
-

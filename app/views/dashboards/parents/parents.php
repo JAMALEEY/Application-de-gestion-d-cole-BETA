@@ -33,26 +33,27 @@
                 <div class="collapse navbar-collapse p-5" id="nav">
                     <ul class="navbar-nav flex-column w-100 justify-content-center pt-5">
                         <li class="nav-item">
-                            <h4> <a href="" class="nav-link ">Teachers</a> </h4>
+                            <h4> <a href="<?php echo URLROOT; ?>/dashboards/teachers/teachers" class="nav-link ">Teachers</a> </h4>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="" class="nav-link ">Students</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/students/students" class="nav-link  ">Students</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="" class="nav-link active">Parents</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/parents/parents" class="nav-link active">Parents</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="" class="nav-link ">Stats</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/stats" class="nav-link ">Stats</a> </h5>
                         </li>
                     </ul>
 
                 </div>
 
                 <div class="pt-5" id="">
-                    <ul class="pt-5">
+                    <ul class="pt-5" style="list-style-type: none;">
                         <li>
-                            <a href="#" class="text-secondary">Logout
-                                <img src="../public/img/logout.png" alt="">
+
+                            <a href="<?php echo URLROOT . '/admins/logout'; ?>" class="text-secondary" style=" text-decoration:none ">Logout
+                                <img src="../../img/logout.png" alt="">
                             </a>
 
                         </li>
@@ -89,98 +90,50 @@
                                 <th>#</th>
                                 <th>Nom complet</th>
                                 <th>Genre</th>
-                                <th>Job</th>
-                                <th>Address</th>
-                                <th>Phone</th>
+                                <th>Classe</th>
+                                <th>Parents</th>
+                                <th>Adresse</th>
+                                <th>Date de naissance</th>
+                                <th>Email</th>
                                 <th>Manager</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>Homme</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
 
-                    <div class="clearfix">
-                        <div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
-                        <ul class="pagination">
-                            <li class="page-item "><a href="#" class="page-link bg-dark text-light">Previous</a></li>
-                            <li class="page-item active"><a href="#" class="page-link bg-secondary border-dark">1</a></li>
-                            <li class="page-item"><a href="#" class="page-link text-dark">2</a></li>
-                            <li class="page-item "><a href="#" class="page-link text-dark">3</a></li>
-                            <li class="page-item"><a href="#" class="page-link text-dark">4</a></li>
-                            <li class="page-item"><a href="#" class="page-link text-dark">5</a></li>
-                            <li class="page-item"><a href="#" class="page-link bg-dark text-light">Next</a></li>
-                        </ul>
-                    </div>
+
+                        <?php $count = 0; ?>
+                        <?php foreach ($data['parent'] as $parent) : ?>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><?php echo $parent->id; ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?php echo $parent->parentname; ?></p>
+                                    </td>
+                                    <td><?php echo $parent->teachergender; ?></td>
+                                    <td><?php echo $parent->parentjob; ?></td>
+                                    <td> <?php echo $parent->parentadress; ?></td>
+                                    <td> <?php echo $parent->parentphone; ?></td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <?php $count++; ?>
+                        <?php endforeach; ?>
+
+
+                        <div class="clearfix">
+                            <div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
+                            <ul class="pagination">
+                                <li class="page-item "><a href="#" class="page-link bg-dark text-light">Previous</a></li>
+                                <li class="page-item active"><a href="#" class="page-link bg-secondary border-dark">1</a></li>
+                                <li class="page-item"><a href="#" class="page-link text-dark">2</a></li>
+                                <li class="page-item "><a href="#" class="page-link text-dark">3</a></li>
+                                <li class="page-item"><a href="#" class="page-link text-dark">4</a></li>
+                                <li class="page-item"><a href="#" class="page-link text-dark">5</a></li>
+                                <li class="page-item"><a href="#" class="page-link bg-dark text-light">Next</a></li>
+                            </ul>
+                        </div>
                 </div>
             </div>
         </div>

@@ -5,12 +5,6 @@
         padding: 0;
         box-sizing: border-box;
     }
-
-    /* 
-    body {
-        min-height: 100vh;
-        background-color: #fff;
-    } */
 </style>
 
 <!-- teachers Modal add -->
@@ -105,12 +99,15 @@
     <div class="row min-vh-100">
         <aside class=" col-12 col-md-3 col-xl-2 p-0  shadow-lg" style="background-color :black">
             <nav class="navbar navbar-expand-md navbar-dark bd-dark flex-md-column flex-row align-items-conter py-2 text-center sticky-top" id="sidebar">
-                <div class="text-center p-1">
+                <div class="text-center p-1 ">
 
 
-                    <form class="px-2  pt-5" method="POST">
-                        <input class="form-control py-1 px-3 bg-dark border-0 text-light h-50 " type="text" placeholder="Search" name="search" id="search" aria-label="Search">
-                        <div id="output"></div>
+                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-4 pt-5 d-flex">
+                        <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50" type="text" placeholder="Search" name="search">
+                        <button name="find" type="submit" class="bg-dark border-0 text-light">
+                            <i class="fa fa-search"></i>
+                        </button>
+
                     </form>
 
                 </div>
@@ -122,16 +119,16 @@
                 <div class="collapse navbar-collapse p-5" id="nav">
                     <ul class="navbar-nav flex-column w-100 justify-content-center pt-5">
                         <li class="nav-item">
-                            <h4> <a href="" class="nav-link active">Teachers</a> </h4>
+                            <h4> <a href="<?php echo URLROOT; ?>/dashboards/teachers/teachers" class="nav-link active">Teachers</a> </h4>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="" class="nav-link ">Students</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/students/students" class="nav-link ">Students</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="" class="nav-link ">Parents</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/parents/parents" class="nav-link ">Parents</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="" class="nav-link ">Stats</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/stats" class="nav-link ">Stats</a> </h5>
                         </li>
                     </ul>
 
@@ -142,7 +139,7 @@
                         <li>
 
                             <a href="<?php echo URLROOT . '/admins/logout'; ?>" class="text-secondary" style=" text-decoration:none ">Logout
-                                <img src="../public/img/logout.png" alt="">
+                                <img src="../../img/logout.png" alt="">
                             </a>
 
                         </li>

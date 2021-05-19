@@ -5,12 +5,6 @@
         padding: 0;
         box-sizing: border-box;
     }
-
-    /* 
-    body {
-        min-height: 100vh;
-        background-color: #fff;
-    } */
 </style>
 
 <div class="container-fluid">
@@ -33,26 +27,27 @@
                 <div class="collapse navbar-collapse p-5" id="nav">
                     <ul class="navbar-nav flex-column w-100 justify-content-center pt-5">
                         <li class="nav-item">
-                            <h4> <a href="" class="nav-link ">Teachers</a> </h4>
+                            <h4> <a href="<?php echo URLROOT; ?>/dashboards/teachers/teachers" class="nav-link ">Teachers</a> </h4>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="" class="nav-link active">Students</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/students/students" class="nav-link active ">Students</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="" class="nav-link ">Parents</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/parents/parents" class="nav-link ">Parents</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="" class="nav-link ">Stats</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/stats" class="nav-link ">Stats</a> </h5>
                         </li>
                     </ul>
 
                 </div>
 
                 <div class="pt-5" id="">
-                    <ul class="pt-5">
+                    <ul class="pt-5" style="list-style-type: none;">
                         <li>
-                            <a href="#" class="text-secondary">Logout
-                                <img src="../public/img/logout.png" alt="">
+
+                            <a href="<?php echo URLROOT . '/admins/logout'; ?>" class="text-secondary" style=" text-decoration:none ">Logout
+                                <img src="../../img/logout.png" alt="">
                             </a>
 
                         </li>
@@ -66,108 +61,84 @@
 
 
 
-        <div class="container col-10 pt-5">
-            <div class="table-responsive pt-5">
-                <div class="table-wrapper">
-                    <div class="table-title">
-                        <!-- LES PROPRIETES DU TQBLEAU -->
-                        <div class="row d-flex justify-content-between " style="background-color: black;">
+<div class="container col-10 pt-5">
+    <div class="table-responsive pt-5">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <!-- LES PROPRIETES DU TQBLEAU -->
+                <div class="row d-flex justify-content-between " style="background-color: black;">
 
-                            <div class="py-1 px-4 text-light">
-                                <h2>Students <b>Management</b></h2>
-                            </div>
-                            <div class="py-2 px-4">
-                                <a href="#" class="btn btn-light"> <i class="fa fa-user-plus"></i> </i> <span>Add </span></a>
-                                <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>
-                            </div>
-                        </div>
-
+                    <div class="py-1 px-4 text-light">
+                        <h2>Students <b>Management</b></h2>
                     </div>
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Nom complet</th>
-                                <th>Genre</th>
-                                <th>Class</th>
-                                <th>Matiere</th>
-                                <th>Phone</th>
-                                <th>Manager</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>
-                                    <a href="#">
-                                        Michael Holz</a>
-                                </td>
-                                <td>04/10/2013</td>
-                                <td>3</td>
-                                <td> Langue française</td>
-                                <td> 0634437444</td>
-                                <td>
-                                    <a href="#" class=""> <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i> </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="py-2 px-4">
+                        <a href="#" class="btn btn-light"> <i class="fa fa-user-plus"></i> </i> <span>Add </span></a>
+                        <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>
+                    </div>
+                </div>
+
+    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom complet</th>
+                <th>Genre</th>
+                <th>Classe</th>
+                <th>Parents</th>
+                <th>Adresse</th>
+                <th>Date de naissance</th>
+                <th>Email</th>
+                <th>Manager</th>
+            </tr>
+        </thead>
+
+ <?php $count = 0; ?>
+    <?php foreach ($data['student'] as $student) : ?>
+        <tbody>
+            <tr>
+                <td>
+                    <p><?php echo $student->id; ?></p>
+                </td>
+                <td><p><?php echo $student->studentname; ?></p></td>
+                <td><?php echo $student->studentgender; ?></td>
+                <td><?php echo $student->studentclass; ?></td>
+                <td> <?php echo $student->parents; ?></td>
+                <td> <?php echo $student->studentadress; ?></td>
+                <td> <?php echo $student->studentbirth; ?></td>
+                <td> <?php echo $student->studentemail; ?></td>
+                <td> </td>
+</tr>
+</tbody>
+<?php $count++; ?>
+<?php endforeach; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     <div class="clearfix">
                         <div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
