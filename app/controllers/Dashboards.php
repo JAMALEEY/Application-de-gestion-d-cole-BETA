@@ -110,19 +110,15 @@ class Dashboards extends Controller
             $data = [
                 'studentname' => '',
                 'studentgender' => '',
-                'teacherclasse' => '',
-                'teachermatiere' => '',
-                'teacherphone' => ''
+                'studentclass' => '',
+                'parents' => '',
+                'studentadress' => '',
+                'studentbirth' => '',
+                'studentemail' => ''
             ];
             $this->view('dashboards/students/students', $data);
         }
     }
-
-
-
-
-
-
 
 
 
@@ -188,21 +184,21 @@ class Dashboards extends Controller
             // make sure theres no errors
             if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
                 // validated stuff
-                if ($this->teacherModel->updateTeacher($data)) {
-                    header('location: ../teachers.php');
+                if ($this->studentModel->updateStudent($data)) {
+                    header('location: ../students.php');
                 } else {
                     die('ERROR');
                 }
             } else {
 
 
-                $this->view('dashboards/teachers/teachers', $data);
+                $this->view('dashboards/students/students', $data);
             }
         } else {
             // get existing contact from model
-            $teacher = $this->teacherModel->getTeacherById($id);
+            $student = $this->studentsModel->getStudentById($id);
             $data = [
-                'teacher' => $teacher
+                'student' => $student
             ];
 
             // check for owner
@@ -213,14 +209,16 @@ class Dashboards extends Controller
 
             $data = [
                 'id' => $id,
-                'teachername' => $teacher->teachername,
-                'teachergender' => $teacher->teachergender,
-                'teacherclasse' => $teacher->teacherclasse,
-                'teachermatiere' => $teacher->teachermatiere,
-                'teacherphone' => $teacher->teacherphone,
+                'studentname' => $student->studentname,
+                'studentgender' => $student->studentgender,
+                'studentclass' =>  $student->studentclass,
+                'parents' =>  $student->parents,
+                'studentadress' =>  $student->studentadress,
+                'studentbirth' =>  $student->studentbirth,
+                'studentemail' =>  $student->studentemail
             ];
 
-            $this->view('dashboards/teachers/teachers', $data);
+            $this->view('dashboards/students/students', $data);
         }
     }
 

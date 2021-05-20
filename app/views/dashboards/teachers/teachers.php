@@ -241,34 +241,42 @@
             <p>Please fill the informations below in order to update the teacher's informations.</p>
             <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
             <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/5 ?>" method="post">
-            
+
+
+
+
+
+
                 <div class="form-group">
                                                                         <label for="teachername"> Nom complet: <sup>*</sup></label>
                                                                         <input type="text" name="teachername" class="form-control form-control-lg
     <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachername; ?> ">
                                                                         <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
-                                                                    </div>
-
-                                                                    <div class="form-group">
-
-                                                                        <label for="gender"> Genre: <sup>*</sup></label>
-                                                                        <input type="text" name="teachergender" class="form-control form-control-lg
-<?php echo (!empty($data['teachergender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachergender; ?>">
-                                                                        <span class="invalid-feedback"> <?php echo $data['teachergender_error']; ?> </span>
-                                                                    </div>
-
-                                                                    <div class="form-group">
-
-                                                                        <label for="class"> Classe: <sup>*</sup></label>
-                                                                        <input type="text" name="teacherclasse" class="form-control form-control-lg
-                        <?php echo (!empty($data['teacherclasse_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teacherclasse; ?>">
-                                                                        <span class="invalid-feedback"> <?php echo $data['teacherclasse_error']; ?> </span>
-                                                                    </div>
+</div>
 
 
-                                                                    <div class="form-group">
 
-                                                                        <label for="matiere"> Matiere: <sup>*</sup></label>
+
+
+<div class="form-group">
+
+
+<label for="gender"> Genre: <sup>*</sup></label>
+    <input type="text" name="teachergender" class="form-control form-control-lg <?php echo (!empty($data['teachergender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachergender; ?>">                                           <span class="invalid-feedback"> <?php echo $data['teachergender_error']; ?> </span></div>
+
+
+<div class="form-group">
+
+<label for="class"> Classe: <sup>*</sup></label> <input type="text" name="teacherclasse" class="form-control form-control-lg<?php echo (!empty($data['teacherclasse_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teacherclasse; ?>">    <span class="invalid-feedback"> <?php echo $data['teacherclasse_error']; ?> </span> </div>
+
+
+
+
+<div class="form-group">
+
+
+
+<label for="matiere"> Matiere: <sup>*</sup></label>
                                                                         <input type="text" name="teachermatiere" class="form-control form-control-lg
                         <?php echo (!empty($data['teachermatiere_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachermatiere; ?>">
                                                                         <span class="invalid-feedback"> <?php echo $data['teachermatiere_error']; ?> </span>
@@ -280,28 +288,28 @@
                                                                         <input type="text" name="teacherphone" class="form-control form-control-lg
                         <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teacherphone; ?>">
                                                                         <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
-                                                                    </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                                                        <input type="submit" class="btn btn-dark text-light" value="Update">
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-dark text-light" value="Update">
 
 
-                                                        </form>
-                                                        <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post">
+                </form>
+                <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post">
 
-                                                            <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
-                                                    </div>
-                                                    </form>
-                                                    <!-- </div> -->
+                    <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
+            </div>
+            </form>
+            <!-- </div> -->
 
-                                                </div>
-                                            </div>
-                                        </div>
+        </div>
+    </div>
+</div>
 
-                                        <!-- the modal of update inside the manager icon -->
+<!-- the modal of update inside the manager icon -->
 
 
                                     </td>
