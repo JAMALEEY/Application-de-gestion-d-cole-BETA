@@ -129,10 +129,10 @@
                             <h4> <a href="<?php echo URLROOT; ?>/dashboards/teachers/teachers" class="nav-link ">Teachers</a> </h4>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/theparents/theparents" class="nav-link active ">theparents</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/students/students" class="nav-link">theparents</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/parents/parents" class="nav-link ">Parents</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/parents/theparents" class="nav-link active ">Parents</a> </h5>
                         </li>
                         <li class="nav-item">
                             <h5> <a href="<?php echo URLROOT; ?>/dashboards/stats" class="nav-link ">Stats</a> </h5>
