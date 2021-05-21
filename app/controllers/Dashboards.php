@@ -9,6 +9,7 @@ class Dashboards extends Controller
         $this->adminModel = $this->model('Admin');
         $this->teacherModel = $this->Model('Teacher');
         $this->studentModel = $this->Model('Student');
+        $this->parentModel = $this->Model('Student');
     }
 
 
@@ -17,7 +18,16 @@ class Dashboards extends Controller
 
     public function parents()
     {
-        $this->view('dashboards/parents/parents');
+        $parents =  $this->parentModel->getParent();
+        $data = [
+            'parents' => $parents,
+            'parentname' => '',
+            'parentgender' => '',
+            'parentjob' => '',
+            'parentadress' => '',
+            'parentphone' => ''
+        ];
+        $this->view('dashboards/parents/parents', $data);
     }
 
 
