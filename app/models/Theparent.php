@@ -53,14 +53,14 @@ class Theparent
 
     public function updatetheparent($data)
     {
-        $this->db->query('UPDATE theparents SET parentname = :theparentname, parentgender = :theparentgender, parentjob = :theparentjob, parentadress = :theparentadress, parentphone = :theparentadress WHERE id = :id');
+        $this->db->query('UPDATE theparents SET parentname = :theparentname, parentgender = :theparentgender, parentjob = :theparentjob, parentadress = :theparentadress, parentphone = :theparentphone WHERE id = :id');
         // we bind values
         $this->db->bind(':id', $data['id']);
         $this->db->bind(':theparentname', $data['theparentname']);
         $this->db->bind(':theparentgender', $data['theparentgender']);
-        $this->db->bind(':theparentclass', $data['theparentclass']);
-        $this->db->bind(':theparents', $data['theparents']);
+        $this->db->bind(':theparentjob', $data['theparentjob']);
         $this->db->bind(':theparentadress', $data['theparentadress']);
+        $this->db->bind(':theparentphone', $data['theparentphone']);
         $this->db->bind(':theparentbirth', $data['theparentbirth']);
         $this->db->bind(':theparentemail', $data['theparentemail']);
         //  the execution
@@ -72,7 +72,7 @@ class Theparent
     }
 
 
-    public function delettheparent($data)
+    public function deletetheparent($data)
     {
         $this->db->query('DELETE FROM `theparents` WHERE id = :id');
         // bind values

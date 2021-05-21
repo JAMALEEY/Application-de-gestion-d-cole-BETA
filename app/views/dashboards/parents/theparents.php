@@ -213,14 +213,12 @@
                                         <p><?php echo $theparent->id; ?></p>
                                     </td>
                                     <td>
-                                        <p><?php echo $theparent->theparentname; ?></p>
+                                        <p><?php echo $theparent->parentname; ?></p>
                                     </td>
-                                    <td><?php echo $theparent->theparentgender; ?></td>
-                                    <td><?php echo $theparent->theparentclass; ?></td>
-                                    <td> <?php echo $theparent->parents; ?></td>
-                                    <td> <?php echo $theparent->theparentadress; ?></td>
-                                    <td> <?php echo $theparent->theparentbirth; ?></td>
-                                    <td> <?php echo $theparent->theparentemail; ?></td>
+                                    <td><?php echo $theparent->parentgender; ?></td>
+                                    <td><?php echo $theparent->parentjob; ?></td>
+                                    <td> <?php echo $theparent->parentadress; ?></td>
+                                    <td> <?php echo $theparent->parentphone; ?></td>
 
 
 

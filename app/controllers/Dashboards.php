@@ -408,6 +408,18 @@ class Dashboards extends Controller
     }
 
 
+    public function deletetheparent($data)
+    {
+        $this->db->query('DELETE FROM `theparents` WHERE id = :id');
+        // bind values
+        $this->db->bind(':id', $data['id']);
+        // execute
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
 
