@@ -10,11 +10,11 @@ class Student
     }
 
     public function getStudent(){
-        $this->db->query('SELECT `id`, `studentname`, `studentgender`, `studentclass`, `parents`, `studentadress`, `studentbirth`, `studentemail` FROM `students`');
+        $this->db->query('SELECT `id`, `studentname`, `studentgender`, `studentclass`, `studentsparents`, `studentadress`, `studentbirth`, `studentemail` FROM `students`');
         $this->db->bind(':studentname', 'studentname');
         $this->db->bind(':studentgender', 'studentgender');
         $this->db->bind(':studentclass', 'studentclass');
-        $this->db->bind(':parents', 'parents');
+        $this->db->bind(':studentsparents', 'studentsparents');
         $this->db->bind(':studentadress', 'studentadress');
         $this->db->bind(':studentbirth', 'studentbirth');
         $this->db->bind(':studentemail', 'studentemail');
@@ -35,12 +35,12 @@ class Student
     public function creatStudent($data)
     {
         // prepare query
-        $this->db->query('INSERT INTO students (studentname, studentgender, studentclass, parents, studentadress, studentbirth, studentemail) VALUES(:studentname, :studentgender, :studentclass, :parents, :studentadress, :studentbirth, :studentemail)');
+        $this->db->query('INSERT INTO students (studentname, studentgender, studentclass, studentsparents, studentadress, studentbirth, studentemail) VALUES(:studentname, :studentgender, :studentclass, :studentsparents, :studentadress, :studentbirth, :studentemail)');
         // we bind values
         $this->db->bind(':studentname', $data['studentname']);
         $this->db->bind(':studentgender', $data['studentgender']);
         $this->db->bind(':studentclass', $data['studentclass']);
-        $this->db->bind(':parents', $data['parents']);
+        $this->db->bind(':studentsparents', $data['studentsparents']);
         $this->db->bind(':studentadress', $data['studentadress']);
         $this->db->bind(':studentbirth', $data['studentbirth']);
         $this->db->bind(':studentemail', $data['studentemail']);
@@ -56,13 +56,13 @@ class Student
 
     public function updateStudent($data)
     {
-        $this->db->query('UPDATE students SET studentname = :studentname, studentgender = :studentgender, studentclass = :studentclass, parents = :parents, studentadress = :studentadress, studentbirth = :studentbirth, studentemail = :studentemail WHERE id = :id');
+        $this->db->query('UPDATE students SET studentname = :studentname, studentgender = :studentgender, studentclass = :studentclass, studentsparents = :studentsparents, studentadress = :studentadress, studentbirth = :studentbirth, studentemail = :studentemail WHERE id = :id');
         // we bind values
         $this->db->bind(':id', $data['id']);
         $this->db->bind(':studentname', $data['studentname']);
         $this->db->bind(':studentgender', $data['studentgender']);
         $this->db->bind(':studentclass', $data['studentclass']);
-        $this->db->bind(':parents', $data['parents']);
+        $this->db->bind(':studentsparents', $data['studentsparents']);
         $this->db->bind(':studentadress', $data['studentadress']);
         $this->db->bind(':studentbirth', $data['studentbirth']);
         $this->db->bind(':studentemail', $data['studentemail']);

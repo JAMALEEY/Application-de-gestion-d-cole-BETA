@@ -12,7 +12,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="theparentsModalLabel">Add theparent</h5>
+                <h5 class="modal-title" id="theparentsModalLabel">Add Parent</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -20,10 +20,10 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-10 mx-auto">
-                        <h2>Add your new theparent below</h2>
+                        <h2>Add your new parent below</h2>
                         <p>Please fill the informations below in order to add a new theparent.</p>
                         <p>Ps: Elements marked with "*" are important !</p>
-                        <form action="<?php echo URLROOT; ?>/dashboards/creattheparent" method="post">
+                        <form action="<?php echo URLROOT; ?>/dashboards/creatTheparent" method="post">
 
                             <div class="form-group">
 
@@ -43,47 +43,31 @@
 
                             <div class="form-group">
 
-                                <label for="class"> Classe: <sup>*</sup></label>
-                                <input type="text" name="theparentclass" class="form-control form-control-lg
-                        <?php echo (!empty($data['theparentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentclass']; ?>">
+                                <label for="job"> Job: <sup>*</sup></label>
+                                <input type="text" name="theparentjob" class="form-control form-control-lg
+                        <?php echo (!empty($data['theparentjob_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentjob']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['theparentclass_error']; ?> </span>
                             </div>
 
 
-                            <div class="form-group">
-
-                                <label for="parents"> Parent de l'apprenant: <sup>*</sup></label>
-                                <input type="text" name="parents" class="form-control form-control-lg
-                        <?php echo (!empty($data['parents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['parents']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['parents_error']; ?> </span>
-                            </div>
 
                             <div class="form-group">
 
-                                <label for="adress"> Adresse: <sup>*</sup></label>
+                                <label for="adress"> Adresse du parent: <sup>*</sup></label>
                                 <input type="text" name="theparentadress" class="form-control form-control-lg
                         <?php echo (!empty($data['theparentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentadress']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['theparentadress_error']; ?> </span>
                             </div>
 
 
-                            <!-- theparent birth add input modal -->
+
+                            <!-- theparent phone add input modal -->
                             <div class="form-group">
 
-                                <label for="birthday"> Date of birth: <sup>*</sup></label>
-                                <input type="text" name="theparentbirth" class="form-control form-control-lg
-                        <?php echo (!empty($data['theparentbirth_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentbirth']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['theparentbirth_error']; ?> </span>
-                            </div>
-
-
-                            <!-- theparent email add input modal -->
-                            <div class="form-group">
-
-                                <label for="email"> E-mail: <sup>*</sup></label>
-                                <input type="email" name="theparentemail" class="form-control form-control-lg
-                        <?php echo (!empty($data['theparentemail_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentemail']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['theparentemail_error']; ?> </span>
+                                <label for="phone"> Phone: <sup>*</sup></label>
+                                <input type="text" name="theparentphone" class="form-control form-control-lg
+                        <?php echo (!empty($data['theparentphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentphone']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['theparentphone_error']; ?> </span>
                             </div>
 
                     </div>
@@ -126,13 +110,13 @@
                 <div class="collapse navbar-collapse p-5" id="nav">
                     <ul class="navbar-nav flex-column w-100 justify-content-center pt-5">
                         <li class="nav-item">
-                            <h4> <a href="<?php echo URLROOT; ?>/dashboards/teachers/teachers" class="nav-link ">Teachers</a> </h4>
+                            <h4> <a href="<?php echo URLROOT; ?>/dashboards/teachers" class="nav-link ">Teachers</a> </h4>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/students/students" class="nav-link">Students</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/students" class="nav-link">Students</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/parents/theparents" class="nav-link active ">Parents</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/theparents" class="nav-link active ">Parents</a> </h5>
                         </li>
                         <li class="nav-item">
                             <h5> <a href="<?php echo URLROOT; ?>/dashboards/stats" class="nav-link ">Stats</a> </h5>
@@ -172,7 +156,7 @@
                         <div class="row d-flex justify-content-between " style="background-color: black;">
 
                             <div class="py-1 px-4 text-light">
-                                <h2>theparents <b>Management</b></h2>
+                                <h2>Parents <b>Management</b></h2>
                             </div>
                             <div class="py-2 px-4">
                                 <!-- name add teacher a verifier -->
@@ -196,11 +180,9 @@
                                 <th>#</th>
                                 <th>Nom complet</th>
                                 <th>Genre</th>
-                                <th>Classe</th>
-                                <th>Parents</th>
+                                <th>Profession</th>
                                 <th>Adresse</th>
-                                <th>Date de naissance</th>
-                                <th>Email</th>
+                                <th>Numéro de téléphone</th>
                                 <th>Manager</th>
                             </tr>
                         </thead>
@@ -236,7 +218,7 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update theparent</h5>
+                                                        <h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update parent</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -244,7 +226,7 @@
                                                     <div class="modal-body">
                                                         <div class="row">
                                                             <div class="col-md-10 mx-auto">
-                                                                <h2>Update your teacher's informations below</h2>
+                                                                <h2>Update your parent's informations below</h2>
                                                                 <p>Please fill the informations below in order to update the teacher's informations.</p>
                                                                 <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
                                                                 <form action="<?php echo URLROOT; ?>/dashboards/updatetheparent ?>" method="post">
@@ -256,79 +238,69 @@
                                                                     <div class="form-group">
                                                                         <label for="theparentname"> Nom complet: <sup>*</sup></label>
                                                                         <input type="text" name="theparentname" class="form-control form-control-lg
-    <?php echo (!empty($data['theparentname_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->theparentname; ?> "> <span class="invalid-feedback"> <?php echo $data['theparentname_error']; ?> </span>
+    <?php echo (!empty($data['theparentname_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentname; ?> "> <span class="invalid-feedback"> <?php echo $data['theparentname_error']; ?> </span>
                                                                     </div>
 
 
 
-                                                                    <div class="form-group">
+        <div class="form-group">
 
-                                                                        <label for="gender"> Genre: <sup>*</sup></label> <input type="text" name="theparentgender" class="form-control form-control-lg<?php echo (!empty($data['theparentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->theparentgender; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentgender_error']; ?> </span>
-                                                                    </div>
-
-
-                                                                    <div class="form-group">
-
-                                                                        <label for="class"> Classe: <sup>*</sup></label> <input type="text" name="theparentclass" class="form-control form-control-lg<?php echo (!empty($data['theparentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->theparentclass; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentclass_error']; ?> </span>
-                                                                    </div>
+            <label for="gender"> Genre: <sup>*</sup></label> <input type="text" name="theparentgender" class="form-control form-control-lg<?php echo (!empty($data['theparentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentgender; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentgender_error']; ?> </span>
+        </div>
 
 
+            <div class="form-group">
 
-                                                                    <div class="form-group">
-                                                                        <label for="parents"> Parent de l'apprenant: <sup>*</sup></label>
-                                                                        <input type="text" name="parents" class="form-control form-control-lg
-    <?php echo (!empty($data['parents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parents; ?> "> <span class="invalid-feedback"> <?php echo $data['parents_error']; ?> </span>
-                                                                    </div>
+                <label for="class"> Job: <sup>*</sup></label> <input type="text" name="theparentjob" class="form-control form-control-lg<?php echo (!empty($data['theparentjob_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentjob; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentjob_error']; ?> </span>
+            </div>
 
 
 
-                                                                    <div class="form-group">
-
-                                                                        <label for="adress"> Adresse: <sup>*</sup></label> <input type="text" name="theparentadress" class="form-control form-control-lg<?php echo (!empty($data['theparentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->theparentadress; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentadress_error']; ?> </span>
-                                                                    </div>
-
-
-                                                                    <div class="form-group">
-
-                                                                        <label for="theparentbirth"> Date of birth: <sup>*</sup></label> <input type="text" name="theparentbirth" class="form-control form-control-lg<?php echo (!empty($data['theparentbirth_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->theparentbirth; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentbirth_error']; ?> </span>
-                                                                    </div>
-
-                                                                    <div class="form-group">
-
-                                                                        <label for="theparentmail"> E-mail : <sup>*</sup></label> <input type="email" name="theparentemail" class="form-control form-control-lg<?php echo (!empty($data['theparentemail_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->theparentemail; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentemail_error']; ?> </span>
-                                                                    </div>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                                                        <input type="submit" class="btn btn-dark text-light" value="Update">
-
-
-                                                        </form>
-                                                        <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post">
-
-                                                            <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
-                                                    </div>
-                                                    </form>
-
-                                                </div>
-                                            </div>
-                                        </div>
+    <div class="form-group">
+        <label for="phone"> Téléphone du parent: <sup>*</sup></label>
+        <input type="text" name="theparentphone" class="form-control form-control-lg
+<?php echo (!empty($data['parents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentphone; ?> "> <span class="invalid-feedback"> <?php echo $data['parents_error']; ?> </span>
+    </div>
 
 
 
-                                        <!-- the modal of update inside the manager icon -->
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <?php $count++; ?>
-                            <!-- the end of loop -->
-                        <?php endforeach; ?>
-                    </table>
+    <div class="form-group">
+
+        <label for="adress"> Adresse: <sup>*</sup></label> <input type="text" name="theparentadress" class="form-control form-control-lg<?php echo (!empty($data['theparentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentadress; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentadress_error']; ?> </span>
+    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-dark text-light" value="Update">
+
+
+                            </form>
+                            <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post">
+
+                                <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
+                        </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- the modal of update inside the manager icon -->
+        </td>
+    </tr>
+</tbody>
+<?php $count++; ?>
+<!-- the end of loop -->
+<?php endforeach; ?>
+</table>
 
 
 

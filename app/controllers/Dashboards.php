@@ -22,7 +22,7 @@ class Dashboards extends Controller
             'studentname' => '',
             'studentgender' => '',
             'studentclass' => '',
-            'theparents' => '',
+            'studentsparents' => '',
             'studentadress' => '',
             'studentbirth' => '',
             'studentemail' => ''
@@ -49,14 +49,14 @@ class Dashboards extends Controller
                 'studentname' => trim($_POST['studentname']),
                 'studentgender' => trim($_POST['studentgender']),
                 'studentclass' => trim($_POST['studentclass']),
-                'theparents' => trim($_POST['theparents']),
+                'studentsparents' => trim($_POST['studentsparents']),
                 'studentadress' => trim($_POST['studentadress']),
                 'studentbirth' => trim($_POST['studentbirth']),
                 'studentemail' => trim($_POST['studentemail']),
                 'studentname_error' => '',
                 'studentgender_error' => '',
                 'studentclass_error' => '',
-                'theparents_error' => '',
+                'studentsparents_error' => '',
                 'studentadress_error' => '',
                 'studentbirth_error' => '',
                 'studentemail_error' => ''
@@ -403,7 +403,7 @@ class Dashboards extends Controller
                 'theparentemail' =>  $theparent->theparentemail
             ];
 
-            $this->view('dashboards/theparents/theparents', $data);
+            $this->view('dashboards/parents/theparents', $data);
         }
     }
 

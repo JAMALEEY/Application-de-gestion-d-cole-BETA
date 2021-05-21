@@ -41,22 +41,22 @@
                                 <span class="invalid-feedback"> <?php echo $data['studentgender_error']; ?> </span>
                             </div>
 
-                            <div class="form-group">
+            <div class="form-group">
 
-                                <label for="class"> Classe: <sup>*</sup></label>
-                                <input type="text" name="studentclass" class="form-control form-control-lg
-                        <?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentclass']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
-                            </div>
+                <label for="class"> Classe: <sup>*</sup></label>
+                <input type="text" name="studentclass" class="form-control form-control-lg
+        <?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentclass']; ?>">
+                <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
+            </div>
 
 
-                            <div class="form-group">
+        <div class="form-group">
 
-                                <label for="parents"> Parent de l'apprenant: <sup>*</sup></label>
-                                <input type="text" name="parents" class="form-control form-control-lg
-                        <?php echo (!empty($data['parents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['parents']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['parents_error']; ?> </span>
-                            </div>
+            <label for="studentsparents"> Parent de l'apprenant: <sup>*</sup></label>
+            <input type="text" name="studentsparents" class="form-control form-control-lg
+    <?php echo (!empty($data['studentsparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentsparents']; ?>">
+            <span class="invalid-feedback"> <?php echo $data['studentsparents_error']; ?> </span>
+        </div>
 
                             <div class="form-group">
 
@@ -126,13 +126,13 @@
                 <div class="collapse navbar-collapse p-5" id="nav">
                     <ul class="navbar-nav flex-column w-100 justify-content-center pt-5">
                         <li class="nav-item">
-                            <h4> <a href="<?php echo URLROOT; ?>/dashboards/teachers/teachers" class="nav-link ">Teachers</a> </h4>
+                            <h4> <a href="<?php echo URLROOT; ?>/dashboards/teachers" class="nav-link ">Teachers</a> </h4>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/students/students" class="nav-link active ">Students</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/students" class="nav-link active ">Students</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/parents/theparents" class="nav-link ">Parents</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/theparents" class="nav-link ">Parents</a> </h5>
                         </li>
                         <li class="nav-item">
                             <h5> <a href="<?php echo URLROOT; ?>/dashboards/stats" class="nav-link ">Stats</a> </h5>
@@ -217,7 +217,7 @@
                                     </td>
                                     <td><?php echo $student->studentgender; ?></td>
                                     <td><?php echo $student->studentclass; ?></td>
-                                    <td> <?php echo $student->parents; ?></td>
+                                    <td> <?php echo $student->studentsparents; ?></td>
                                     <td> <?php echo $student->studentadress; ?></td>
                                     <td> <?php echo $student->studentbirth; ?></td>
                                     <td> <?php echo $student->studentemail; ?></td>
@@ -277,9 +277,9 @@
 
 
                                                                     <div class="form-group">
-                                                                        <label for="parents"> Parent de l'apprenant: <sup>*</sup></label>
-                                                                        <input type="text" name="parents" class="form-control form-control-lg
-    <?php echo (!empty($data['parents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->parents; ?> "> <span class="invalid-feedback"> <?php echo $data['parents_error']; ?> </span>
+                                                                        <label for="par"> Parent de l'apprenant: <sup>*</sup></label>
+                                                                        <input type="text" name="studentsparents" class="form-control form-control-lg
+    <?php echo (!empty($data['studentsparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentsparents'][$count]->studentsparents; ?> "> <span class="invalid-feedback"> <?php echo $data['studentsparents_error']; ?> </span>
                                                                     </div>
 
 

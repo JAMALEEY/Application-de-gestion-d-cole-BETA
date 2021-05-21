@@ -123,13 +123,13 @@
                 <div class="collapse navbar-collapse p-5" id="nav">
                     <ul class="navbar-nav flex-column w-100 justify-content-center pt-5">
                         <li class="nav-item">
-                            <h4> <a href="<?php echo URLROOT; ?>/dashboards/teachers/teachers" class="nav-link active">Teachers</a> </h4>
+                            <h4> <a href="<?php echo URLROOT; ?>/dashboards/teachers" class="nav-link active">Teachers</a> </h4>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/students/students" class="nav-link ">Students</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/students" class="nav-link ">Students</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/parents/theparents" class="nav-link ">Parents</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/theparents" class="nav-link ">Parents</a> </h5>
                         </li>
                         <li class="nav-item">
                             <h5> <a href="<?php echo URLROOT; ?>/dashboards/stats" class="nav-link ">Stats</a> </h5>
