@@ -11,14 +11,12 @@ class Theparent
 
     public function getTheParent()
     {
-        $this->db->query('SELECT `id`, `theparentname`, `theparentgender`, `theparentclass`, `theparents`, `theparentadress`, `theparentbirth`, `theparentemail` FROM `theparents`');
-        $this->db->bind(':theparentname', 'theparentname');
-        $this->db->bind(':theparentgender', 'theparentgender');
-        $this->db->bind(':theparentclass', 'theparentclass');
-        $this->db->bind(':theparents', 'theparents');
-        $this->db->bind(':theparentadress', 'theparentadress');
-        $this->db->bind(':theparentbirth', 'theparentbirth');
-        $this->db->bind(':theparentemail', 'theparentemail');
+        $this->db->query('SELECT `id`, `parentname`, `parentgender`, `parentjob`, `parentadress`, `parentphone` FROM `theparents`');
+        $this->db->bind(':parentname', 'theparentname');
+        $this->db->bind(':parentgender', 'theparentgender');
+        $this->db->bind(':parentjob', 'theparentclass');
+        $this->db->bind(':parentadress', 'theparents');
+        $this->db->bind(':parentphone', 'theparentadress');
         $results = $this->db->resultSet();
         return $results;
     }
@@ -36,15 +34,13 @@ class Theparent
     public function creattheparent($data)
     {
         // prepare query
-        $this->db->query('INSERT INTO theparents (theparentname, theparentgender, theparentclass, theparents, theparentadress, theparentbirth, theparentemail) VALUES(:theparentname, :theparentgender, :theparentclass, :theparents, :theparentadress, :theparentbirth, :theparentemail)');
+        $this->db->query('INSERT INTO theparents (parentname, parentgender, parentjob, parentadress, parentphone) VALUES(:parentname, :parentgender, :parentjob, :parentadress, :parentphone)');
         // we bind values
-        $this->db->bind(':theparentname', $data['theparentname']);
-        $this->db->bind(':theparentgender', $data['theparentgender']);
-        $this->db->bind(':theparentclass', $data['theparentclass']);
-        $this->db->bind(':theparents', $data['theparents']);
-        $this->db->bind(':theparentadress', $data['theparentadress']);
-        $this->db->bind(':theparentbirth', $data['theparentbirth']);
-        $this->db->bind(':theparentemail', $data['theparentemail']);
+        $this->db->bind(':parentname', $data['theparentname']);
+        $this->db->bind(':parentgender', $data['theparentgender']);
+        $this->db->bind(':parentjob', $data['theparentjob']);
+        $this->db->bind(':parentadress', $data['theparentadress']);
+        $this->db->bind(':parentphone', $data['theparentphone']);
 
         // the execution
         if ($this->db->execute()) {
@@ -57,7 +53,7 @@ class Theparent
 
     public function updatetheparent($data)
     {
-        $this->db->query('UPDATE theparents SET theparentname = :theparentname, theparentgender = :theparentgender, theparentclass = :theparentclass, theparents = :theparents, theparentadress = :theparentadress, theparentbirth = :theparentbirth, theparentemail = :theparentemail WHERE id = :id');
+        $this->db->query('UPDATE theparents SET parentname = :theparentname, parentgender = :theparentgender, parentjob = :theparentjob, parentadress = :theparentadress, parentphone = :theparentadress WHERE id = :id');
         // we bind values
         $this->db->bind(':id', $data['id']);
         $this->db->bind(':theparentname', $data['theparentname']);

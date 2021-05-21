@@ -257,57 +257,51 @@ class Dashboards extends Controller
             $data = [
                 'theparentname' => trim($_POST['theparentname']),
                 'theparentgender' => trim($_POST['theparentgender']),
-                'theparentclass' => trim($_POST['theparentclass']),
-                'theparents' => trim($_POST['theparents']),
+                'theparentjob' => trim($_POST['theparentjob']),
                 'theparentadress' => trim($_POST['theparentadress']),
-                'theparentbirth' => trim($_POST['theparentbirth']),
-                'theparentemail' => trim($_POST['theparentemail']),
+                'theparentphone' => trim($_POST['theparentphone']),
                 'theparentname_error' => '',
                 'theparentgender_error' => '',
-                'theparentclass_error' => '',
-                'theparents_error' => '',
-                'theparentadress_error' => '',
-                'theparentbirth_error' => '',
-                'theparentemail_error' => ''
+                'theparentjob_error' => '',
+                'theparentphone_error' => '',
+                'theparentadress_error' => ''
             ];
             if (empty($data['theparentname'])) {
-                $data['theparentname_error'] = 'Please enter theparent Name';
+                $data['theparentname_error'] = 'Please enter the parent Name';
             }
             if (empty($data['theparentgender'])) {
-                $data['theparentgender_error'] = 'Please enter theparent Name';
+                $data['theparentgender_error'] = 'Please enter parent gender';
             }
-            if (empty($data['theparentclass'])) {
-                $data['theparentclasse_error'] = 'Entrez la classe du theparent';
+            if (empty($data['theparentjob'])) {
+                $data['theparentjob_error'] = 'Entrez le job du parent';
             }
-            if (empty($data['theparentmatiere'])) {
-                $data['theparentmatiere_error'] = 'Entrez la matiere du theparent';
+            if (empty($data['theparentadress'])) {
+                $data['theparentadress_error'] = 'Entrez l\'adresse du parent';
             }
-            if (empty($data['theparentemail'])) {
-                $data['theparentemail_error'] = 'Entrez l\'email du theparent';
+            if (empty($data['theparentphone'])) {
+                $data['theparentphone_error'] = 'Entrez le telephone du parent';
             }
             // make sure theres no errors
-            if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
+            if (empty($data['theparentname_error']) && empty($data['theparentgender_error']) && empty($data['theparentjob_error']) && empty($data['theparentadress_error']) && empty($data['theparentphone_error'])) {
                 // validated stuff
                 if ($this->theparentModel->creattheparent($data)) {
-                    header('location: theparents.php');
+                    $this->view('dashboards/parents/theparents', $data);
                 } else {
                     die('ERROR');
                 }
             } else {
-                $this->view('dashboards/theparents/theparents', $data);
+                $this->view('dashboards/parents/theparents', $data);
             }
         } else {
             // we initialize data then
             $data = [
                 'theparentname' => '',
                 'theparentgender' => '',
-                'theparentclass' => '',
-                'theparents' => '',
+                'theparentjob' => '',
                 'theparentadress' => '',
-                'theparentbirth' => '',
-                'theparentemail' => ''
+                'theparentphone' => ''
             ];
-            $this->view('dashboards/theparents/theparents', $data);
+            $this->view('dashboards/parents/theparents', $data);
         }
     }
 
