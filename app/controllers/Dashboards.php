@@ -240,6 +240,216 @@ class Dashboards extends Controller
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    // lets start the parents stuff 
+
+    //  CREAT parent CONTROLLER
+
+    public function creatparent()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $parents =  $this->parentModel->getparent();
+            $parentname =  $this->parentModel->getparent();
+            // sanitize
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'parentname' => trim($_POST['parentname']),
+                'parentgender' => trim($_POST['parentgender']),
+                'parentclass' => trim($_POST['parentclass']),
+                'parents' => trim($_POST['parents']),
+                'parentadress' => trim($_POST['parentadress']),
+                'parentbirth' => trim($_POST['parentbirth']),
+                'parentemail' => trim($_POST['parentemail']),
+                'parentname_error' => '',
+                'parentgender_error' => '',
+                'parentclass_error' => '',
+                'parents_error' => '',
+                'parentadress_error' => '',
+                'parentbirth_error' => '',
+                'parentemail_error' => ''
+            ];
+            if (empty($data['parentname'])) {
+                $data['parentname_error'] = 'Please enter parent Name';
+            }
+            if (empty($data['parentgender'])) {
+                $data['parentgender_error'] = 'Please enter parent Name';
+            }
+            if (empty($data['parentclass'])) {
+                $data['parentclasse_error'] = 'Entrez la classe du parent';
+            }
+            if (empty($data['parentmatiere'])) {
+                $data['parentmatiere_error'] = 'Entrez la matiere du parent';
+            }
+            if (empty($data['parentemail'])) {
+                $data['parentemail_error'] = 'Entrez l\'email du parent';
+            }
+            // make sure theres no errors
+            if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
+                // validated stuff
+                if ($this->parentModel->creatparent($data)) {
+                    header('location: parents.php');
+                } else {
+                    die('ERROR');
+                }
+            } else {
+                $this->view('dashboards/parents/parents', $data);
+            }
+        } else {
+            // we initialize data then
+            $data = [
+                'parentname' => '',
+                'parentgender' => '',
+                'parentclass' => '',
+                'parents' => '',
+                'parentadress' => '',
+                'parentbirth' => '',
+                'parentemail' => ''
+            ];
+            $this->view('dashboards/parents/parents', $data);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function updateparent($id)
+    {
+        $parent = $this->parentModel->getparentById($id);
+        $data = [
+            'UPDATE' => $parent
+        ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // sanitize
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = [
+                'id' => $id,
+                'parentsname' => trim($_POST['parentsname']),
+                'parentsgender' => trim($_POST['parentsgender']),
+                'parentsclass' => trim($_POST['parentsclass']),
+                'parents' => trim($_POST['parents']),
+                'parentadress' => trim($_POST['parentadress']),
+                'parentbirth' => trim($_POST['parentbirth']),
+                'parentemail' => trim($_POST['parentemail']),
+                'parentsname_error' => '',
+                'parentsgender_error' => '',
+                'parentsclass_error' => '',
+                'parents_error' => '',
+                'parentadress_error' => '',
+                'parentbirth_error' => '',
+                'parentemail_error' => ''
+            ];
+            if (empty($data['parentsname'])) {
+                $data['parentsname_error'] = 'Please enter parent Name';
+            }
+            if (empty($data['parentsgender'])) {
+                $data['parentsgender_error'] = 'Please enter parent gender';
+            }
+            if (empty($data['parentsclass'])) {
+                $data['parentsclass_error'] = 'Entrez la classe de l\'etudiant';
+            }
+            if (empty($data['parents'])) {
+                $data['parents_error'] = 'Entrez la matiere du professeur';
+            }
+            if (empty($data['parentadress'])) {
+                $data['parentadress_error'] = 'Entrez l\'adresse de l\'etudiant';
+            }
+            if (empty($data['parentbirth'])) {
+                $data['parentbirth_error'] = 'Entrez la date de naissance de l\'etudiant';
+            }
+            if (empty($data['parentemail'])) {
+                $data['parentemail_error'] = 'Entrez l\'E-mail de l\'etudiant';
+            }
+            // make sure theres no errors
+            if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
+                // validated stuff
+                if ($this->parentModel->updateparent($data)) {
+                    header('location: ../parents.php');
+                } else {
+                    die('ERROR');
+                }
+            } else {
+
+
+                $this->view('dashboards/parents/parents', $data);
+            }
+        } else {
+            // get existing contact from model
+            $parent = $this->parentsModel->getparentById($id);
+            $data = [
+                'parent' => $parent
+            ];
+
+            // check for owner
+            // if ($teacher->admin_id != $_SESSION['admin_id']) {
+
+            //     redirect('teacher');
+            // }
+
+            $data = [
+                'id' => $id,
+                'parentname' => $parent->parentname,
+                'parentgender' => $parent->parentgender,
+                'parentclass' =>  $parent->parentclass,
+                'parents' =>  $parent->parents,
+                'parentadress' =>  $parent->parentadress,
+                'parentbirth' =>  $parent->parentbirth,
+                'parentemail' =>  $parent->parentemail
+            ];
+
+            $this->view('dashboards/parents/parents', $data);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function search()
     {
 
