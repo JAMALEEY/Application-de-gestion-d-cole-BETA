@@ -132,7 +132,7 @@
                             <h5> <a href="<?php echo URLROOT; ?>/dashboards/students/students" class="nav-link active ">Students</a> </h5>
                         </li>
                         <li class="nav-item">
-                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/parents/parents" class="nav-link ">Parents</a> </h5>
+                            <h5> <a href="<?php echo URLROOT; ?>/dashboards/parents/theparents" class="nav-link ">Parents</a> </h5>
                         </li>
                         <li class="nav-item">
                             <h5> <a href="<?php echo URLROOT; ?>/dashboards/stats" class="nav-link ">Stats</a> </h5>

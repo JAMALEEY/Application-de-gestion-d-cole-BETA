@@ -75,7 +75,7 @@ class Student
     }
 
 
-    public function deletStudent($data)
+    public function deleteStudent($data)
     {
         $this->db->query('DELETE FROM `students` WHERE id = :id');
         // bind values
