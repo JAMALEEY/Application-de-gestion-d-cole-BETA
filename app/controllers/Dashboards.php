@@ -9,7 +9,7 @@ class Dashboards extends Controller
         $this->adminModel = $this->model('Admin');
         $this->teacherModel = $this->Model('Teacher');
         $this->studentModel = $this->Model('Student');
-        $this->theparentModel = $this->Model('theparent');
+        $this->theparentModel = $this->Model('Theparent');
     }
 
 
@@ -230,7 +230,7 @@ class Dashboards extends Controller
 
 
 
-    public function theparents()
+    public function Theparents()
     {
         $theparents =  $this->theparentModel->gettheparent();
         $data = [
@@ -245,7 +245,7 @@ class Dashboards extends Controller
     }
 
 
-    public function creattheparent()
+    public function Creattheparent()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

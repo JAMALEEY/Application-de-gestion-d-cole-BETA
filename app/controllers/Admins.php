@@ -8,6 +8,8 @@ class Admins extends Controller
     {
         $this->adminModel = $this->model('Admin');
         $this->teacherModel = $this->Model('Teacher');
+        $this->studentModel = $this->Model('Student');
+        $this->theparentModel = $this->Model('Theparent');
     }
 
 
@@ -109,4 +111,16 @@ class Admins extends Controller
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+    
     }
