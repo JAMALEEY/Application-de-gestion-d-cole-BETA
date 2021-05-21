@@ -9,7 +9,7 @@ class Theparent
         $this->db = new Database;
     }
 
-    public function gettheparent()
+    public function getTheParent()
     {
         $this->db->query('SELECT `id`, `theparentname`, `theparentgender`, `theparentclass`, `theparents`, `theparentadress`, `theparentbirth`, `theparentemail` FROM `theparents`');
         $this->db->bind(':theparentname', 'theparentname');
@@ -25,7 +25,7 @@ class Theparent
 
     //  the teachers insert query
 
-    public function gettheparentById($id)
+    public function getTheParentById($id)
     {
         $this->db->query('SELECT * FROM theparents WHERE id = :id');
         $this->db->bind(':id', $id);

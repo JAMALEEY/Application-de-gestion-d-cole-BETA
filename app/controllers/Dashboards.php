@@ -241,7 +241,7 @@ class Dashboards extends Controller
             'theparentadress' => '',
             'theparentphone' => ''
         ];
-        $this->view('dashboards/theparents/theparents', $data);
+        $this->view('dashboards/parents/theparents', $data);
     }
 
 
