@@ -76,7 +76,7 @@ class Teacher
     {
         $this->db->query('DELETE FROM `teachers` WHERE id = :id');
         // bind values
-        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':id', $data);
         // execute
         if ($this->db->execute()) {
             return true;
@@ -93,10 +93,12 @@ class Teacher
     {
 
         if (isset($_POST['find'])) {
+
             $key = $_POST['search'];
             $this->db->query("SELECT * FROM teachers WHERE teachername LIKE '$key' ");
             $searchresult = $this -> db -> resultSet();
             return $searchresult;
+
             } else {
                 die('Not Found');
             }

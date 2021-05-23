@@ -463,6 +463,13 @@ class Dashboards extends Controller
             //         extract($row);
             //         $this->view('dashboards/search', $data);
                     }
+                    else {
+                        $data = [
+                            "Search not found"
+                        ];
+                $this->view('dashboards/search', $data);
+
+                    }
                 }
             }
         
@@ -658,8 +665,12 @@ class Dashboards extends Controller
 
     public function deleteTeacher($id)
     {
-
+        $teacher = $this->teacherModel->getTeacherById($id);
+        $data = [
+            'teacher' => $teacher
+        ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
             // Get existing teacher from model
             // $teacher = $this->teacherModel->getTeacherById($id);
             // Check for owner *optional i decide to laisser pour apres*
@@ -673,7 +684,7 @@ class Dashboards extends Controller
                 die('Something went wrong');
             }
         } else {
-            header('teachers.php');
+            $this->view('dashboards/teachers/teachers', $data);
         }
     }
 }
