@@ -97,9 +97,16 @@
                 <div class="text-center p-1">
 
 
-                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-2  pt-5" method="POST">
-                        <input class="form-control py-1 px-3 bg-dark border-0 text-light h-50 " type="text" placeholder="Search" name="search" aria-label="Search">
+                    <!-- search -->
+                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-2 pt-5 d-flex" method="POST">
+                        <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50 rounded-pill" type="text" placeholder="Search ..." name="search">
+                        <button name="find" type="submit" class="bg-dark border-0 text-secondary h-30 rounded-pill" style="position: absolute; right: 22%; bottom:85%; ">
+                            <i class="fa fa-search"></i>
+                        </button>
+
                     </form>
+
+                    
 
                 </div>
                 <button type="button" class="navbar-toggler border-0 order-1" data-toggle="collapse" data-targer="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -130,7 +137,7 @@
                         <li>
 
                             <a href="<?php echo URLROOT . '/admins/logout'; ?>" class="text-secondary" style=" text-decoration:none ">Logout
-                                <img src="../../img/logout.png" alt="">
+                                <img src="../img/logout.png" alt="">
                             </a>
 
                         </li>
@@ -243,64 +250,64 @@
 
 
 
-        <div class="form-group">
+                                                                    <div class="form-group">
 
-            <label for="gender"> Genre: <sup>*</sup></label> <input type="text" name="theparentgender" class="form-control form-control-lg<?php echo (!empty($data['theparentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentgender; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentgender_error']; ?> </span>
-        </div>
-
-
-            <div class="form-group">
-
-                <label for="class"> Job: <sup>*</sup></label> <input type="text" name="theparentjob" class="form-control form-control-lg<?php echo (!empty($data['theparentjob_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentjob; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentjob_error']; ?> </span>
-            </div>
+                                                                        <label for="gender"> Genre: <sup>*</sup></label> <input type="text" name="theparentgender" class="form-control form-control-lg<?php echo (!empty($data['theparentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentgender; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentgender_error']; ?> </span>
+                                                                    </div>
 
 
+                                                                    <div class="form-group">
 
-    <div class="form-group">
-        <label for="phone"> Téléphone du parent: <sup>*</sup></label>
-        <input type="text" name="theparentphone" class="form-control form-control-lg
+                                                                        <label for="class"> Job: <sup>*</sup></label> <input type="text" name="theparentjob" class="form-control form-control-lg<?php echo (!empty($data['theparentjob_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentjob; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentjob_error']; ?> </span>
+                                                                    </div>
+
+
+
+                                                                    <div class="form-group">
+                                                                        <label for="phone"> Téléphone du parent: <sup>*</sup></label>
+                                                                        <input type="text" name="theparentphone" class="form-control form-control-lg
 <?php echo (!empty($data['parents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentphone; ?> "> <span class="invalid-feedback"> <?php echo $data['parents_error']; ?> </span>
-    </div>
+                                                                    </div>
 
 
 
-    <div class="form-group">
+                                                                    <div class="form-group">
 
-        <label for="adress"> Adresse: <sup>*</sup></label> <input type="text" name="theparentadress" class="form-control form-control-lg<?php echo (!empty($data['theparentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentadress; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentadress_error']; ?> </span>
-    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                            <input type="submit" class="btn btn-dark text-light" value="Update">
-
-
-                            </form>
-                            <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post">
-
-                                <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
-                        </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
+                                                                        <label for="adress"> Adresse: <sup>*</sup></label> <input type="text" name="theparentadress" class="form-control form-control-lg<?php echo (!empty($data['theparentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentadress; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentadress_error']; ?> </span>
+                                                                    </div>
 
 
 
-            <!-- the modal of update inside the manager icon -->
-        </td>
-    </tr>
-</tbody>
-<?php $count++; ?>
-<!-- the end of loop -->
-<?php endforeach; ?>
-</table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
+                                                        <input type="submit" class="btn btn-dark text-light" value="Update">
+
+
+                                                        </form>
+                                                        <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post">
+
+                                                            <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
+                                                    </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <!-- the modal of update inside the manager icon -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <?php $count++; ?>
+                            <!-- the end of loop -->
+                        <?php endforeach; ?>
+                    </table>
 
 
 

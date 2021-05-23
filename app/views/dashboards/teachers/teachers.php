@@ -106,8 +106,8 @@
 
 
                     <!-- search -->
-                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-4 pt-5 d-flex" method="POST">
-                        <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50 rounded-pill" type="text" placeholder="Search..." name="search">
+                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-2 pt-5 d-flex" method="POST">
+                        <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50 rounded-pill" type="text" placeholder="Search ..." name="search">
                         <button name="find" type="submit" class="bg-dark border-0 text-secondary h-30 rounded-pill" style="position: absolute; right: 22%; bottom:85%; ">
                             <i class="fa fa-search"></i>
                         </button>

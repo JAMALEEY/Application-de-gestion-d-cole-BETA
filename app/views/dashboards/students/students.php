@@ -41,22 +41,22 @@
                                 <span class="invalid-feedback"> <?php echo $data['studentgender_error']; ?> </span>
                             </div>
 
-            <div class="form-group">
+                            <div class="form-group">
 
-                <label for="class"> Classe: <sup>*</sup></label>
-                <input type="text" name="studentclass" class="form-control form-control-lg
+                                <label for="class"> Classe: <sup>*</sup></label>
+                                <input type="text" name="studentclass" class="form-control form-control-lg
         <?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentclass']; ?>">
-                <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
-            </div>
+                                <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
+                            </div>
 
 
-        <div class="form-group">
+                            <div class="form-group">
 
-            <label for="par"> Parent de l'apprenant: <sup>*</sup></label>
-            <input type="text" name="stdparents" class="form-control form-control-lg
+                                <label for="par"> Parent de l'apprenant: <sup>*</sup></label>
+                                <input type="text" name="stdparents" class="form-control form-control-lg
     <?php echo (!empty($data['stdparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['stdparents']; ?>">
-            <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span>
-        </div>
+                                <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span>
+                            </div>
 
                             <div class="form-group">
 
@@ -113,8 +113,14 @@
                 <div class="text-center p-1">
 
 
-                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-2  pt-5" method="POST">
-                        <input class="form-control py-1 px-3 bg-dark border-0 text-light h-50 " type="text" placeholder="Search" name="search" aria-label="Search">
+
+                    <!-- search -->
+                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-2 pt-5 d-flex" method="POST">
+                        <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50 rounded-pill" type="text" placeholder="Search ..." name="search">
+                        <button name="find" type="submit" class="bg-dark border-0 text-secondary h-30 rounded-pill" style="position: absolute; right: 22%; bottom:85%; ">
+                            <i class="fa fa-search"></i>
+                        </button>
+
                     </form>
 
                 </div>
@@ -146,7 +152,7 @@
                         <li>
 
                             <a href="<?php echo URLROOT . '/admins/logout'; ?>" class="text-secondary" style=" text-decoration:none ">Logout
-                                <img src="../../img/logout.png" alt="">
+                                <img src="../img/logout.png" alt="">
                             </a>
 
                         </li>
@@ -212,7 +218,9 @@
                                     <td>
                                         <p><?php echo $student->id; ?></p>
                                     </td>
-                                    <td> <p><?php echo $student->studentname; ?></p> </td>
+                                    <td>
+                                        <p><?php echo $student->studentname; ?></p>
+                                    </td>
                                     <td><?php echo $student->studentgender; ?></td>
                                     <td><?php echo $student->studentclass; ?></td>
                                     <td> <?php echo $student->stdparents; ?></td>
@@ -267,26 +275,27 @@
                                                                     </div>
 
 
-<div class="form-group">
+                                                                    <div class="form-group">
 
-    <label for="class"> Classe: <sup>*</sup></label> <input type="text" name="studentclass" class="form-control form-control-lg<?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentclass; ?>"> <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
-</div>
-
-
-
-        <div class="form-group">
-<label for="par"> Parent de l'apprenant: <sup>*</sup></label><input type="text" name="stdparents"class="form-control form-control-lg<?php echo (!empty($data['stdparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['stdparents'][$count]->stdparents; ?> "> <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span></div>
-
-    
+                                                                        <label for="class"> Classe: <sup>*</sup></label> <input type="text" name="studentclass" class="form-control form-control-lg<?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentclass; ?>"> <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
+                                                                    </div>
 
 
 
-    <div class="form-group">
+                                                                    <div class="form-group">
+                                                                        <label for="par"> Parent de l'apprenant: <sup>*</sup></label><input type="text" name="stdparents" class="form-control form-control-lg<?php echo (!empty($data['stdparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['stdparents'][$count]->stdparents; ?> "> <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span>
+                                                                    </div>
 
-        <label for="adress"> Adresse: <sup>*</sup></label> 
-        <input type="text" name="studentadress" class="form-control form-control-lg
+
+
+
+
+                                                                    <div class="form-group">
+
+                                                                        <label for="adress"> Adresse: <sup>*</sup></label>
+                                                                        <input type="text" name="studentadress" class="form-control form-control-lg
         <?php echo (!empty($data['studentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentadress; ?>"> <span class="invalid-feedback"> <?php echo $data['studentadress_error']; ?> </span>
-    </div>
+                                                                    </div>
 
 
                                                                     <div class="form-group">
