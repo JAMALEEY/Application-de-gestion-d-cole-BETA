@@ -52,10 +52,10 @@
 
         <div class="form-group">
 
-            <label for="studentsparents"> Parent de l'apprenant: <sup>*</sup></label>
-            <input type="text" name="studentsparents" class="form-control form-control-lg
-    <?php echo (!empty($data['studentsparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentsparents']; ?>">
-            <span class="invalid-feedback"> <?php echo $data['studentsparents_error']; ?> </span>
+            <label for="par"> Parent de l'apprenant: <sup>*</sup></label>
+            <input type="text" name="stdparents" class="form-control form-control-lg
+    <?php echo (!empty($data['stdparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['stdparents']; ?>">
+            <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span>
         </div>
 
                             <div class="form-group">
@@ -212,12 +212,10 @@
                                     <td>
                                         <p><?php echo $student->id; ?></p>
                                     </td>
-                                    <td>
-                                        <p><?php echo $student->studentname; ?></p>
-                                    </td>
+                                    <td> <p><?php echo $student->studentname; ?></p> </td>
                                     <td><?php echo $student->studentgender; ?></td>
                                     <td><?php echo $student->studentclass; ?></td>
-                                    <td> <?php echo $student->studentsparents; ?></td>
+                                    <td> <?php echo $student->stdparents; ?></td>
                                     <td> <?php echo $student->studentadress; ?></td>
                                     <td> <?php echo $student->studentbirth; ?></td>
                                     <td> <?php echo $student->studentemail; ?></td>
@@ -269,25 +267,26 @@
                                                                     </div>
 
 
-                                                                    <div class="form-group">
+<div class="form-group">
 
-                                                                        <label for="class"> Classe: <sup>*</sup></label> <input type="text" name="studentclass" class="form-control form-control-lg<?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentclass; ?>"> <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
-                                                                    </div>
-
-
-
-                                                                    <div class="form-group">
-                                                                        <label for="par"> Parent de l'apprenant: <sup>*</sup></label>
-                                                                        <input type="text" name="studentsparents" class="form-control form-control-lg
-    <?php echo (!empty($data['studentsparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentsparents'][$count]->studentsparents; ?> "> <span class="invalid-feedback"> <?php echo $data['studentsparents_error']; ?> </span>
-                                                                    </div>
+    <label for="class"> Classe: <sup>*</sup></label> <input type="text" name="studentclass" class="form-control form-control-lg<?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentclass; ?>"> <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
+</div>
 
 
 
-                                                                    <div class="form-group">
+        <div class="form-group">
+<label for="par"> Parent de l'apprenant: <sup>*</sup></label><input type="text" name="stdparents"class="form-control form-control-lg<?php echo (!empty($data['stdparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['stdparents'][$count]->stdparents; ?> "> <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span></div>
 
-                                                                        <label for="adress"> Adresse: <sup>*</sup></label> <input type="text" name="studentadress" class="form-control form-control-lg<?php echo (!empty($data['studentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentadress; ?>"> <span class="invalid-feedback"> <?php echo $data['studentadress_error']; ?> </span>
-                                                                    </div>
+    
+
+
+
+    <div class="form-group">
+
+        <label for="adress"> Adresse: <sup>*</sup></label> 
+        <input type="text" name="studentadress" class="form-control form-control-lg
+        <?php echo (!empty($data['studentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentadress; ?>"> <span class="invalid-feedback"> <?php echo $data['studentadress_error']; ?> </span>
+    </div>
 
 
                                                                     <div class="form-group">

@@ -89,17 +89,18 @@ class Teacher
 
 
 
-    public function search($result)
+    public function search()
     {
 
         if (isset($_POST['find'])) {
             $key = $_POST['search'];
-            $this->db->query("SELECT * FROM teachers WHERE teachername LIKE '%%$key%%' ");
-            if ($this->db->execute()) {
-                return true;
+            $this->db->query("SELECT * FROM teachers WHERE teachername LIKE '$key' ");
+            $searchresult = $this -> db -> resultSet();
+            return $searchresult;
             } else {
-                return false;
+                die('Not Found');
             }
+            
             
             // $stmt = $this->mysqli->prepare($query);
             // $stmt->bind_param("s", "%$key%");       // insert your variable into the placeholder (still need to add % wildcards)
@@ -108,4 +109,3 @@ class Teacher
         }
 
 } 
-}

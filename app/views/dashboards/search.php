@@ -59,6 +59,7 @@
                     </ul>
                 </div>
 
+
             </nav>
         </aside>
         <!-- finish side bar -->
@@ -67,7 +68,11 @@
 
 
         <div class="container col-10 pt-5">
-
+            <div class="">
+                <?php
+                var_dump($data);
+                ?>
+            </div>
         </div>
 
 

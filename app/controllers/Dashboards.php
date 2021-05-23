@@ -22,7 +22,7 @@ class Dashboards extends Controller
             'studentname' => '',
             'studentgender' => '',
             'studentclass' => '',
-            'studentsparents' => '',
+            'stdparents' => '',
             'studentadress' => '',
             'studentbirth' => '',
             'studentemail' => ''
@@ -49,14 +49,14 @@ class Dashboards extends Controller
                 'studentname' => trim($_POST['studentname']),
                 'studentgender' => trim($_POST['studentgender']),
                 'studentclass' => trim($_POST['studentclass']),
-                'studentsparents' => trim($_POST['studentsparents']),
+                'stdparents' => trim($_POST['stdparents']),
                 'studentadress' => trim($_POST['studentadress']),
                 'studentbirth' => trim($_POST['studentbirth']),
                 'studentemail' => trim($_POST['studentemail']),
                 'studentname_error' => '',
                 'studentgender_error' => '',
                 'studentclass_error' => '',
-                'studentsparents_error' => '',
+                'stdparents_error' => '',
                 'studentadress_error' => '',
                 'studentbirth_error' => '',
                 'studentemail_error' => ''
@@ -450,20 +450,24 @@ class Dashboards extends Controller
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $stmt = $this->db->prepare();
-            $stmt->execute();
-            if ($stmt->rowCount() > 0) {
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    extract($row);
-                    echo $teachername;
+            if( $data = $this -> teacherModel -> search())
+
+            {
+
+
+                $this->view('dashboards/search', $data);
+    
+            
+            // if ($stmt->rowCount() > 0) {
+            //     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            //         extract($row);
+            //         $this->view('dashboards/search', $data);
+                    }
                 }
             }
-        }
+        
 
 
-
-        $this->view('dashboards/search');
-    }
 
 
 

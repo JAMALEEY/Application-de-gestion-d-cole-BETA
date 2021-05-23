@@ -106,7 +106,7 @@
 
 
                     <!-- search -->
-                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-4 pt-5 d-flex">
+                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-4 pt-5 d-flex" method="POST"> 
                         <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50" type="text" placeholder="Search" name="search">
                         <button name="find" type="submit" class="bg-dark border-0 text-light">
                             <i class="fa fa-search"></i>
@@ -236,22 +236,26 @@
 </div>
 <div class="modal-body">
     <div class="row">
+
+
         <div class="col-md-10 mx-auto">
+
+
             <h2>Update your teacher's informations below</h2>
             <p>Please fill the informations below in order to update the teacher's informations.</p>
             <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-            <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/5 ?>" method="post">
+            <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/<?php echo $data['teachers'][$count]->id;?>" method="post">
 
 
 
 
 
 
-                <div class="form-group">
-                                                                        <label for="teachername"> Nom complet: <sup>*</sup></label>
-                                                                        <input type="text" name="teachername" class="form-control form-control-lg
+<div class="form-group">
+    <label for="teachername"> Nom complet: <sup>*</sup></label>
+    <input type="text" name="teachername" class="form-control form-control-lg
     <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachername; ?> ">
-                                                                        <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
+    <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
 </div>
 
 
@@ -262,7 +266,8 @@
 
 
 <label for="gender"> Genre: <sup>*</sup></label>
-    <input type="text" name="teachergender" class="form-control form-control-lg <?php echo (!empty($data['teachergender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachergender; ?>">                                           <span class="invalid-feedback"> <?php echo $data['teachergender_error']; ?> </span></div>
+    <input type="text" name="teachergender" class="form-control form-control-lg <?php echo (!empty($data['teachergender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachergender; ?>">
+    <span class="invalid-feedback"> <?php echo $data['teachergender_error']; ?> </span></div>
 
 
 <div class="form-group">
@@ -274,21 +279,23 @@
 
 <div class="form-group">
 
+    <label for="matiere"> Matiere: <sup>*</sup></label>
+    <input type="text" name="teachermatiere" class="form-control form-control-lg
+    <?php echo (!empty($data['teachermatiere_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachermatiere; ?>">
+    <span class="invalid-feedback"> <?php echo $data['teachermatiere_error']; ?> </span>
+
+</div>
+
+<div class="form-group">
+
+        <label for="phone"> Phone: <sup>*</sup></label>
+        <input type="text" name="teacherphone" class="form-control form-control-lg
+        <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teacherphone; ?>">
+        <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
+</div>
 
 
-<label for="matiere"> Matiere: <sup>*</sup></label>
-                                                                        <input type="text" name="teachermatiere" class="form-control form-control-lg
-                        <?php echo (!empty($data['teachermatiere_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachermatiere; ?>">
-                                                                        <span class="invalid-feedback"> <?php echo $data['teachermatiere_error']; ?> </span>
-                                                                    </div>
 
-                                                                    <div class="form-group">
-
-                                                                        <label for="phone"> Phone: <sup>*</sup></label>
-                                                                        <input type="text" name="teacherphone" class="form-control form-control-lg
-                        <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teacherphone; ?>">
-                                                                        <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
-                            </div>
                     </div>
                 </div>
             </div>
@@ -298,7 +305,7 @@
 
 
                 </form>
-                <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post">
+                <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]-> id ?>" method="post">
 
                     <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
             </div>
