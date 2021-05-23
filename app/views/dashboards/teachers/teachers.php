@@ -106,9 +106,9 @@
 
 
                     <!-- search -->
-                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-4 pt-5 d-flex" method="POST"> 
-                        <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50" type="text" placeholder="Search" name="search">
-                        <button name="find" type="submit" class="bg-dark border-0 text-light">
+                    <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-4 pt-5 d-flex" method="POST">
+                        <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50 rounded-pill" type="text" placeholder="Search..." name="search">
+                        <button name="find" type="submit" class="bg-dark border-0 text-secondary h-30 rounded-pill" style="position: absolute; right: 22%; bottom:85%; ">
                             <i class="fa fa-search"></i>
                         </button>
 
@@ -143,7 +143,7 @@
                         <li>
 
                             <a href="<?php echo URLROOT . '/admins/logout'; ?>" class="text-secondary" style=" text-decoration:none ">Logout
-                                <img src="../../img/logout.png" alt="">
+                                <img src="../img/logout.png" alt="">
                             </a>
 
                         </li>
@@ -224,99 +224,101 @@
                                             <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
                                         </button>
 
-    <!-- teachers Modal updatedelete -->
-    <div class="modal fade" id="updateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="updateModal<?php echo $count; ?>Label" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update Teacher</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-</div>
-<div class="modal-body">
-    <div class="row">
+                                        <!-- teachers Modal updatedelete -->
+                                        <div class="modal fade" id="updateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="updateModal<?php echo $count; ?>Label" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update Teacher</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
 
 
-        <div class="col-md-10 mx-auto">
+                                                            <div class="col-md-10 mx-auto">
 
 
-            <h2>Update your teacher's informations below</h2>
-            <p>Please fill the informations below in order to update the teacher's informations.</p>
-            <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-            <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/<?php echo $data['teachers'][$count]->id;?>" method="post">
-
-
-
+                                                                <h2>Update your teacher's informations below</h2>
+                                                                <p>Please fill the informations below in order to update the teacher's informations.</p>
+                                                                <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
+                                                                <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/<?php echo $data['teachers'][$count]->id; ?>" method="post">
 
 
 
-<div class="form-group">
-    <label for="teachername"> Nom complet: <sup>*</sup></label>
-    <input type="text" name="teachername" class="form-control form-control-lg
+
+
+
+                                                                    <div class="form-group">
+                                                                        <label for="teachername"> Nom complet: <sup>*</sup></label>
+                                                                        <input type="text" name="teachername" class="form-control form-control-lg
     <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachername; ?> ">
-    <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
-</div>
+                                                                        <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
+                                                                    </div>
 
 
 
 
 
-<div class="form-group">
+                                                                    <div class="form-group">
 
 
-<label for="gender"> Genre: <sup>*</sup></label>
-    <input type="text" name="teachergender" class="form-control form-control-lg <?php echo (!empty($data['teachergender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachergender; ?>">
-    <span class="invalid-feedback"> <?php echo $data['teachergender_error']; ?> </span></div>
+                                                                        <label for="gender"> Genre: <sup>*</sup></label>
+                                                                        <input type="text" name="teachergender" class="form-control form-control-lg <?php echo (!empty($data['teachergender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachergender; ?>">
+                                                                        <span class="invalid-feedback"> <?php echo $data['teachergender_error']; ?> </span>
+                                                                    </div>
 
 
-<div class="form-group">
+                                                                    <div class="form-group">
 
-<label for="class"> Classe: <sup>*</sup></label> <input type="text" name="teacherclasse" class="form-control form-control-lg<?php echo (!empty($data['teacherclasse_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teacherclasse; ?>">    <span class="invalid-feedback"> <?php echo $data['teacherclasse_error']; ?> </span> </div>
+                                                                        <label for="class"> Classe: <sup>*</sup></label> <input type="text" name="teacherclasse" class="form-control form-control-lg<?php echo (!empty($data['teacherclasse_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teacherclasse; ?>"> <span class="invalid-feedback"> <?php echo $data['teacherclasse_error']; ?> </span>
+                                                                    </div>
 
 
 
 
-<div class="form-group">
+                                                                    <div class="form-group">
 
-    <label for="matiere"> Matiere: <sup>*</sup></label>
-    <input type="text" name="teachermatiere" class="form-control form-control-lg
+                                                                        <label for="matiere"> Matiere: <sup>*</sup></label>
+                                                                        <input type="text" name="teachermatiere" class="form-control form-control-lg
     <?php echo (!empty($data['teachermatiere_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachermatiere; ?>">
-    <span class="invalid-feedback"> <?php echo $data['teachermatiere_error']; ?> </span>
+                                                                        <span class="invalid-feedback"> <?php echo $data['teachermatiere_error']; ?> </span>
 
-</div>
+                                                                    </div>
 
-<div class="form-group">
+                                                                    <div class="form-group">
 
-        <label for="phone"> Phone: <sup>*</sup></label>
-        <input type="text" name="teacherphone" class="form-control form-control-lg
+                                                                        <label for="phone"> Phone: <sup>*</sup></label>
+                                                                        <input type="text" name="teacherphone" class="form-control form-control-lg
         <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teacherphone; ?>">
-        <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
-</div>
+                                                                        <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
+                                                                    </div>
 
 
 
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-dark text-light" value="Update">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
+                                                        <input type="submit" class="btn btn-dark text-light" value="Update">
 
 
-                </form>
-                <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]-> id ?>" method="post">
+                                                        </form>
+                                                        <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post">
 
-                    <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
-            </div>
-            </form>
-            <!-- </div> -->
+                                                            <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
+                                                    </div>
+                                                    </form>
+                                                    <!-- </div> -->
 
-        </div>
-    </div>
-</div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-<!-- the modal of update inside the manager icon -->
+                                        <!-- the modal of update inside the manager icon -->
 
 
                                     </td>
