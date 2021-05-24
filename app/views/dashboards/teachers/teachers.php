@@ -184,8 +184,8 @@
                                 </div>
 
                                 <div class="pl-5">
-                                    <form action="export.php" method="post">
-                                        <button type="submit" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></button>
+                                    <form action="<?php echo URLROOT; ?>/dashboards/excel" method="post">
+                                        <button type="submit" name="export_data" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></button>
                                     </form>
                                 </div>
 

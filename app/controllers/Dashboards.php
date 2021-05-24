@@ -483,27 +483,34 @@ class Dashboards extends Controller
 // excel function
 
 public function excel(){
-        if (isset($_POST['export'])) {
-            session_start();
-            $room = $_SESSION['roomval'];
-            $connect = mysqli_connect("....", ".....", "....", "....");
-            header('Content-Type: text/csv; charset=utf-8');
-            header('Content-Description: File Transfer');
-            header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename=data.csv');
-            header('Expires: 0');
-            header('Cache-Control: must-revalidate');
-            header('Pragma: public');
-            header('Content-Disposition: attachment; filename=data.csv');
-            $output = fopen("php://output", "w");
-            fputcsv($output, array('ID', 'Firstname', 'Lastname', 'Email', 'SID', 'Room'));
-            $query = "SELECT * from room WHERE room = ('$room') ORDER BY id DESC";
-            $result = mysqli_query($connect, $query);
-            while ($row = mysqli_fetch_assoc($result)) {
-                fputcsv($output, $row);
+        if (isset($_POST["export_data"])) {
+            $filename = "teachers_data_export_" . date('Ymd') . ".xls";
+            header("Content-Type: application/vnd.ms-excel");
+            header("Content-Disposition: attachment; filename=\"$filename\"");
+            $show_coloumn = false;
+            $teachers =  $this->teacherModel->getTeacher();
+            if (!empty($teachers)) {
+
+                $data = [
+                    'teachers' => $teachers,
+                    'teachername' => '',
+                    'teachergender' => '',
+                    'teacherclasse' => '',
+                    'teachermatiere' => '',
+                    'teacherphone' => ''
+
+                ];
+                foreach ($data['teachers'] as $teacher) { 
+                    if (!$show_coloumn) {
+                        // display field/column names in first row
+                        echo implode("\t", array_keys($data['teachername'])) . "\n";
+                        $show_coloumn = true;
+                    }
+                    echo implode("\t", array_values($data['teachers'])) . "\n";
+                }
             }
-            fclose($output);
-        }  
+            exit;
+        }
 }
 
 
