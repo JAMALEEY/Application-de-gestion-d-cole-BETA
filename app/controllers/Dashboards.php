@@ -480,6 +480,50 @@ class Dashboards extends Controller
 
 
 
+// excel function
+
+public function excel(){
+        if (isset($_POST['export'])) {
+            session_start();
+            $room = $_SESSION['roomval'];
+            $connect = mysqli_connect("....", ".....", "....", "....");
+            header('Content-Type: text/csv; charset=utf-8');
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=data.csv');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Disposition: attachment; filename=data.csv');
+            $output = fopen("php://output", "w");
+            fputcsv($output, array('ID', 'Firstname', 'Lastname', 'Email', 'SID', 'Room'));
+            $query = "SELECT * from room WHERE room = ('$room') ORDER BY id DESC";
+            $result = mysqli_query($connect, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                fputcsv($output, $row);
+            }
+            fclose($output);
+        }  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function index()
     {

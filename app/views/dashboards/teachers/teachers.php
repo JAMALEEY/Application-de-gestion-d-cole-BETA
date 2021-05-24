@@ -106,7 +106,7 @@
 
 
                     <!-- search -->
-                    
+
                     <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-2 pt-5 d-flex" method="POST">
                         <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50 rounded-pill" type="text" placeholder="Search ..." name="search">
                         <span name="find" class="bg-dark border-0 text-secondary h-30 rounded-pill" style="position: absolute; right: 22%; bottom:85%; ">
@@ -167,19 +167,28 @@
 
 
                         <!-- LES PROPRIETES DU TQBLEAU -->
-                        <div class="row d-flex justify-content-between " style="background-color: black;">
+                        <div class="d-flex justify-content-between" style="background-color: black;">
 
                             <div class="py-1 px-4 text-light">
                                 <h2>Teachers <b>Management</b></h2>
                             </div>
-                            <div class="py-2 px-4">
+
+
+
+                            <div class="d-flex justify-content-end py-2 px-4">
                                 <!-- name add teacher a verifier -->
-                                <button type="button" name="add_teacher" class="btn btn-light" data-toggle="modal" data-target="#teachersModal">
-                                    <i class="fa fa-user-plus"></i> Add
-                                </button>
+                                <div class="">
+                                    <button type="button" name="add_teacher" class="btn btn-light" data-toggle="modal" data-target="#teachersModal">
+                                        <i class="fa fa-user-plus"></i> Add
+                                    </button>
+                                </div>
 
+                                <div class="pl-5">
+                                    <form action="export.php" method="post">
+                                        <button type="submit" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></button>
+                                    </form>
+                                </div>
 
-                                <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>
                             </div>
                         </div>
                     </div>
