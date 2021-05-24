@@ -76,7 +76,7 @@ class Theparent
     {
         $this->db->query('DELETE FROM `theparents` WHERE id = :id');
         // bind values
-        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':id', $data);
         // execute
         if ($this->db->execute()) {
             return true;

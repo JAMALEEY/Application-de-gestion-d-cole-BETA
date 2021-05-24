@@ -79,7 +79,8 @@ class Student
     {
         $this->db->query('DELETE FROM `students` WHERE id = :id');
         // bind values
-        $this->db->bind(':id', $data['id']);
+        // $this->db->bind(':id', $data['id']); we dont use that because of the modal
+        $this->db->bind(':id', $data);
         // execute
         if ($this->db->execute()) {
             return true;

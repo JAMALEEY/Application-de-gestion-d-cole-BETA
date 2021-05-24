@@ -73,19 +73,19 @@
                                             #
                                         </th>
                                         <th>
-                                            Name
+                                            Teacher Name
                                         </th>
                                         <th>
-                                            Gender
+                                           Teacher Gender
                                         </th>
                                         <th>
-                                            Classe
+                                            Teacher Classe
                                         </th>
                                         <th>
-                                            Matière
+                                            Teacher Matière
                                         </th>
                                         <th>
-                                            Phone
+                                            Teacher Phone
                                         </th>
                                     </tr>
                                 </thead>

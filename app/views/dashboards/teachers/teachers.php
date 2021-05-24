@@ -257,15 +257,18 @@
 <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/<?php echo $data['teachers'][$count]->id; ?>" method="post">
 
 
+<!-- form for updating teachers -->
 
 
 
 
 <div class="form-group">
+
 <label for="teachername"> Nom complet: <sup>*</sup></label>
+<!-- php form validation in teacher's update -->
 <input type="text" name="teachername" class="form-control form-control-lg
 <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachers'][$count]->teachername; ?> ">
-<span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
+<span class="invalid-feedback"> <?php echo $data['teachername_error']; ?> </span>
 </div>
 
 
@@ -341,7 +344,7 @@
 </table>
 
 <div class="clearfix">
-<div class="hint-text">Showing <b>5</b> out of <b>5</b> entries</div>
+<div class="hint-text">Showing <b>1</b> out of <b>1</b> entries</div>
 <ul class="pagination">
 <li class="page-item "><a href="#" class="page-link bg-dark text-light">Previous</a></li>
 <li class="page-item active"><a href="#" class="page-link bg-secondary border-dark">1</a></li>

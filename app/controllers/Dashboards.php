@@ -77,10 +77,10 @@ class Dashboards extends Controller
                 $data['studentemail_error'] = 'Entrez l\'email du student';
             }
             // make sure theres no errors
-            if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
+            if (empty($data['studentname_error']) && empty($data['studentgender_error']) && empty($data['studentclass_error']) && empty($data['stdparents_error']) && empty($data['studentadress_error']) && empty($data['studentbirth_error']) && empty($data['studentemail_error']) )  {
                 // validated stuff
                 if ($this->studentModel->creatStudent($data)) {
-                    header('location: students.php');
+                    header('location: students');
                 } else {
                     die('ERROR');
                 }
@@ -127,32 +127,32 @@ class Dashboards extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
                 'id' => $id,
-                'studentsname' => trim($_POST['studentsname']),
-                'studentsgender' => trim($_POST['studentsgender']),
-                'studentsclass' => trim($_POST['studentsclass']),
-                'theparents' => trim($_POST['theparents']),
+                'studentname' => trim($_POST['studentname']),
+                'studentgender' => trim($_POST['studentgender']),
+                'studentclass' => trim($_POST['studentclass']),
+                'stdparents' => trim($_POST['stdparents']),
                 'studentadress' => trim($_POST['studentadress']),
                 'studentbirth' => trim($_POST['studentbirth']),
                 'studentemail' => trim($_POST['studentemail']),
-                'studentsname_error' => '',
-                'studentsgender_error' => '',
-                'studentsclass_error' => '',
-                'theparents_error' => '',
+                'studentname_error' => '',
+                'studentgender_error' => '',
+                'studentclass_error' => '',
+                'stdparent_error' => '',
                 'studentadress_error' => '',
                 'studentbirth_error' => '',
                 'studentemail_error' => ''
             ];
-            if (empty($data['studentsname'])) {
-                $data['studentsname_error'] = 'Please enter student Name';
+            if (empty($data['studentname'])) {
+                $data['studentname_error'] = 'Please enter student Name';
             }
-            if (empty($data['studentsgender'])) {
-                $data['studentsgender_error'] = 'Please enter student gender';
+            if (empty($data['studentgender'])) {
+                $data['studentgender_error'] = 'Please enter student gender';
             }
-            if (empty($data['studentsclass'])) {
-                $data['studentsclass_error'] = 'Entrez la classe de l\'etudiant';
+            if (empty($data['studentclass'])) {
+                $data['studentclass_error'] = 'Entrez la classe de l\'etudiant';
             }
-            if (empty($data['theparents'])) {
-                $data['theparents_error'] = 'Entrez la matiere du professeur';
+            if (empty($data['stdparents'])) {
+                $data['stdparents_error'] = 'Entrez la matiere du professeur';
             }
             if (empty($data['studentadress'])) {
                 $data['studentadress_error'] = 'Entrez l\'adresse de l\'etudiant';
@@ -164,10 +164,10 @@ class Dashboards extends Controller
                 $data['studentemail_error'] = 'Entrez l\'E-mail de l\'etudiant';
             }
             // make sure theres no errors
-            if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
+            if (empty($data['studentgender_error']) && empty($data['studentclass_error']) && empty($data['studentbirth_error']) && empty($data['studentadress_error']) && empty($data['studentbirth_error'])) {
                 // validated stuff
                 if ($this->studentModel->updateStudent($data)) {
-                    header('location: ../students.php');
+                    header('location: ../students');
                 } else {
                     die('ERROR');
                 }
@@ -178,7 +178,7 @@ class Dashboards extends Controller
             }
         } else {
             // get existing contact from model
-            $student = $this->studentsModel->getStudentById($id);
+            $student = $this->studentModel->getStudentById($id);
             $data = [
                 'student' => $student
             ];
@@ -285,7 +285,8 @@ class Dashboards extends Controller
             if (empty($data['theparentname_error']) && empty($data['theparentgender_error']) && empty($data['theparentjob_error']) && empty($data['theparentadress_error']) && empty($data['theparentphone_error'])) {
                 // validated stuff
                 if ($this->theparentModel->creattheparent($data)) {
-                    $this->view('dashboards/parents/theparents', $data);
+                    header('location: theparents');
+
                 } else {
                     die('ERROR');
                 }
@@ -319,9 +320,9 @@ class Dashboards extends Controller
 
 
 
-    public function updatetheparent($id)
+    public function updateTheParent($id)
     {
-        $theparent = $this->theparentModel->gettheparentById($id);
+        $theparent = $this->theparentModel->getTheParentById($id);
         $data = [
             'UPDATE' => $theparent
         ];
@@ -330,13 +331,11 @@ class Dashboards extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
                 'id' => $id,
-                'theparentsname' => trim($_POST['theparentsname']),
-                'theparentsgender' => trim($_POST['theparentsgender']),
-                'theparentsclass' => trim($_POST['theparentsclass']),
-                'theparents' => trim($_POST['theparents']),
+                'theparentname' => trim($_POST['theparentname']),
+                'theparentgender' => trim($_POST['theparentgender']),
+                'theparentjob' => trim($_POST['theparentjob']),
                 'theparentadress' => trim($_POST['theparentadress']),
-                'theparentbirth' => trim($_POST['theparentbirth']),
-                'theparentemail' => trim($_POST['theparentemail']),
+                'theparentphone' => trim($_POST['theparentphone']),
                 'theparentsname_error' => '',
                 'theparentsgender_error' => '',
                 'theparentsclass_error' => '',
@@ -367,9 +366,9 @@ class Dashboards extends Controller
                 $data['theparentemail_error'] = 'Entrez l\'E-mail de l\'etudiant';
             }
             // make sure theres no errors
-            if (empty($data['teachergender_error']) && empty($data['teacherphone_error']) && empty($data['teachermatiere_error']) && empty($data['teachername_error']) && empty($data['teacherclasse_error'])) {
+            if (empty($data['theparentemail_error']) && empty($data['theparentbirth_error']) && empty($data['theparentadress_error']) && empty($data['theparentsclass_error']) && empty($data['theparentsname_error'])) {
                 // validated stuff
-                if ($this->theparentModel->updatetheparent($data)) {
+                if ($this->theparentModel->updateTheparent($data)) {
                     header('location: ../theparents.php');
                 } else {
                     die('ERROR');
@@ -381,7 +380,7 @@ class Dashboards extends Controller
             }
         } else {
             // get existing contact from model
-            $theparent = $this->theparentsModel->gettheparentById($id);
+            $theparent = $this->theparentsModel->getTheParentById($id);
             $data = [
                 'theparent' => $theparent
             ];
@@ -408,19 +407,24 @@ class Dashboards extends Controller
     }
 
 
-    public function deletetheparent($data)
+
+    public function deleteTheParent($id)
     {
-        $this->db->query('DELETE FROM `theparents` WHERE id = :id');
-        // bind values
-        $this->db->bind(':id', $data['id']);
-        // execute
-        if ($this->db->execute()) {
-            return true;
+        $theparent = $this->theparentModel->getTheParentById($id);
+        $data = [
+            'theparent' => $theparent
+        ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            if ($this->theparentModel->deleteTheParent($id)) {
+                header('location: ../theparents');
+            } else {
+                die('Something went wrong');
+            }
         } else {
-            return false;
+            $this->view('dashboards/parents/theparents', $data);
         }
     }
-
 
 
 
@@ -738,4 +742,42 @@ public function excel(){
             $this->view('dashboards/teachers/teachers', $data);
         }
     }
+
+
+
+
+
+
+
+
+
+
+    public function deleteStudent($id)
+    {
+        $student = $this->studentModel->getStudentById($id);
+        $data = [
+            'student' => $student
+        ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            if ($this->studentModel->deleteStudent($id)) {
+                header('location: ../students');
+            } else {
+                die('Something went wrong');
+            }
+        } else {
+            $this->view('dashboards/students/students', $data);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

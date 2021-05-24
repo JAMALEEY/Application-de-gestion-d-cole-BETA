@@ -181,19 +181,24 @@
                             <div class="py-1 px-4 text-light">
                                 <h2>Students <b>Management</b></h2>
                             </div>
-                            <div class="py-2 px-4">
-                                <!-- name add teacher a verifier -->
-                                <button type="button" name="add_student" class="btn btn-light" data-toggle="modal" data-target="#studentsModal">
-                                    <i class="fa fa-user-plus"></i> Add
-                                </button>
 
+                            <div class="d-flex justify-content-end py-2 px-4">
+                                <!-- name add student a verifier -->
+                                <div class="">
+                                    <button type="button" name="add_student" class="btn btn-light" data-toggle="modal" data-target="#studentsModal">
+                                        <i class="fa fa-user-plus"></i> Add
+                                    </button>
+                                </div>
 
+                                <div class="pl-5">
+                                    <form action="<?php echo URLROOT; ?>/dashboards/excel" method="post">
+                                        <button type="submit" name="export_data" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></button>
+                                    </form>
+                                </div>
 
-                                <a href="#" class="btn btn-dark"><i class="fa fa-file-download"></i> <span>Export to Excel</span></a>
                             </div>
                         </div>
                     </div>
-
 
 
 
@@ -231,11 +236,11 @@
 
 
 
-<!-- modal update button -->
-<td>
-<button type="button" name="update_student" class="btn btn-0" data-toggle="modal" data-target="#updateModal<?php echo $count; ?>">
-<i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
-</button>
+                                    <!-- modal update button -->
+                                    <td>
+                                        <button type="button" name="update_student" class="btn btn-0" data-toggle="modal" data-target="#updateModal<?php echo $count; ?>">
+                                            <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
+                                        </button>
 
 
 
@@ -260,34 +265,36 @@
 <p>Please fill the informations below in order to update the student's informations.</p>
 <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
 <!-- Là on doit afficher les information qui sont envoyé par data et plus precisémment student's data avec le count id -->
-<form action="<?php echo URLROOT; ?>/dashboards/updateStudent/<?php echo $data['teachers'][$count]->id; ?>" method="post">
+<form action="<?php echo URLROOT; ?>/dashboards/updateStudent/<?php echo $data['students'][$count]->id; ?>" method="post">
 
 <!-- form for updating student -->
 
 
 <div class="form-group">
+
 <label for="studentname"> Nom complet: <sup>*</sup></label>
-                                                                        <input type="text" name="studentname" class="form-control form-control-lg
-    <?php echo (!empty($data['studentname_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentname; ?> "> <span class="invalid-feedback"> <?php echo $data['studentname_error']; ?> </span>
+<!-- php form validation in student's update -->
+<input type="text" name="studentname" class="form-control form-control-lg
+<?php echo (!empty($data['studentname_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentname; ?> "> <span class="invalid-feedback"> <?php echo $data['studentname_error']; ?> </span>
 </div>
 
 
 
 <div class="form-group">
 
-                                                                        <label for="gender"> Genre: <sup>*</sup></label> <input type="text" name="studentgender" class="form-control form-control-lg<?php echo (!empty($data['studentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentgender; ?>"> <span class="invalid-feedback"> <?php echo $data['studentgender_error']; ?> </span>
+<label for="gender"> Genre: <sup>*</sup></label> <input type="text" name="studentgender" class="form-control form-control-lg<?php echo (!empty($data['studentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentgender; ?>"> <span class="invalid-feedback"> <?php echo $data['studentgender_error']; ?> </span>
 </div>
 
 
 <div class="form-group">
 
-                                                                        <label for="class"> Classe: <sup>*</sup></label> <input type="text" name="studentclass" class="form-control form-control-lg<?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentclass; ?>"> <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
+<label for="class"> Classe: <sup>*</sup></label> <input type="text" name="studentclass" class="form-control form-control-lg<?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentclass; ?>"> <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
 </div>
 
 
 
 <div class="form-group">
-<label for="par"> Parent de l'apprenant: <sup>*</sup></label><input type="text" name="stdparents" class="form-control form-control-lg<?php echo (!empty($data['stdparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['stdparents'][$count]->stdparents; ?> "> <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span>
+<label for="par"> Parent de l'apprenant: <sup>*</sup></label><input type="text" name="stdparents" class="form-control form-control-lg<?php echo (!empty($data['stdparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->stdparents; ?> "> <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span>
 </div>
 
 
@@ -323,7 +330,7 @@
 
 
 </form>
-<form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post">
+<form action="<?php echo URLROOT; ?>/dashboards/deleteStudent/<?php echo $data['students'][$count]->id ?>" method="post">
 
 <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
 </div>
@@ -335,14 +342,14 @@
 
 
 
-<!-- the modal of update inside the manager icon -->
-</td>
-</tr>
-</tbody>
-<?php $count++; ?>
-<!-- the end of loop -->
-<?php endforeach; ?>
-</table>
+                                        <!-- the modal of update inside the manager icon -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <?php $count++; ?>
+                            <!-- the end of loop -->
+                        <?php endforeach; ?>
+                    </table>
 
 
 
@@ -367,7 +374,7 @@
 
 
 
-
+                    <!-- the pagination  -->
 
 
                     <div class="clearfix">
