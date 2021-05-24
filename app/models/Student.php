@@ -87,4 +87,30 @@ class Student
             return false;
         }
     }
+
+
+
+
+
+
+
+
+    public function search()
+    {
+
+        if (isset($_POST['search'])) {
+            $key = $_POST['search'];
+
+            $this->db->query("SELECT * FROM students WHERE students.studentname LIKE '%$key%' OR students.studentgender LIKE '%$key%' OR students.studentclass LIKE '%$key%' OR students.stdparents LIKE '%$key%' OR students.studentadress LIKE '%$key%' OR students.studentbirth LIKE '%$key%' OR students.studentemail LIKE '%$key%'");
+
+            $searchresult = $this->db->resultSet();
+            return $searchresult;
+        } else {
+            die('Not Found');
+        }
+
+
+
+
+}
 }

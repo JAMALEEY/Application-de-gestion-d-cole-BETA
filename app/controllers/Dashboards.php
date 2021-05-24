@@ -450,7 +450,7 @@ class Dashboards extends Controller
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if( $data = $this -> teacherModel -> search())
+            if ( ($data = $this -> teacherModel -> search()) || ($data = $this->studentModel->search())|| ($data = $this->theparentModel->search())  )
 
             {
 

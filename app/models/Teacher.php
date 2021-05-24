@@ -95,9 +95,13 @@ class Teacher
         if (isset($_POST['search'])) {
 
             $key = $_POST['search'];
-            $this->db->query("SELECT * FROM teachers
-            LEFT JOIN students ON teachers
-            WHERE teachername LIKE '$key' OR teachergender LIKE '$key' OR teacherclasse LIKE '$key' OR teachermatiere LIKE '$key' OR teacherphone LIKE '$key' OR studentname LIKE '$key' ");
+            // $this->db->query("SELECT * FROM teachers LEFT JOIN students ON teachers .`id` = `teachers`.`id`WHERE teachername LIKE '$key' OR teachergender LIKE '$key' OR teacherclasse LIKE '$key' OR teachermatiere LIKE '$key' OR teacherphone LIKE '$key' OR studentname LIKE '$key' ");
+
+
+
+            $this->db->query("SELECT * FROM teachers WHERE teachers.teachername LIKE '%$key%' OR teachers.teachergender LIKE '%$key%' OR teachers.teacherclasse LIKE '%$key%' OR teachers.teachermatiere LIKE '%$key%' OR teachers.teacherphone LIKE '%$key%'");
+
+
             $searchresult = $this->db->resultSet();
             return $searchresult;
         } else {

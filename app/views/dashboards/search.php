@@ -63,71 +63,240 @@
                 <div class="col-md-10 mx-auto">
                     <h2>We've found your search query !!!</h2>
                     <p>There's your result.</p>
-                    <table class="table table-bordered table-hover ">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>
-                                    #
-                                </th>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Gender
-                                </th>
-                                <th>
-                                    Classe
-                                </th>
-                                <th>
-                                    Matière
-                                </th>
-                                <th>
-                                    Phone
-                                </th>
-                            </tr>
-                        </thead>
-                        <?php foreach ($data as $value) : ?>
-                            <tbody class="table-success">
-                                <tr>
+
+                    <?php if ([$data = $this->teacherModel->search()]) {
+                        foreach ($data as $value) : ?>
+                            <table class="table table-bordered table-hover ">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Gender
+                                        </th>
+                                        <th>
+                                            Classe
+                                        </th>
+                                        <th>
+                                            Matière
+                                        </th>
+                                        <th>
+                                            Phone
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="table-success">
+                                    <tr>
 
 
-                                    <td>
-                                        <?php echo $value->id; ?>
-                                    </td>
+                                        <td>
+                                            <?php echo $value->id; ?>
+                                        </td>
 
-                                    <td>
-                                        <?php echo $value->teachername; ?>
-                                    </td>
+                                        <td>
+                                            <?php echo $value->teachername; ?>
+                                        </td>
 
-                                    <td>
-                                        <?php echo $value->teachergender; ?>
-                                    </td>
+                                        <td>
+                                            <?php echo $value->teachergender; ?>
+                                        </td>
 
-                                    <td>
-                                        <?php echo $value->teacherclasse; ?>
-                                    </td>
-
-
-                                    <td>
-                                        <?php echo $value->teachermatiere; ?>
-                                    </td>
+                                        <td>
+                                            <?php echo $value->teacherclasse; ?>
+                                        </td>
 
 
-                                    <td>
-                                        <?php echo $value->teacherphone; ?>
-                                    </td>
+                                        <td>
+                                            <?php echo $value->teachermatiere; ?>
+                                        </td>
 
 
+                                        <td>
+                                            <?php echo $value->teacherphone; ?>
+                                        </td>
 
 
 
 
-                                </tr>
-                            <?php endforeach;  ?>
-                            </tbody>
-                    </table>
 
 
+                                    </tr>
+                            <?php endforeach;
+                    }  ?>
+                                </tbody>
+
+
+
+
+                            </table>
+
+
+                            <?php if ([$data = $this->studentModel->search()]) {
+                                foreach ($data as $value) : ?>
+                                    <table class="table table-bordered table-hover ">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>
+                                                    #
+                                                </th>
+                                                <th>
+                                                    Student Name
+                                                </th>
+                                                <th>
+                                                    Student Gender
+                                                </th>
+                                                <th>
+                                                    Student Class
+                                                </th>
+                                                <th>
+                                                    Student Parent
+                                                </th>
+                                                <th>
+                                                    Student Adress
+                                                </th>
+                                                <th>
+                                                    Student Birth
+                                                </th>
+                                                <th>
+                                                    Student Email
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+
+
+                                        <tbody class="table-success">
+                                            <tr>
+
+
+                                                <td>
+                                                    <?php echo $value->id; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $value->studentname; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $value->studentgender; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $value->studentclass; ?>
+                                                </td>
+
+
+                                                <td>
+                                                    <?php echo $value->stdparents; ?>
+                                                </td>
+
+
+                                                <td>
+                                                    <?php echo $value->studentadress; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $value->studentbirth; ?>
+                                                </td>
+
+
+                                                <td>
+                                                    <?php echo $value->studentemail; ?>
+                                                </td>
+
+
+
+
+
+
+                                            </tr>
+                                    <?php endforeach;
+                            }  ?>
+                                        </tbody>
+
+
+
+
+                                    </table>
+
+
+                                    <?php if ([$data = $this->theparentModel->search()]) {
+                                        foreach ($data as $value) : ?>
+                                            <table class="table table-bordered table-hover ">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>
+                                                            #
+                                                        </th>
+                                                        <th>
+                                                            Parent Name
+                                                        </th>
+                                                        <th>
+                                                            Parent Gender
+                                                        </th>
+                                                        <th>
+                                                            Parent Job
+                                                        </th>
+                                                        <th>
+                                                            Parent Adress
+                                                        </th>
+                                                        <th>
+                                                            Parent Phone
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody class="table-success">
+                                                    <tr>
+
+
+                                                        <td>
+                                                            <?php echo $value->id; ?>
+                                                        </td>
+
+                                                        <td>
+                                                            <?php echo $value->parentname; ?>
+                                                        </td>
+
+                                                        <td>
+                                                            <?php echo $value->parentgender; ?>
+                                                        </td>
+
+                                                        <td>
+                                                            <?php echo $value->parentjob; ?>
+                                                        </td>
+
+
+                                                        <td>
+                                                            <?php echo $value->parentadress; ?>
+                                                        </td>
+
+
+                                                        <td>
+                                                            <?php echo $value->parentphone; ?>
+                                                        </td>
+
+
+
+
+
+
+                                                    </tr>
+                                            <?php endforeach;
+                                    }  ?>
+                                                </tbody>
+
+
+
+
+
+
+                                            </table>
 
                 </div>
             </div>

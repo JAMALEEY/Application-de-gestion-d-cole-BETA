@@ -105,11 +105,11 @@
                 <div class="text-center p-1 ">
 
 
-                    <!-- search -->
+                    <!--16 -->
 
                     <form action="<?php echo URLROOT; ?>/dashboards/search" class="px-2 pt-5 d-flex" method="POST">
                         <input class=" form-control py-1 px-3 bg-dark border-0 text-light h-50 rounded-pill" type="text" placeholder="Search ..." name="search">
-                        <span name="find" class="bg-dark border-0 text-secondary h-30 rounded-pill" style="position: absolute; right: 22%; bottom:85%; ">
+                        <span name="find" class="bg-dark border-0 text-secondary h-30 rounded-pill" style="position: absolute; right: 16%; bottom:85%; ">
                             <i class="fa fa-search"></i>
                         </span>
 

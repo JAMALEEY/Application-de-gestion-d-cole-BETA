@@ -84,4 +84,29 @@ class Theparent
             return false;
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+    public function search()
+    {
+
+        if (isset($_POST['search'])) {
+
+            $key = $_POST['search'];
+            $this->db->query("SELECT * FROM theparents WHERE theparents.parentname LIKE '%$key%' OR theparents.parentgender LIKE '%$key%' OR theparents.parentjob LIKE '%$key%' OR theparents.parentadress LIKE '%$key%' OR theparents.parentphone LIKE '%$key%'");
+
+            $searchresult = $this->db->resultSet();
+            return $searchresult;
+        } else {
+            die('Not Found');
+        }
+    }
 }
