@@ -31,7 +31,7 @@ class Teacher
         $this->db->bind(':id', $id);
         $row = $this->db->single();
         return $row;
-    }   
+    }
 
     public function creatTeacher($data)
     {
@@ -92,22 +92,20 @@ class Teacher
     public function search()
     {
 
-        if (isset($_POST['find'])) {
+        if (isset($_POST['search'])) {
 
             $key = $_POST['search'];
-            $this->db->query("SELECT * FROM teachers WHERE teachername LIKE '$key' ");
-            $searchresult = $this -> db -> resultSet();
+            $this->db->query("SELECT * FROM teachers WHERE teachername LIKE '$key' OR teachergender LIKE '$key' OR teacherclasse LIKE '$key' OR teachermatiere LIKE '$key' OR teacherphone LIKE '$key' ");
+            $searchresult = $this->db->resultSet();
             return $searchresult;
-
-            } else {
-                die('Not Found');
-            }
-            
-            
-            // $stmt = $this->mysqli->prepare($query);
-            // $stmt->bind_param("s", "%$key%");       // insert your variable into the placeholder (still need to add % wildcards)
-            // $stmt->execute();
-            // return $stmt;
+        } else {
+            die('Not Found');
         }
 
-} 
+
+        // $stmt = $this->mysqli->prepare($query);
+        // $stmt->bind_param("s", "%$key%");      
+        // $stmt->execute();
+        // return $stmt;
+    }
+}

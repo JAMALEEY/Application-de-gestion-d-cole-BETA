@@ -467,7 +467,7 @@ class Dashboards extends Controller
                         $data = [
                             "Search not found"
                         ];
-                $this->view('dashboards/search', $data);
+                
 
                     }
                 }
