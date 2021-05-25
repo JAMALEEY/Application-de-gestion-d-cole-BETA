@@ -51,18 +51,16 @@ class Theparent
     }
 
 
-    public function updatetheparent($data)
+    public function updateTheParent($data)
     {
-        $this->db->query('UPDATE theparents SET parentname = :theparentname, parentgender = :theparentgender, parentjob = :theparentjob, parentadress = :theparentadress, parentphone = :theparentphone WHERE id = :id');
+        $this->db->query('UPDATE theparents SET parentname = :parentname, parentgender = :parentgender, parentjob = :parentjob, parentadress = :parentadress, parentphone = :parentphone WHERE id = :id');
         // we bind values
         $this->db->bind(':id', $data['id']);
-        $this->db->bind(':theparentname', $data['theparentname']);
-        $this->db->bind(':theparentgender', $data['theparentgender']);
-        $this->db->bind(':theparentjob', $data['theparentjob']);
-        $this->db->bind(':theparentadress', $data['theparentadress']);
-        $this->db->bind(':theparentphone', $data['theparentphone']);
-        $this->db->bind(':theparentbirth', $data['theparentbirth']);
-        $this->db->bind(':theparentemail', $data['theparentemail']);
+        $this->db->bind(':parentname', $data['theparentname']);
+        $this->db->bind(':parentgender', $data['theparentgender']);
+        $this->db->bind(':parentjob', $data['theparentjob']);
+        $this->db->bind(':parentadress', $data['theparentadress']);
+        $this->db->bind(':parentphone', $data['theparentphone']);
         //  the execution
         if ($this->db->execute()) {
             return true;

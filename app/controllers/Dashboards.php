@@ -331,52 +331,47 @@ class Dashboards extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
                 'id' => $id,
-                'theparentname' => trim($_POST['theparentname']),
-                'theparentgender' => trim($_POST['theparentgender']),
-                'theparentjob' => trim($_POST['theparentjob']),
-                'theparentadress' => trim($_POST['theparentadress']),
-                'theparentphone' => trim($_POST['theparentphone']),
-                'theparentsname_error' => '',
-                'theparentsgender_error' => '',
-                'theparentsclass_error' => '',
-                'theparents_error' => '',
-                'theparentadress_error' => '',
-                'theparentbirth_error' => '',
-                'theparentemail_error' => ''
+                'parentname' => trim($_POST['theparentname']),
+                'parentgender' => trim($_POST['theparentgender']),
+                'parentjob' => trim($_POST['theparentjob']),
+                'parentadress' => trim($_POST['theparentadress']),
+                'parentphone' => trim($_POST['theparentphone']),
+                'parentsname_error' => '',
+                'parentsgender_error' => '',
+                'parentjob_error' => '',
+                'parentphone_error' => '',
+                'parentadress_error' => '',
+    
             ];
-            if (empty($data['theparentsname'])) {
-                $data['theparentsname_error'] = 'Please enter theparent Name';
+            if (empty($data['theparentname'])) {
+                $data['theparentname_error'] = 'Please enter theparent Name';
             }
-            if (empty($data['theparentsgender'])) {
-                $data['theparentsgender_error'] = 'Please enter theparent gender';
+            if (empty($data['theparentgender'])) {
+                $data['theparentgender_error'] = 'Please enter theparent gender';
             }
-            if (empty($data['theparentsclass'])) {
-                $data['theparentsclass_error'] = 'Entrez la classe de l\'etudiant';
-            }
-            if (empty($data['theparents'])) {
-                $data['theparents_error'] = 'Entrez la matiere du professeur';
+           
+            if (empty($data['theparentjob'])) {
+                $data['theparentjob_error'] = 'Entrez la matiere du professeur';
             }
             if (empty($data['theparentadress'])) {
                 $data['theparentadress_error'] = 'Entrez l\'adresse de l\'etudiant';
             }
-            if (empty($data['theparentbirth'])) {
-                $data['theparentbirth_error'] = 'Entrez la date de naissance de l\'etudiant';
+            if (empty($data['theparentphone'])) {
+                $data['theparentphone_error'] = 'Entrez l\'adresse de l\'etudiant';
             }
-            if (empty($data['theparentemail'])) {
-                $data['theparentemail_error'] = 'Entrez l\'E-mail de l\'etudiant';
-            }
+
             // make sure theres no errors
-            if (empty($data['theparentemail_error']) && empty($data['theparentbirth_error']) && empty($data['theparentadress_error']) && empty($data['theparentsclass_error']) && empty($data['theparentsname_error'])) {
+            if (empty($data['theparentname_error']) && empty($data['theparentgender_error']) && empty($data['theparentjob_error']) && empty($data['theparentadress_error'])&& empty($data['theparentphone_error'])) {
                 // validated stuff
-                if ($this->theparentModel->updateTheparent($data)) {
-                    header('location: ../theparents.php');
+                if ($this->theparentModel->updateTheParent($data)) {
+                    header('location: ../students');
                 } else {
                     die('ERROR');
                 }
             } else {
 
 
-                $this->view('dashboards/theparents/theparents', $data);
+                $this->view('dashboards/parents/theparents', $data);
             }
         } else {
             // get existing contact from model
@@ -395,11 +390,9 @@ class Dashboards extends Controller
                 'id' => $id,
                 'theparentname' => $theparent->theparentname,
                 'theparentgender' => $theparent->theparentgender,
-                'theparentclass' =>  $theparent->theparentclass,
-                'theparents' =>  $theparent->theparents,
+                'theparentjob' =>  $theparent->theparentjob,
                 'theparentadress' =>  $theparent->theparentadress,
-                'theparentbirth' =>  $theparent->theparentbirth,
-                'theparentemail' =>  $theparent->theparentemail
+                'theparentphone' =>  $theparent->theparentphone
             ];
 
             $this->view('dashboards/parents/theparents', $data);

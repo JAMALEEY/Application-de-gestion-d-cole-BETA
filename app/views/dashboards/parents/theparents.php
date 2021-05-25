@@ -7,6 +7,8 @@
     }
 </style>
 
+<?php var_dump($data['theparents']); ?>
+
 <!-- theparent Modal add -->
 <div class="modal fade" id="theparentsModal" tabindex="-1" role="dialog" aria-labelledby="theparentsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
