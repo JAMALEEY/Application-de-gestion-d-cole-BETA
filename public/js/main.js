@@ -31,7 +31,24 @@ function test(){
 
 
 funtion getdata(){
-  $.ajax
+  $.ajax({
+    type: "POST",
+    url: "http://localhost/ecoleman",
+    success: function (response) {
+      $.each(response, function (key, value) {
+        $('studentdata').append('<tr>' +
+              '<td>'+value['id']+'</td>\
+              <td>'+value['teachername']+'</td>\
+              <td>'+value['gender']+'</td>\
+              <td>'+value['class']+'</td>\
+              <td>'+value['matiere']+'</td>\
+              <td>'+value['phone']+'</td>\
+              '
+        )
+      })
+    }
+
+  })
 }
 
 
