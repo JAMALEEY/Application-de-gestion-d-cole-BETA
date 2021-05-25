@@ -29,9 +29,85 @@ function test(){
   });
 }
 
+
+funtion getdata(){
+
+  
+  $.ajax({
+    type: "POST",
+    url: "ecoleman/app/views/teachers/teachers.php",
+    data:{
+      'checking_add':true,
+      'teachername': teachername,
+      'teachergender': teachergender,
+      'teacherclass': teacherclass,
+      'teachermatiere': teachermatiere,
+      'teacherphone': teacherphone,
+
+    },
+        success: function (response){
+console.log(response);
+        }
+
+
+
+      });
+    
+
+  });
+ });
+
+
+
+
+
 $(document).ready(function(){
+  getdata();
+
+  $('.teacher_add_ajax').click(function (e){
+    e.preventDefault();
+
+    var teachername = $('.teachername').val();
+    var teachergender = $('.gender').val();
+    var teacherclasse = $('.class').val();
+    var teachermatiere = $('.matiere').val();
+    var teacherphone = $('.phone').val();
+
+
+
+
+  $.ajax({
+    type: "POST",
+    url: "ecoleman/app/controllers/Dashboards.php",
+    success: function (response) {
+      $.each(response, function (key, value) {
+        $('studentdata').append('<tr>' +
+              '<td>'+value['id']+'</td>\
+              <td>'+value['teachername']+'</td>\
+              <td>'+value['gender']+'</td>\
+              <td>'+value['class']+'</td>\
+              <td>'+value['matiere']+'</td>\
+              <td>'+value['phone']+'</td>\
+              </td>');
+      });
+    }
+
+  });
+
+
+
+
+
+
+  });
   setTimeout(function(){ test(); });
+  // for the form validation
+  
 });
+
+
+
+
 $(window).on('resize', function(){
   setTimeout(function(){ test(); }, 500);
 });
@@ -52,3 +128,5 @@ $('#studentsModal').on('shown.bs.modal', function () {
 $('#parentsModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
+
+
