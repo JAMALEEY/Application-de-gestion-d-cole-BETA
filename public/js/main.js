@@ -29,9 +29,25 @@ function test(){
   });
 }
 
+
+funtion getdata(){
+  $.ajax
+}
+
+
+
+
+
 $(document).ready(function(){
+  getdata();
   setTimeout(function(){ test(); });
+  // for the form validation
+  
 });
+
+
+
+
 $(window).on('resize', function(){
   setTimeout(function(){ test(); }, 500);
 });
@@ -52,3 +68,5 @@ $('#studentsModal').on('shown.bs.modal', function () {
 $('#parentsModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
+
+

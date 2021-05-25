@@ -23,6 +23,13 @@
                         <h2>Add your new teacher below</h2>
                         <p>Please fill the informations below in order to add a new teacher.</p>
                         <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
+                <!-- HERE I WILL DISPLAY ERRORS OF FORM VALIDATION  -->
+                            <div class="error-message">
+                            The Form can't be empty
+                            </div>
+
+
+                        <!-- HERE ITS THE FORM OF CREATION IN MODAL WITH ACTION TO CREATtEACHERcontroller -->
                         <form action="<?php echo URLROOT; ?>/dashboards/creatTeacher" method="post">
 
                             <div class="form-group">

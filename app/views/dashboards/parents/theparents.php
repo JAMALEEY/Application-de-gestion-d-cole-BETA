@@ -32,7 +32,7 @@
                                 <label for="theparentname"> Le Nom complet: <sup>*</sup></label>
                                 <input type="text" name="theparentname" class="form-control form-control-lg
                         <?php echo (!empty($data['theparentname_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentname']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['theparent_error']; ?> </span>
+                                <span class="invalid-feedback"> <?php echo $data['theparentname_error']; ?> </span>
                             </div>
 
                             <div class="form-group">
@@ -48,7 +48,7 @@
                                 <label for="job"> Job: <sup>*</sup></label>
                                 <input type="text" name="theparentjob" class="form-control form-control-lg
                         <?php echo (!empty($data['theparentjob_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentjob']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['theparentclass_error']; ?> </span>
+                                <span class="invalid-feedback"> <?php echo $data['theparentjob_error']; ?> </span>
                             </div>
 
 
