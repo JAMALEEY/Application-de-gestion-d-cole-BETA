@@ -29,9 +29,42 @@ function test(){
   });
 }
 
+
+funtion getdata(){
+  $.ajax({
+    type: "POST",
+    url: "http://localhost/ecoleman",
+    success: function (response) {
+      $.each(response, function (key, value) {
+        $('studentdata').append('<tr>' +
+              '<td>'+value['id']+'</td>\
+              <td>'+value['teachername']+'</td>\
+              <td>'+value['gender']+'</td>\
+              <td>'+value['class']+'</td>\
+              <td>'+value['matiere']+'</td>\
+              <td>'+value['phone']+'</td>\
+              '
+        )
+      })
+    }
+
+  })
+}
+
+
+
+
+
 $(document).ready(function(){
+  getdata();
   setTimeout(function(){ test(); });
+  // for the form validation
+  
 });
+
+
+
+
 $(window).on('resize', function(){
   setTimeout(function(){ test(); }, 500);
 });
@@ -52,3 +85,5 @@ $('#studentsModal').on('shown.bs.modal', function () {
 $('#parentsModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
+
+
