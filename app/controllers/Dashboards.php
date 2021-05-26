@@ -85,7 +85,7 @@ class Dashboards extends Controller
                     die('ERROR');
                 }
             } else {
-                header('location: students');
+                $this->view('dashboards/students/students', $data);
             }
         } else {
             // we initialize data then
@@ -98,7 +98,7 @@ class Dashboards extends Controller
                 'studentbirth' => '',
                 'studentemail' => ''
             ];
-            header('location: students');
+            $this->view('dashboards/students/students', $data);
         }
     }
 
@@ -595,58 +595,10 @@ public function excel(){
                 if ($this->teacherModel->creatTeacher($data)) {
                     header('location: teachers.php');
                 } else {
-                    header('location: teachers.php');
+                    die('ERROR');
                 }
             } else {
-                if (isset($_POST['contactFrmSubmit']) && !empty($_POST['teachername']) && !empty($_POST['teachergender']) && !empty($_POST['teacherclasse']) && !empty($_POST['teachermatiere']) && !empty($_POST['teacherphone'])) {
-
-                    // Submitted form data
-                    $teachername   = $_POST['teachername'];
-                    $teachergender  = $_POST['teachergender'];
-                    $teacherclasse = $_POST['teacherclasse'];
-                    $teachermatiere  = $_POST['teachermatiere'];
-                    $teacherphone = $_POST['teacherphone'];
-
-                    /*
-     * Send email to admin
-     */
-                    // $to     = 'admin@example.com';
-                    // $subject = 'Contact Request Submitted';
-
-                    $htmlContent = '
-    <h4>Contact request has submitted at CodexWorld, details are given below.</h4>
-    <table cellspacing="0" style="width: 300px; height: 200px;">
-        <tr>
-            <th>Name:</th><td>' . $teachername . '</td>
-        </tr>
-        
-        <tr>
-            <th>Name:</th><td>' . $teachergender . '</td>
-        </tr>
-
-
-        <tr style="background-color: #e0e0e0;">
-            <th>Email:</th><td>' . $teacherclasse . '</td>
-        </tr>
-        <tr>
-            <th>Message:</th><td>' . $teachermatiere . '</td>
-        </tr>
-        <tr>
-            <th>Message:</th><td>' . $teacherphone . '</td>
-        </tr>
-    </table>';
-
-                    // Set content-type header for sending HTML email
-                    $headers = "MIME-Version: 1.0" . "\r\n";
-                    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-                    // Additional headers
-                    $headers .= 'From: CodexWorld<sender@example.com>' . "\r\n";
-
-                    
-
-                }
-
+                $this->view('dashboards/teachers/teachers', $data);
             }
         } else {
             // we initialize data then
@@ -657,7 +609,7 @@ public function excel(){
                 'teachermatiere' => '',
                 'teacherphone' => ''
             ];
-            header('location: teachers.php');
+            $this->view('dashboards/teachers/teachers', $data);
         }
     }
 
@@ -718,7 +670,7 @@ public function excel(){
             } else {
 
 
-                header('location: ../teachers.php');
+                $this->view('dashboards/teachers/teachers', $data);
             }
         } else {
             // get existing contact from model
@@ -742,7 +694,7 @@ public function excel(){
                 'teacherphone' => $teacher->teacherphone,
             ];
 
-            header('location: ../teachers.php');
+            $this->view('dashboards/teachers/teachers', $data);
         }
     }
 
@@ -780,7 +732,7 @@ public function excel(){
                 die('Something went wrong');
             }
         } else {
-            header('location: ../teachers.php');
+            $this->view('dashboards/teachers/teachers', $data);
         }
     }
 
