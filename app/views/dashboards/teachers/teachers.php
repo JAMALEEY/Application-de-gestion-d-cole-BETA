@@ -25,7 +25,7 @@
                         <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
                         <!-- HERE I WILL DISPLAY ERRORS OF FORM VALIDATION  -->
                         <div class="error-message">
-
+                            
                         </div>
 
 
@@ -81,7 +81,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-dark text-light teacher_add_ajax" value="Add" onclick="submitContactForm()">
+                <input type="submit" class="btn btn-dark text-light teacher_add_ajax" value="Add">
             </div>
             </form>
 
@@ -411,7 +411,7 @@
 
                 $.ajax({
                     type: "POST",
-                    // url: "ecoleman/app/views/teachers/teachers.php",
+                    url: "ecoleman/app/views/teachers/teachers.php",
                     data: {
                         'checking_add': true,
                         'teachername': teachername,
@@ -445,10 +445,10 @@
 
 
 
-    function getdata() {
+    funtion getdata() {
         $.ajax({
             type: "POST",
-            // url: "ecoleman/app/controllers/Dashboards.php",
+            url: "ecoleman/app/controllers/Dashboards.php",
             success: function(response) {
                 $.each(response, function(key, value) {
                     $('teacherdata').append('<tr>' +
