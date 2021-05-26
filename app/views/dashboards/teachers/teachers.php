@@ -30,7 +30,7 @@
 
 
                         <!-- HERE ITS THE FORM OF CREATION IN MODAL WITH ACTION TO CREATtEACHERcontroller -->
-                        <form action="<?php echo URLROOT; ?>/dashboards/creatTeacher" method="post" onsubmit="submitContactForm();">
+                        <form action="<?php echo URLROOT; ?>/dashboards/creatTeacher" method="post" onsubmit="submitContactForm(); ">
 
                             <div class="form-group">
 
@@ -75,13 +75,12 @@
 
 
 
-
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-dark text-light submitBtn" value="Add">
+                <input type="submit" class="btn btn-dark text-light submitBtn" value="Add" onclick="return submitContactForm(); " />
             </div>
             </form>
 
@@ -392,17 +391,85 @@
 
 
 <script>
-    function submitContactForm(e) {
-        e.preventDefault()
+    // $(document).ready(function() {
+    // getdata();
+    // $('.teacher_add_ajax').click(function(e) {
+    //     e.preventDefault();
+    //     var teachername = $('.teachername').val();
+    //     var teachergender = $('.teachergender').val();
+    //     var teacherclasse = $('.teacherclasse').val();
+    //     var teachermatiere = $('.teachermatiere').val();
+    //     var teacherphone = $('.teacherphone').val();
+
+    //         if (teachername != '' && teacherclasse != '' && teachergender != '' && teachermatiere != '' && teacherphone != '') {
+
+    //             $.ajax({
+    //                 type: "POST",
+    //                 data: {
+    //                     'checking_add': true,
+    //                     'teachername': teachername,
+    //                     'teacherclasse': teacherclasse,
+    //                     'teachergender': teachergender,
+    //                     'teachermatiere': teachermatiere,
+    //                     'teacherphone': teacherphone,
+    //                 },
+    //                 success: function(response) {
+    //                     console.log(response);
+    //                 }
+
+    //             });
+    //         } else {
+    //             // console.log("PLEASE ENTER ALL FIELDS.");
+    //             $('.error-message').append('\
+    //                         <div class = "alert alert-warning alert-dismissible fade show" role = "alert">\
+    //                             <strong> Hola ! </strong> PLEASE ENTER ALL FIELDS.\
+    //                             <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close" >\
+    //                             <span aria-hidden = "true" >&times; </span> </button> </div>\
+    //                             ');
+    //         }
+    //     });
+
+    // });
+    // $.ajax({
+    // type: "POST",
+    // data: {
+    // 'checking_add': true,
+    // 'teachername': teachername,
+    // 'teacherclasse': teacherclasse,
+    // 'teachergender': teachergender,
+    // 'teachermatiere': teachermatiere,
+    // 'teacherphone': teacherphone,
+    // },
+    // success: function(response) {
+
+    // }
+
+    // });
+
+    // });
+    // });
+
+    // function getdata() {
+    //     $.ajax({
+    //         type: "POST",
+
+    //     })
+    // }
+
+
+
+
+    function submitContactForm() {
+
         var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         var teachername = $('#teachername').val();
         var teachergender = $('#teachergender').val();
         var teacherclasse = $('#teacherclasse').val();
-        var teachermetier = $('#teachermetier').val();
+        var teachermatiere = $('#teachermatiere').val();
         var teacherphone = $('#teacherphone').val();
-
-        alert('test');
         if (teachername.trim() == '') {
+
+
             alert('Please enter your name.');
             return false;
             // alert('Please enter your name.');
@@ -410,15 +477,16 @@
             // return false;
         } else if (teachergender.trim() == '') {
             alert('Please enter your gender.');
+
             $('#teachergender').focus();
             return false;
         } else if (teacherclasse.trim() == '') {
             alert('Please enter your class.');
             $('#teacherclasse').focus();
             return false;
-        } else if (teachermetier.trim() == '') {
+        } else if (teachermatiere.trim() == '') {
             alert('Please enter your matiere.');
-            $('#teachermetier').focus();
+            $('#teachermatiere').focus();
             return false;
         } else if (teacherphone.trim() == '') {
             alert('Please enter your phone.');
