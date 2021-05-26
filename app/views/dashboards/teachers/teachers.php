@@ -30,12 +30,12 @@
 
 
                         <!-- HERE ITS THE FORM OF CREATION IN MODAL WITH ACTION TO CREATtEACHERcontroller -->
-                        <form action="<?php echo URLROOT; ?>/dashboards/creatTeacher" method="post">
+                        <form action="<?php echo URLROOT; ?>/dashboards/creatTeacher" method="post" onsubmit="submitContactForm();">
 
                             <div class="form-group">
 
                                 <label for="teachername"> Le Nom complet: <sup>*</sup></label>
-                                <input type="text" name="teachername" class="form-control form-control-lg
+                                <input type="text" name="teachername" id="teachername" class="form-control form-control-lg
                         <?php echo (!empty($data['teachername_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachername']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['name_error']; ?> </span>
                             </div>
@@ -43,7 +43,7 @@
                             <div class="form-group">
 
                                 <label for="gender"> Genre: <sup>*</sup></label>
-                                <input type="text" name="teachergender" class="form-control form-control-lg
+                                <input type="text" name="teachergender" id="teachergender" class="form-control form-control-lg
                         <?php echo (!empty($data['teachergender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachergender']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['teachergender_error']; ?> </span>
                             </div>
@@ -51,7 +51,7 @@
                             <div class="form-group">
 
                                 <label for="class"> Classe: <sup>*</sup></label>
-                                <input type="text" name="teacherclasse" class="form-control form-control-lg
+                                <input type="text" name="teacherclasse" id="teacherclasse" class="form-control form-control-lg
                         <?php echo (!empty($data['teacherclasse_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherclasse']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['teacherclasse_error']; ?> </span>
                             </div>
@@ -60,7 +60,7 @@
                             <div class="form-group">
 
                                 <label for="matiere"> Matiere: <sup>*</sup></label>
-                                <input type="text" name="teachermatiere" class="form-control form-control-lg
+                                <input type="text" name="teachermatiere" id="teachermatiere" class="form-control form-control-lg
                         <?php echo (!empty($data['teachermatiere_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teachermatiere']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['teachermatiere_error']; ?> </span>
                             </div>
@@ -68,7 +68,7 @@
                             <div class="form-group">
 
                                 <label for="phone"> Phone: <sup>*</sup></label>
-                                <input type="text" name="teacherphone" class="form-control form-control-lg
+                                <input type="text" name="teacherphone" id="teacherphone" class="form-control form-control-lg
                         <?php echo (!empty($data['teacherphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['teacherphone']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['teacherphone_error']; ?> </span>
                             </div>
@@ -81,7 +81,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-dark text-light teacher_add_ajax" value="Add" onclick="submitContactForm()">
+                <input type="submit" class="btn btn-dark text-light submitBtn" value="Add">
             </div>
             </form>
 
@@ -392,77 +392,39 @@
 
 
 <script>
-    $(document).ready(function() {
-        getdata();
+    function submitContactForm(e) {
+        e.preventDefault()
+        var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+        var teachername = $('#teachername').val();
+        var teachergender = $('#teachergender').val();
+        var teacherclasse = $('#teacherclasse').val();
+        var teachermetier = $('#teachermetier').val();
+        var teacherphone = $('#teacherphone').val();
 
-        $('.teacher_add_ajax').click(function(e) {
-            e.preventDefault();
-
-            var teachername = $('.teachername').val();
-            var teachergender = $('.gender').val();
-            var teacherclasse = $('.class').val();
-            var teachermatiere = $('.matiere').val();
-            var teacherphone = $('.phone').val();
-
-            if (teachername != '' || teachergender != '' ||
-                teacherclasse != '' ||
-                teachermatiere != '' ||
-                teacherphone != '') {
-
-                $.ajax({
-                    type: "POST",
-                    // url: "ecoleman/app/views/teachers/teachers.php",
-                    data: {
-                        'checking_add': true,
-                        'teachername': teachername,
-                        'teachergender': teachergender,
-                        'teacherclass': teacherclass,
-                        'teachermatiere': teachermatiere,
-                        'teacherphone': teacherphone,
-
-                    },
-                    success: function(response) {
-                        console.log(response);
-                    }
-
-
-
-                });
-            } else {
-                // console.log("Please Enter all fields.")
-                $('.error-message').append('\
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">\
-                            <strong>Holy!</strong> Please Enter all fields.\
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">\
-                                <span aria-hidden="true">&times;</span>\
-                            </button>\
-                            </div>\
-                ');
-            }
-        });
-
-    });
-
-
-
-    function getdata() {
-        $.ajax({
-            type: "POST",
-            // url: "ecoleman/app/controllers/Dashboards.php",
-            success: function(response) {
-                $.each(response, function(key, value) {
-                    $('teacherdata').append('<tr>' +
-                        '<td>' + value['id'] + '</td>\
-                            <td>' + value['teachername'] + '</td>\
-                            <td>' + value['gender'] + '</td>\
-                            <td>' + value['class'] + '</td>\
-                            <td>' + value['matiere'] + '</td>\
-                            <td>' + value['phone'] + '</td>\
-                            </td>');
-                });
-            }
-
-        });
+        alert('test');
+        if (teachername.trim() == '') {
+            alert('Please enter your name.');
+            return false;
+            // alert('Please enter your name.');
+            // $('#teachername').focus();
+            // return false;
+        } else if (teachergender.trim() == '') {
+            alert('Please enter your gender.');
+            $('#teachergender').focus();
+            return false;
+        } else if (teacherclasse.trim() == '') {
+            alert('Please enter your class.');
+            $('#teacherclasse').focus();
+            return false;
+        } else if (teachermetier.trim() == '') {
+            alert('Please enter your matiere.');
+            $('#teachermetier').focus();
+            return false;
+        } else if (teacherphone.trim() == '') {
+            alert('Please enter your phone.');
+            $('#teacherphone').focus();
+            return false;
+        }
     }
 </script>
 
