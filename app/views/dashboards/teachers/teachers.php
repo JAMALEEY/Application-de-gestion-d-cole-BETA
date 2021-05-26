@@ -25,7 +25,7 @@
                         <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
                         <!-- HERE I WILL DISPLAY ERRORS OF FORM VALIDATION  -->
                         <div class="error-message">
-
+                            
                         </div>
 
 
@@ -81,7 +81,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
+<<<<<<< HEAD
                 <input type="submit" class="btn btn-dark text-light submitBtn" value="Add">
+=======
+                <input type="submit" class="btn btn-dark text-light teacher_add_ajax" value="Add">
+>>>>>>> parent of c0875b6 (Try another way of AJAX)
             </div>
             </form>
 
@@ -392,6 +396,7 @@
 
 
 <script>
+<<<<<<< HEAD
     function submitContactForm(e) {
         e.preventDefault()
         var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
@@ -425,6 +430,79 @@
             $('#teacherphone').focus();
             return false;
         }
+=======
+    $(document).ready(function() {
+        getdata();
+
+        $('.teacher_add_ajax').click(function(e) {
+            e.preventDefault();
+
+            var teachername = $('.teachername').val();
+            var teachergender = $('.gender').val();
+            var teacherclasse = $('.class').val();
+            var teachermatiere = $('.matiere').val();
+            var teacherphone = $('.phone').val();
+
+            if (teachername != '' || teachergender != '' ||
+                teacherclasse != '' ||
+                teachermatiere != '' ||
+                teacherphone != '') {
+
+                $.ajax({
+                    type: "POST",
+                    url: "ecoleman/app/views/teachers/teachers.php",
+                    data: {
+                        'checking_add': true,
+                        'teachername': teachername,
+                        'teachergender': teachergender,
+                        'teacherclass': teacherclass,
+                        'teachermatiere': teachermatiere,
+                        'teacherphone': teacherphone,
+
+                    },
+                    success: function(response) {
+                        console.log(response);
+                    }
+
+
+
+                });
+            } else {
+                // console.log("Please Enter all fields.")
+                $('.error-message').append('\
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">\
+                            <strong>Holy!</strong> Please Enter all fields.\
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">\
+                                <span aria-hidden="true">&times;</span>\
+                            </button>\
+                            </div>\
+                ');
+            }
+        });
+
+    });
+
+
+
+    funtion getdata() {
+        $.ajax({
+            type: "POST",
+            url: "ecoleman/app/controllers/Dashboards.php",
+            success: function(response) {
+                $.each(response, function(key, value) {
+                    $('teacherdata').append('<tr>' +
+                        '<td>' + value['id'] + '</td>\
+                            <td>' + value['teachername'] + '</td>\
+                            <td>' + value['gender'] + '</td>\
+                            <td>' + value['class'] + '</td>\
+                            <td>' + value['matiere'] + '</td>\
+                            <td>' + value['phone'] + '</td>\
+                            </td>');
+                });
+            }
+
+        });
+>>>>>>> parent of c0875b6 (Try another way of AJAX)
     }
 </script>
 
