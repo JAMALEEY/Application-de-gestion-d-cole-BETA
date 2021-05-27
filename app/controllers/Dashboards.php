@@ -10,13 +10,13 @@ class Dashboards extends Controller
         $this->teacherModel = $this->Model('Teacher');
         $this->studentModel = $this->Model('Student');
         $this->theparentModel = $this->Model('Theparent');
-
+        $this->statModel = $this->Model('Stat');
     }
 
 
     public function students()
     {
-        
+
         $students =  $this->studentModel->getStudent();
         $data = [
             'students' => $students,
@@ -78,7 +78,7 @@ class Dashboards extends Controller
                 $data['studentemail_error'] = 'Entrez l\'email du student';
             }
             // make sure theres no errors
-            if (empty($data['studentname_error']) && empty($data['studentgender_error']) && empty($data['studentclass_error']) && empty($data['stdparents_error']) && empty($data['studentadress_error']) && empty($data['studentbirth_error']) && empty($data['studentemail_error']) )  {
+            if (empty($data['studentname_error']) && empty($data['studentgender_error']) && empty($data['studentclass_error']) && empty($data['stdparents_error']) && empty($data['studentadress_error']) && empty($data['studentbirth_error']) && empty($data['studentemail_error'])) {
                 // validated stuff
                 if ($this->studentModel->creatStudent($data)) {
                     header('location: students');
@@ -287,7 +287,6 @@ class Dashboards extends Controller
                 // validated stuff
                 if ($this->theparentModel->creattheparent($data)) {
                     header('location: theparents');
-
                 } else {
                     die('ERROR');
                 }
@@ -342,7 +341,7 @@ class Dashboards extends Controller
                 'theparentjob_error' => '',
                 'theparentphone_error' => '',
                 'theparentadress_error' => '',
-    
+
             ];
             if (empty($data['theparentname'])) {
                 $data['theparentname_error'] = 'Please enter theparent Name';
@@ -350,7 +349,7 @@ class Dashboards extends Controller
             if (empty($data['theparentgender'])) {
                 $data['theparentgender_error'] = 'Please enter theparent gender';
             }
-           
+
             if (empty($data['theparentjob'])) {
                 $data['theparentjob_error'] = 'Entrez la matiere du professeur';
             }
@@ -362,7 +361,7 @@ class Dashboards extends Controller
             }
 
             // make sure theres no errors
-            if (empty($data['theparentname_error']) && empty($data['theparentgender_error']) && empty($data['theparentjob_error']) && empty($data['theparentadress_error'])&& empty($data['theparentphone_error'])) {
+            if (empty($data['theparentname_error']) && empty($data['theparentgender_error']) && empty($data['theparentjob_error']) && empty($data['theparentadress_error']) && empty($data['theparentphone_error'])) {
                 // validated stuff
                 if ($this->theparentModel->updateTheParent($data)) {
                     header('location: ../theparents');
@@ -370,7 +369,7 @@ class Dashboards extends Controller
                     die('ERROR');
                 }
             } else {
-                
+
 
                 $this->view('dashboards/parents/theparents', $data);
             }
@@ -448,29 +447,23 @@ class Dashboards extends Controller
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if ( ($data = $this -> teacherModel -> search()) || ($data = $this->studentModel->search())|| ($data = $this->theparentModel->search())  )
-
-            {
+            if (($data = $this->teacherModel->search()) || ($data = $this->studentModel->search()) || ($data = $this->theparentModel->search())) {
 
 
                 $this->view('dashboards/search', $data);
-    
-            
-            // if ($stmt->rowCount() > 0) {
-            //     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            //         extract($row);
-            //         $this->view('dashboards/search', $data);
-                    }
-                    else {
-                        $data = [
-                            "Search not found"
-                        ];
-                
 
-                    }
-                }
+
+                // if ($stmt->rowCount() > 0) {
+                //     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                //         extract($row);
+                //         $this->view('dashboards/search', $data);
+            } else {
+                $data = [
+                    "Search not found"
+                ];
             }
-        
+        }
+    }
 
 
 
@@ -478,9 +471,11 @@ class Dashboards extends Controller
 
 
 
-// excel function
 
-public function excel(){
+    // excel function
+
+    public function excel()
+    {
         if (isset($_POST["export_data"])) {
             $filename = "teachers_data_export_" . date('Ymd') . ".xls";
             header("Content-Type: application/vnd.ms-excel");
@@ -498,7 +493,7 @@ public function excel(){
                     'teacherphone' => ''
 
                 ];
-                foreach ($data['teachers'] as $teacher) { 
+                foreach ($data['teachers'] as $teacher) {
                     if (!$show_coloumn) {
                         // display field/column names in first row
                         echo implode("\t", array_keys($data['teachername'])) . "\n";
@@ -509,7 +504,7 @@ public function excel(){
             }
             exit;
         }
-}
+    }
 
 
 
@@ -598,21 +593,18 @@ public function excel(){
                 } else {
                     header('location: teachers.php');
                 }
-        
-        } else {
-            // we initialize data then
-            $data = [
-                'teachername' => '',
-                'teachergender' => '',
-                'teacherclasse' => '',
-                'teachermatiere' => '',
-                'teacherphone' => ''
-            ];
-            header('location: teachers.php');
+            } else {
+                // we initialize data then
+                $data = [
+                    'teachername' => '',
+                    'teachergender' => '',
+                    'teacherclasse' => '',
+                    'teachermatiere' => '',
+                    'teacherphone' => ''
+                ];
+                header('location: teachers.php');
+            }
         }
-    }
-
-
     }
 
 
@@ -717,7 +709,7 @@ public function excel(){
             'teacher' => $teacher
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            
+
             // Get existing teacher from model
             // $teacher = $this->teacherModel->getTeacherById($id);
             // Check for owner *optional i decide to laisser pour apres*
@@ -794,11 +786,29 @@ public function excel(){
 
 
 
+    public function stats()
+    {
+
+        $stats_gender = $this->statModel->genderStudents();
+
+        $students = $this->statModel->numberstudents();
+
+        $teachers = $this->statModel->numberteachers();
+
+        $theparents = $this->statModel->numberparents();
+
+        $class_students = $this->statModel->numberStudentsInClass();
 
 
+        $data = [
+            'students' => $students,
+            'teachers' => $teachers,
+            'theparents' => $theparents,
+            'gender_student' => $stats_gender,
+            'class_students' => $class_students
+        ];
 
 
-
-    
-
+        $this->view('dashboards/stats', $data);
+    }
 }
