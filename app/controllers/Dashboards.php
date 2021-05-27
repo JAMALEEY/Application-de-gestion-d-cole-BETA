@@ -10,6 +10,7 @@ class Dashboards extends Controller
         $this->teacherModel = $this->Model('Teacher');
         $this->studentModel = $this->Model('Student');
         $this->theparentModel = $this->Model('Theparent');
+
     }
 
 
@@ -770,5 +771,34 @@ public function excel(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 }

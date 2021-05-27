@@ -168,23 +168,23 @@ function test(){
         }
     }
 
-    // function updateStudentForm() {
+    function updateStudentForm() {
 
-    //     var studentname = $('#studentname').val();
-    //     var studentgender = $('#studentgender').val();
-    //     var studentclass = $('#studentclass').val();
-    //     var stdparents = $('#stdparents').val();
-    //     var studentadress = $('#studentadress').val();
-    //     var studentbirth = $('#studentbirth').val();
-    //     var studentemail = $('#studentemail').val();
+        var studentname = $('#studentname').val();
+        var studentgender = $('#studentgender').val();
+        var studentclass = $('#studentclass').val();
+        var stdparents = $('#stdparents').val();
+        var studentadress = $('#studentadress').val();
+        var studentbirth = $('#studentbirth').val();
+        var studentemail = $('#studentemail').val();
 
-    //         if ( (studentname.trim() == '') && (studentgender.trim() == '') && (studentclass.trim() == '') && (stdparents.trim() == '') && (studentadress.trim() == '') && (studentbirth.trim() == '') && (studentemail.trim() == '') ) {
+            if ( (studentname.trim() == '') && (studentgender.trim() == '') && (studentclass.trim() == '') && (stdparents.trim() == '') && (studentadress.trim() == '') && (studentbirth.trim() == '') && (studentemail.trim() == '') ) {
 
-    //         $('#studentname').focus();
-    //         alert('🛑 ATTENTION : The Fields that you are trying to update is empty ... ');
-    //         return false;
-    //     } 
-    // }
+            $('#studentname').focus();
+            alert('🛑 ATTENTION : The Fields that you are trying to update is empty ... ');
+            return false;
+        } 
+    }
 
     
 // JS FORM VALIDATION FOR PARENTS
