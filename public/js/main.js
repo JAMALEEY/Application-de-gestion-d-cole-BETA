@@ -79,21 +79,21 @@ function test(){
         }
     }
 
-    function updateContactForm() {
+    // function updateContactForm() {
 
-        var teachername = $('#teachername').val();
-        var teachergender = $('#teachergender').val();
-        var teacherclasse = $('#teacherclasse').val();
-        var teachermatiere = $('#teachermatiere').val();
-        var teacherphone = $('#teacherphone').val();
+    //     var teachername = $('#teachername').val();
+    //     var teachergender = $('#teachergender').val();
+    //     var teacherclasse = $('#teacherclasse').val();
+    //     var teachermatiere = $('#teachermatiere').val();
+    //     var teacherphone = $('#teacherphone').val();
 
-            if ( (teachername.trim() == '') && (teachergender.trim() == '') && (teacherclasse.trim() == '') && (teachermatiere.trim() == '') && (teacherphone.trim() == '')) {
+    //         if ( (teachername.trim() == '') && (teachergender.trim() == '') && (teacherclasse.trim() == '') && (teachermatiere.trim() == '') && (teacherphone.trim() == '')) {
 
-            $('#teachername').focus();
-            alert('🛑 ATTENTION : The Fields that you are trying to update is empty ... ');
-            return false;
-        } 
-    }
+    //         $('#teachername').focus();
+    //         alert('🛑 ATTENTION : The Fields that you are trying to update is empty ... ');
+    //         return false;
+    //     } 
+    // }
 
 // JS FORM VALISATION FOR STUDENTS
 
@@ -168,62 +168,60 @@ function test(){
         }
     }
 
-    function updateStudentForm() {
+    // function updateStudentForm() {
 
-        var studentname = $('#studentname').val();
-        var studentgender = $('#studentgender').val();
-        var studentclass = $('#studentclass').val();
-        var stdparents = $('#stdparents').val();
-        var studentadress = $('#studentadress').val();
-        var studentbirth = $('#studentbirth').val();
-        var studentemail = $('#studentemail').val();
+    //     var studentname = $('#studentname').val();
+    //     var studentgender = $('#studentgender').val();
+    //     var studentclass = $('#studentclass').val();
+    //     var stdparents = $('#stdparents').val();
+    //     var studentadress = $('#studentadress').val();
+    //     var studentbirth = $('#studentbirth').val();
+    //     var studentemail = $('#studentemail').val();
 
-            if ( (studentname.trim() == '') && (studentgender.trim() == '') && (studentclass.trim() == '') && (stdparents.trim() == '') && (studentadress.trim() == '') && (studentbirth.trim() == '') && (studentemail.trim() == '') ) {
+    //         if ( (studentname.trim() == '') && (studentgender.trim() == '') && (studentclass.trim() == '') && (stdparents.trim() == '') && (studentadress.trim() == '') && (studentbirth.trim() == '') && (studentemail.trim() == '') ) {
 
-            $('#studentname').focus();
-            alert('🛑 ATTENTION : The Fields that you are trying to update is empty ... ');
-            return false;
-        } 
-    }
+    //         $('#studentname').focus();
+    //         alert('🛑 ATTENTION : The Fields that you are trying to update is empty ... ');
+    //         return false;
+    //     } 
+    // }
 
     
 // JS FORM VALIDATION FOR PARENTS
 
 
-    function studentContactForm() {
-        var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-        var studentname = $('#studentname').val();
-        var studentgender = $('#studentgender').val();
-        var studentclass = $('#studentclass').val();
-        var stdparents = $('#stdparents').val();
-        var studentadress = $('#studentadress').val();
-        var studentbirth = $('#studentbirth').val();
-        var studentemail = $('#studentemail').val();
+    function theparentContactForm() {
+        var theparentname = $('#theparentname').val();
+        var theparentgender = $('#theparentgender').val();
+        var theparentjob = $('#theparentjob').val();
+        var theparentadress = $('#theparentadress').val();
+        var theparentphone = $('#theparentphone').val();
+  
 
-            if ( (studentname.trim() == '') && (studentgender.trim() == '') && (studentclass.trim() == '') && (stdparents.trim() == '') && (studentadress.trim() == '') && (studentbirth.trim() == '') && (studentemail.trim() == '') ) {
+            if ( (theparentname.trim() == '') && (theparentgender.trim() == '') && (theparentjob.trim() == '') && (theparentadress.trim() == '') && (theparentphone.trim() == '') ) {
 
-            $('#teachername').focus();
-            alert('⚠️: All fields are empty... Please fill all the form\'s fields in order to add a new student !');
+            $('#theparentname').focus();
+            alert('⚠️: All fields are empty... Please fill all the form\'s fields in order to add a new parent !');
             return false;
 
-        } else if (studentname.trim() == '') {
-            $('#studentname').focus();
-            alert('🛑 : Please enter your Student\'s name.');
+        } else if (theparentname.trim() == '') {
+            $('#theparentname').focus();
+            alert('🛑 : Please enter your Parent\'s name.');
             return false;
         }
 
 
 
-        else if (studentgender.trim() == '') {
-            alert('🛑 : Please enter your Student\'s gender.');
-            $('#studentgender').focus();
+        else if (theparentgender.trim() == '') {
+            alert('🛑 : Please enter your Parent\'s gender.');
+            $('#theparentgender').focus();
             return false;
         } 
         
 
-        else if (studentclass.trim() == '') {
-                    alert('🛑 : Please enter your Student\'s class.');
-                    $('#studentclass').focus();
+        else if (theparentjob.trim() == '') {
+                    alert('🛑 : Please enter your Parent\'s job.');
+                    $('#theparentjob').focus();
                     return false;
 
                     
@@ -231,52 +229,36 @@ function test(){
 
 
 
-        else if (stdparents.trim() == '') {
-            $('#stdparents').focus();
-            alert('🛑 : Please enter your Student\'s parent name.');
+        else if (theparentadress.trim() == '') {
+            $('#theparentadress').focus();
+            alert('🛑 : Please enter your Parent\'s adress.');
             return false;
 
 
-        } else if (studentadress.trim() == '') {
-            alert('🛑 : Please enter your Student\'s adress.');
-            $('#studentadress').focus();
-            return false;
-        } else if (studentbirth.trim() == '') {
-            alert('🛑 : Please enter your Student\'s birth date.');
-            $('#studentbirth').focus();
-            return false;
-
-
-            // FORM VALIDATION EMAIL ON STRUDENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        } else if ( studentemail.trim() == '' ) {
-                    alert('🛑 : Please enter a Student\'s email.');
-                    $('#studentemail').focus();
-                    return false;
-                }
-          else if ( (studentemail.trim() == '') && (!reg.test(email)) ) {
-            alert('🛑 : Please enter a Student\'s valid email.');
-            $('#studentemail').focus();
+        } else if (theparentphone.trim() == '') {
+            alert('🛑 : Please enter your Parent\'s phone.');
+            $('#theparentphone').focus();
             return false;
         }
     }
 
-    function updateStudentForm() {
+    // function updateTheparentForm() {
 
-        var studentname = $('#studentname').val();
-        var studentgender = $('#studentgender').val();
-        var studentclass = $('#studentclass').val();
-        var stdparents = $('#stdparents').val();
-        var studentadress = $('#studentadress').val();
-        var studentbirth = $('#studentbirth').val();
-        var studentemail = $('#studentemail').val();
+    //       var theparentname = $('#theparentname').val();
+    //     var theparentgender = $('#theparentgender').val();
+    //     var theparentjob = $('#theparentjob').val();
+    //     var theparentadress = $('#theparentadress').val();
+    //     var theparentphone = $('#theparentphone').val();
 
-            if ( (studentname.trim() == '') && (studentgender.trim() == '') && (studentclass.trim() == '') && (stdparents.trim() == '') && (studentadress.trim() == '') && (studentbirth.trim() == '') && (studentemail.trim() == '') ) {
 
-            $('#studentname').focus();
-            alert('🛑 ATTENTION : The Fields that you are trying to update is empty ... ');
-            return false;
-        } 
-    }
+    //         if (theparentname.trim() == '')  {
+
+    //         $('#theparentname').focus();
+    //         alert('🛑 ATTENTION : The Fields that you are trying to update is empty ... ');
+    //         return false;
+
+    //     }
+    // }
 
 
 

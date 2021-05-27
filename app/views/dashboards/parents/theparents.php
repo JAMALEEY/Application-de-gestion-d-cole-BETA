@@ -25,12 +25,12 @@
                         <h2>Add your new parent below</h2>
                         <p>Please fill the informations below in order to add a new theparent.</p>
                         <p>Ps: Elements marked with "*" are important !</p>
-                        <form action="<?php echo URLROOT; ?>/dashboards/creatTheparent" method="post">
+                        <form action="<?php echo URLROOT; ?>/dashboards/creatTheparent" method="post" onsubmit="theparentContactForm(); ">
 
                             <div class="form-group">
 
                                 <label for="theparentname"> Le Nom complet: <sup>*</sup></label>
-                                <input type="text" name="theparentname" class="form-control form-control-lg
+                                <input id="theparentname" type="text" name="theparentname" class="form-control form-control-lg
                         <?php echo (!empty($data['theparentname_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentname']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['theparentname_error']; ?> </span>
                             </div>
@@ -38,7 +38,7 @@
                             <div class="form-group">
 
                                 <label for="gender"> Genre: <sup>*</sup></label>
-                                <input type="text" name="theparentgender" class="form-control form-control-lg
+                                <input id="theparentgender" type="text" name="theparentgender" class="form-control form-control-lg
                         <?php echo (!empty($data['theparentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentgender']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['theparentgender_error']; ?> </span>
                             </div>
@@ -46,7 +46,7 @@
                             <div class="form-group">
 
                                 <label for="job"> Job: <sup>*</sup></label>
-                                <input type="text" name="theparentjob" class="form-control form-control-lg
+                                <input id="theparentjob" type="text" name="theparentjob" class="form-control form-control-lg
                         <?php echo (!empty($data['theparentjob_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentjob']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['theparentjob_error']; ?> </span>
                             </div>
@@ -56,7 +56,7 @@
                             <div class="form-group">
 
                                 <label for="adress"> Adresse du parent: <sup>*</sup></label>
-                                <input type="text" name="theparentadress" class="form-control form-control-lg
+                                <input id="theparentadress" type="text" name="theparentadress" class="form-control form-control-lg
                         <?php echo (!empty($data['theparentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentadress']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['theparentadress_error']; ?> </span>
                             </div>
@@ -67,7 +67,7 @@
                             <div class="form-group">
 
                                 <label for="phone"> Phone: <sup>*</sup></label>
-                                <input type="text" name="theparentphone" class="form-control form-control-lg
+                                <input id="theparentphone" type="text" name="theparentphone" class="form-control form-control-lg
                         <?php echo (!empty($data['theparentphone_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparentphone']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['theparentphone_error']; ?> </span>
                             </div>
@@ -77,7 +77,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-dark text-light" value="Add">
+                <input type="submit" class="btn btn-dark text-light submitBtn" value="Add" onclick="return theparentContactForm(); " />
             </div>
             </form>
 
@@ -189,133 +189,133 @@
 
 
 
-<table class="table table-striped table-hover">
-<thead>
-<tr>
-<th>#</th>
-<th>Nom complet</th>
-<th>Genre</th>
-<th>Profession</th>
-<th>Adresse</th>
-<th>Numéro de téléphone</th>
-<th>Manager</th>
-</tr>
-</thead>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nom complet</th>
+                                <th>Genre</th>
+                                <th>Profession</th>
+                                <th>Adresse</th>
+                                <th>Numéro de téléphone</th>
+                                <th>Manager</th>
+                            </tr>
+                        </thead>
 
-<?php $count = 0; ?>
-<?php foreach ($data['theparents'] as $theparent) : ?>
-<tbody>
-<tr>
-<td>
-<p><?php echo $theparent->id; ?></p>
-</td>
-<td>
-<p><?php echo $theparent->parentname; ?></p>
-</td>
-<td><?php echo $theparent->parentgender; ?></td>
-<td><?php echo $theparent->parentjob; ?></td>
-<td> <?php echo $theparent->parentadress; ?></td>
-<td> <?php echo $theparent->parentphone; ?></td>
-
-
-
-<!-- modal update button -->
-<td>
-<button type="button" name="update_theparent" class="btn btn-0" data-toggle="modal" data-target="#updateModal<?php echo $count; ?>">
-<i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
-</button>
+                        <?php $count = 0; ?>
+                        <?php foreach ($data['theparents'] as $theparent) : ?>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><?php echo $theparent->id; ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?php echo $theparent->parentname; ?></p>
+                                    </td>
+                                    <td><?php echo $theparent->parentgender; ?></td>
+                                    <td><?php echo $theparent->parentjob; ?></td>
+                                    <td> <?php echo $theparent->parentadress; ?></td>
+                                    <td> <?php echo $theparent->parentphone; ?></td>
 
 
 
-
-<!-- theparent Modal UpdateDelete -->
-<div class="modal fade" id="updateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="updateModal<?php echo $count; ?>Label" aria-hidden="true">
-<div class="modal-dialog modal-lg">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update Parent</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<div class="row">
-<div class="col-md-10 mx-auto">
-<h2>Update your parent's informations below</h2>
-<p>Please fill the informations below in order to update the teacher's informations.</p>
-<p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-<!-- we should always add php echo data xxx yyyy zzzz so that we can update the specified data choosed -->
-<form action="<?php echo URLROOT; ?>/dashboards/updateTheParent/<?php echo $data['theparents'][$count]->id; ?>" method="post">
-
-<!-- form for updating theparent -->
+                                    <!-- modal update button -->
+                                    <td>
+                                        <button type="button" name="update_theparent" class="btn btn-0" data-toggle="modal" data-target="#updateModal<?php echo $count; ?>">
+                                            <i class="fa fa-users-cog d-flex justify-content-center text-dark"></i>
+                                        </button>
 
 
-<div class="form-group">
-<label for="theparentname"> Nom complet: <sup>*</sup></label>
-<input type="text" name="theparentname" class="form-control form-control-lg
+
+
+                                        <!-- theparent Modal UpdateDelete -->
+                                        <div class="modal fade" id="updateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="updateModal<?php echo $count; ?>Label" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update Parent</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-md-10 mx-auto">
+                                                                <h2>Update your parent's informations below</h2>
+                                                                <p>Please fill the informations below in order to update the teacher's informations.</p>
+                                                                <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
+                                                                <!-- we should always add php echo data xxx yyyy zzzz so that we can update the specified data choosed -->
+                                                                <form action="<?php echo URLROOT; ?>/dashboards/updateTheParent/<?php echo $data['theparents'][$count]->id; ?>" method="post" onsubmit="updateTheparentForm(); ">
+
+                                                                    <!-- form for updating theparent -->
+
+
+                                                                    <div class="form-group">
+                                                                        <label for="theparentname"> Nom complet: <sup>*</sup></label>
+                                                                        <input id="theparentname" type="text" name="theparentname" class="form-control form-control-lg
 <?php echo (!empty($data['theparentname_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentname; ?> "> <span class="invalid-feedback"> <?php echo $data['theparentname_error']; ?> </span>
-</div>
+                                                                    </div>
 
 
 
-<div class="form-group">
+                                                                    <div class="form-group">
 
-<label for="gender"> Genre: <sup>*</sup></label> <input type="text" name="theparentgender" class="form-control form-control-lg<?php echo (!empty($data['theparentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentgender; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentgender_error']; ?> </span>
-</div>
-
-
-<div class="form-group">
-
-<label for="class"> Job: <sup>*</sup></label> <input type="text" name="theparentjob" class="form-control form-control-lg<?php echo (!empty($data['theparentjob_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentjob; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentjob_error']; ?> </span>
-</div>
+                                                                        <label for="gender"> Genre: <sup>*</sup></label> <input id="theparentgender" type="text" name="theparentgender" class="form-control form-control-lg<?php echo (!empty($data['theparentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentgender; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentgender_error']; ?> </span>
+                                                                    </div>
 
 
+                                                                    <div class="form-group">
 
-<div class="form-group">
-<label for="phone"> Téléphone du parent: <sup>*</sup></label>
-<input type="text" name="theparentphone" class="form-control form-control-lg
+                                                                        <label for="class"> Job: <sup>*</sup></label> <input id="theparentjob" type="text" name="theparentjob" class="form-control form-control-lg<?php echo (!empty($data['theparentjob_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentjob; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentjob_error']; ?> </span>
+                                                                    </div>
+
+
+
+                                                                    <div class="form-group">
+                                                                        <label for="phone"> Téléphone du parent: <sup>*</sup></label>
+                                                                        <input id="theparentphone" type="text" name="theparentphone" class="form-control form-control-lg
 <?php echo (!empty($data['parents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentphone; ?> "> <span class="invalid-feedback"> <?php echo $data['parents_error']; ?> </span>
-</div>
+                                                                    </div>
 
 
 
-<div class="form-group">
+                                                                    <div class="form-group">
 
-<label for="adress"> Adresse: <sup>*</sup></label> <input type="text" name="theparentadress" class="form-control form-control-lg<?php echo (!empty($data['theparentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentadress; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentadress_error']; ?> </span>
-</div>
-
-
-
-</div>
-</div>
-</div>
-
-<div class="modal-footer">
-<button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-<input type="submit" class="btn btn-dark text-light" value="Update">
-
-
-</form>
-<form action="<?php echo URLROOT; ?>/dashboards/deleteTheParent/<?php echo $data['theparents'][$count]->id ?>" method="post">
-
-<input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
-</div>
-</form>
-
-</div>
-</div>
-</div>
+                                                                        <label for="adress"> Adresse: <sup>*</sup></label> <input id="theparentadress" type="text" name="theparentadress" class="form-control form-control-lg<?php echo (!empty($data['theparentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['theparents'][$count]->parentadress; ?>"> <span class="invalid-feedback"> <?php echo $data['theparentadress_error']; ?> </span>
+                                                                    </div>
 
 
 
-<!-- the modal of update inside the manager icon -->
-</td>
-</tr>
-</tbody>
-<?php $count++; ?>
-<!-- the end of loop -->
-<?php endforeach; ?>
-</table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
+                                                        <input type="submit" class="btn btn-dark text-light submitBtn" value="Update" onclick="return updateTheparentForm(); " />
+
+
+                                                        </form>
+                                                        <form action="<?php echo URLROOT; ?>/dashboards/deleteTheParent/<?php echo $data['theparents'][$count]->id ?>" method="post">
+
+                                                            <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
+                                                    </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <!-- the modal of update inside the manager icon -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <?php $count++; ?>
+                            <!-- the end of loop -->
+                        <?php endforeach; ?>
+                    </table>
 
 
 
