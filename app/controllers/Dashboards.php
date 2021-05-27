@@ -331,16 +331,16 @@ class Dashboards extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
                 'id' => $id,
-                'parentname' => trim($_POST['theparentname']),
-                'parentgender' => trim($_POST['theparentgender']),
-                'parentjob' => trim($_POST['theparentjob']),
-                'parentadress' => trim($_POST['theparentadress']),
-                'parentphone' => trim($_POST['theparentphone']),
-                'parentsname_error' => '',
-                'parentsgender_error' => '',
-                'parentjob_error' => '',
-                'parentphone_error' => '',
-                'parentadress_error' => '',
+                'theparentname' => trim($_POST['theparentname']),
+                'theparentgender' => trim($_POST['theparentgender']),
+                'theparentjob' => trim($_POST['theparentjob']),
+                'theparentadress' => trim($_POST['theparentadress']),
+                'theparentphone' => trim($_POST['theparentphone']),
+                'theparentsname_error' => '',
+                'theparentsgender_error' => '',
+                'theparentjob_error' => '',
+                'theparentphone_error' => '',
+                'theparentadress_error' => '',
     
             ];
             if (empty($data['theparentname'])) {
@@ -364,12 +364,12 @@ class Dashboards extends Controller
             if (empty($data['theparentname_error']) && empty($data['theparentgender_error']) && empty($data['theparentjob_error']) && empty($data['theparentadress_error'])&& empty($data['theparentphone_error'])) {
                 // validated stuff
                 if ($this->theparentModel->updateTheParent($data)) {
-                    header('location: ../students');
+                    header('location: ../theparents');
                 } else {
                     die('ERROR');
                 }
             } else {
-
+                
 
                 $this->view('dashboards/parents/theparents', $data);
             }

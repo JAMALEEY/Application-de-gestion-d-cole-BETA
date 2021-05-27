@@ -23,28 +23,28 @@
                         <h2>Add your new student below</h2>
                         <p>Please fill the informations below in order to add a new student.</p>
                         <p>Ps: Elements marked with "*" are important !</p>
-                        <form action="<?php echo URLROOT; ?>/dashboards/creatStudent" method="post">
+                        <form action="<?php echo URLROOT; ?>/dashboards/creatStudent" method="post" onsubmit="studentContactForm(); ">
 
                             <div class="form-group">
 
                                 <label for="studentname"> Le Nom complet: <sup>*</sup></label>
-                                <input type="text" name="studentname" class="form-control form-control-lg
+                                <input id="studentname" type="text" name="studentname" class="form-control form-control-lg
                         <?php echo (!empty($data['studentname_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentname']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['student_error']; ?> </span>
                             </div>
 
                             <div class="form-group">
 
-                                <label for="gender"> Genre: <sup>*</sup></label>
-                                <input type="text" name="studentgender" class="form-control form-control-lg
+                                <label for="gender">Le Genre: <sup>*</sup></label>
+                                <input id="studentgender" type="text" name="studentgender" class="form-control form-control-lg
                         <?php echo (!empty($data['studentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentgender']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['studentgender_error']; ?> </span>
                             </div>
 
                             <div class="form-group">
 
-                                <label for="class"> Classe: <sup>*</sup></label>
-                                <input type="text" name="studentclass" class="form-control form-control-lg
+                                <label for="class"> La Classe: <sup>*</sup></label>
+                                <input id="studentclass" type="text" name="studentclass" class="form-control form-control-lg
         <?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentclass']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
                             </div>
@@ -53,15 +53,15 @@
                             <div class="form-group">
 
                                 <label for="par"> Parent de l'apprenant: <sup>*</sup></label>
-                                <input type="text" name="stdparents" class="form-control form-control-lg
+                                <input id="stdparents" type="text" name="stdparents" class="form-control form-control-lg
     <?php echo (!empty($data['stdparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['stdparents']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span>
                             </div>
 
                             <div class="form-group">
 
-                                <label for="adress"> Adresse: <sup>*</sup></label>
-                                <input type="text" name="studentadress" class="form-control form-control-lg
+                                <label for="adress"> L'adresse: <sup>*</sup></label>
+                                <input id="studentadress" type="text" name="studentadress" class="form-control form-control-lg
                         <?php echo (!empty($data['studentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentadress']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['studentadress_error']; ?> </span>
                             </div>
@@ -71,7 +71,7 @@
                             <div class="form-group">
 
                                 <label for="birthday"> Date of birth: <sup>*</sup></label>
-                                <input type="text" name="studentbirth" class="form-control form-control-lg
+                                <input id="studentbirth" type="text" name="studentbirth" class="form-control form-control-lg
                         <?php echo (!empty($data['studentbirth_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentbirth']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['studentbirth_error']; ?> </span>
                             </div>
@@ -81,7 +81,7 @@
                             <div class="form-group">
 
                                 <label for="email"> E-mail: <sup>*</sup></label>
-                                <input type="email" name="studentemail" class="form-control form-control-lg
+                                <input id="studentemail" type="email" name="studentemail" class="form-control form-control-lg
                         <?php echo (!empty($data['studentemail_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentemail']; ?>">
                                 <span class="invalid-feedback"> <?php echo $data['studentemail_error']; ?> </span>
                             </div>
@@ -91,7 +91,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-dark text-light" value="Add">
+                <input type="submit" class="btn btn-dark text-light submitBtn" value="Add" onclick="return studentContactForm(); " />
+
             </div>
             </form>
 
@@ -245,100 +246,100 @@
 
 
 
-<!-- Student Modal UpdateDelete -->
-<div class="modal fade" id="updateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="updateModal<?php echo $count; ?>Label" aria-hidden="true">
-<div class="modal-dialog modal-lg">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update Student</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<div class="row">
+                                        <!-- Student Modal UpdateDelete -->
+                                        <div class="modal fade" id="updateModal<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="updateModal<?php echo $count; ?>Label" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="updateModal<?php echo $count; ?>Label">Update Student</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
 
-<div class="col-md-10 mx-auto">
-
-
-<h2>Update your student's informations below</h2>
-<p>Please fill the informations below in order to update the student's informations.</p>
-<p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-<!-- Là on doit afficher les information qui sont envoyé par data et plus precisémment student's data avec le count id -->
-<form action="<?php echo URLROOT; ?>/dashboards/updateStudent/<?php echo $data['students'][$count]->id; ?>" method="post">
-
-<!-- form for updating student -->
+                                                            <div class="col-md-10 mx-auto">
 
 
-<div class="form-group">
+                                                                <h2>Update your student's informations below</h2>
+                                                                <p>Please fill the informations below in order to update the student's informations.</p>
+                                                                <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
+                                                                <!-- Là on doit afficher les information qui sont envoyé par data et plus precisémment student's data avec le count id -->
+                                                                <form action="<?php echo URLROOT; ?>/dashboards/updateStudent/<?php echo $data['students'][$count]->id; ?>" method="post" onsubmit="updateStudentForm(); ">
 
-<label for="studentname"> Nom complet: <sup>*</sup></label>
-<!-- php form validation in student's update -->
-<input type="text" name="studentname" class="form-control form-control-lg
+                                                                    <!-- form for updating student -->
+
+
+                                                                    <div class="form-group">
+
+                                                                        <label for="studentname"> Nom complet: <sup>*</sup></label>
+                                                                        <!-- php form validation in student's update -->
+                                                                        <input type="text" name="studentname" class="form-control form-control-lg
 <?php echo (!empty($data['studentname_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentname; ?> "> <span class="invalid-feedback"> <?php echo $data['studentname_error']; ?> </span>
-</div>
+                                                                    </div>
 
 
 
-<div class="form-group">
+                                                                    <div class="form-group">
 
-<label for="gender"> Genre: <sup>*</sup></label> <input type="text" name="studentgender" class="form-control form-control-lg<?php echo (!empty($data['studentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentgender; ?>"> <span class="invalid-feedback"> <?php echo $data['studentgender_error']; ?> </span>
-</div>
-
-
-<div class="form-group">
-
-<label for="class"> Classe: <sup>*</sup></label> <input type="text" name="studentclass" class="form-control form-control-lg<?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentclass; ?>"> <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
-</div>
+                                                                        <label for="gender"> Genre: <sup>*</sup></label> <input type="text" name="studentgender" class="form-control form-control-lg<?php echo (!empty($data['studentgender_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentgender; ?>"> <span class="invalid-feedback"> <?php echo $data['studentgender_error']; ?> </span>
+                                                                    </div>
 
 
+                                                                    <div class="form-group">
 
-<div class="form-group">
-<label for="par"> Parent de l'apprenant: <sup>*</sup></label><input type="text" name="stdparents" class="form-control form-control-lg<?php echo (!empty($data['stdparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->stdparents; ?> "> <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span>
-</div>
+                                                                        <label for="class"> Classe: <sup>*</sup></label> <input type="text" name="studentclass" class="form-control form-control-lg<?php echo (!empty($data['studentclass_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentclass; ?>"> <span class="invalid-feedback"> <?php echo $data['studentclass_error']; ?> </span>
+                                                                    </div>
 
 
 
+                                                                    <div class="form-group">
+                                                                        <label for="par"> Parent de l'apprenant: <sup>*</sup></label><input type="text" name="stdparents" class="form-control form-control-lg<?php echo (!empty($data['stdparents_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->stdparents; ?> "> <span class="invalid-feedback"> <?php echo $data['stdparents_error']; ?> </span>
+                                                                    </div>
 
 
-<div class="form-group">
 
-<label for="adress"> Adresse: <sup>*</sup></label>
-<input type="text" name="studentadress" class="form-control form-control-lg
+
+
+                                                                    <div class="form-group">
+
+                                                                        <label for="adress"> Adresse: <sup>*</sup></label>
+                                                                        <input type="text" name="studentadress" class="form-control form-control-lg
 <?php echo (!empty($data['studentadress_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentadress; ?>"> <span class="invalid-feedback"> <?php echo $data['studentadress_error']; ?> </span>
-</div>
+                                                                    </div>
 
 
-<div class="form-group">
+                                                                    <div class="form-group">
 
-<label for="studentbirth"> Date of birth: <sup>*</sup></label> <input type="text" name="studentbirth" class="form-control form-control-lg<?php echo (!empty($data['studentbirth_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentbirth; ?>"> <span class="invalid-feedback"> <?php echo $data['studentbirth_error']; ?> </span>
-</div>
+                                                                        <label for="studentbirth"> Date of birth: <sup>*</sup></label> <input type="text" name="studentbirth" class="form-control form-control-lg<?php echo (!empty($data['studentbirth_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentbirth; ?>"> <span class="invalid-feedback"> <?php echo $data['studentbirth_error']; ?> </span>
+                                                                    </div>
 
-<div class="form-group">
+                                                                    <div class="form-group">
 
-<label for="studentmail"> E-mail : <sup>*</sup></label> <input type="email" name="studentemail" class="form-control form-control-lg<?php echo (!empty($data['studentemail_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentemail; ?>"> <span class="invalid-feedback"> <?php echo $data['studentemail_error']; ?> </span>
-</div>
-
-
-</div>
-</div>
-</div>
-
-<div class="modal-footer">
-<button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-<input type="submit" class="btn btn-dark text-light" value="Update">
+                                                                        <label for="studentmail"> E-mail : <sup>*</sup></label> <input type="email" name="studentemail" class="form-control form-control-lg<?php echo (!empty($data['studentemail_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentemail; ?>"> <span class="invalid-feedback"> <?php echo $data['studentemail_error']; ?> </span>
+                                                                    </div>
 
 
-</form>
-<form action="<?php echo URLROOT; ?>/dashboards/deleteStudent/<?php echo $data['students'][$count]->id ?>" method="post">
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-<input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
-</div>
-</form>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
+                                                        <input type="submit" class="btn btn-dark text-light submitBtn" value="Update" onclick="return updateStudentForm(); " />
 
-</div>
-</div>
-</div>
+
+                                                        </form>
+                                                        <form action="<?php echo URLROOT; ?>/dashboards/deleteStudent/<?php echo $data['students'][$count]->id ?>" method="post">
+
+                                                            <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
+                                                    </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
 
 
 

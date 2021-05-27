@@ -260,7 +260,7 @@
                                                                 <h2>Update your teacher's informations below</h2>
                                                                 <p>Please fill the informations below in order to update the teacher's informations.</p>
                                                                 <p>Ps: Les éléments marqués avec "*" sont obligatoires !</p>
-                                                                <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/<?php echo $data['teachers'][$count]->id; ?>" method="post">
+                                                                <form action="<?php echo URLROOT; ?>/dashboards/updateTeacher/<?php echo $data['teachers'][$count]->id; ?>" method="post" onsubmit="updateContactForm(); ">
 
 
                                                                     <!-- form for updating teachers -->
@@ -322,11 +322,11 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
-                                                        <input type="submit" class="btn btn-dark text-light" value="Update">
+                                                        <input type="submit" class="btn btn-dark text-light" value="Update" onclick="return updateContactForm(); " />
 
 
                                                         </form>
-                                                        <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post">
+                                                        <form action="<?php echo URLROOT; ?>/dashboards/deleteTeacher/<?php echo $data['teachers'][$count]->id ?>" method="post" onsubmit="updateContactForm(); ">
 
                                                             <input type="submit" name="delete" class="btn btn-danger text-light float-center" value="Delete">
                                                     </div>
