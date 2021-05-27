@@ -293,6 +293,7 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-inactive border-dark text-dark" data-dismiss="modal">Close</button>
                                                         <input type="submit" class="btn btn-dark text-light submitBtn" value="Update" onclick="return updateTheparentForm(); " />
+                                                        <!-- <input type="submit" class="btn btn-dark text-light updateBtn" value="Update" onclick="return updateTheparentForm(); " /> -->
 
 
                                                         </form>
