@@ -1,10 +1,8 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<style>
 
-</style>
 <!-- start navbar -->
 <nav class="navbar navbar-expand-lg navbar-mainbg">
-    <a class="navbar-brand navbar-logo" href="#"><i class="fas fa-school"></i> GeeSchool</a>
+    <a class="navbar-brand navbar-logo" href="<?php echo URLROOT; ?>/pages/home"><i class="fas fa-school"></i> GeeSchool</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars text-white"></i>
     </button>
@@ -89,7 +87,7 @@
                             <label for="password">
                                 <h5> Password </h5>
                             </label>
-                            <input type="password" name="password" placeholder="************"  class="form-control form-control-lg 
+                            <input type="password" name="password" placeholder="************" class="form-control form-control-lg 
                         <?php echo (!empty($data['password_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['password']; ?>">
                             <span class="invalid-feedback"> <?php echo $data['password_error']; ?> </span>
                         </div>

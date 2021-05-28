@@ -1,4 +1,5 @@
 <?php
+
   class Pages extends Controller {
     public function __construct(){
 
@@ -14,17 +15,6 @@
 
 
     public function about(){
-      $data = [
-        'title' => 'About Us'
-      ];
-
-      $this->view('pages/about', $data);
-    }
-
-
-
-
-  public function home(){
     $data = [
       'title' => 'collaborative',
       'header' => 'Restez en control de votre école en toute sécurité, 
@@ -33,9 +23,45 @@
         Les personnes et encore plus à découvrir ... 
         '
     ];
-    
-    $this->view('pages/home', $data);
 
+    $this->view('pages/about', $data);
+
+    }
+
+
+
+
+  public function home(){
+  
+    $this->view('pages/index');
+
+  }
+
+  public function stats()
+  {
+        $data = [
+      'email' => '',
+      'password' => ''
+
+        ];
+    $this->view('admins/login', $data);
+  }
+
+
+
+
+
+
+
+  public function dashboard()
+  {
+
+    $data = [
+      'email' => '',
+      'password' => ''
+
+    ];
+    $this->view('admins/login', $data);
   }
 
 

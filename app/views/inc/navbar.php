@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-mainbg">
-    <a class="navbar-brand navbar-logo" href="#"><i class="fas fa-school"></i> GeeSchool</a>
+    <a class="navbar-brand navbar-logo" href="<?php echo URLROOT; ?>/pages/home"><i class="fas fa-school"></i> GeeSchool</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars text-white"></i>
     </button>
