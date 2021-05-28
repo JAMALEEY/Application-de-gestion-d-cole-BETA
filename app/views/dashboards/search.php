@@ -201,7 +201,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <?php echo $value->studentbirth; ?>
+                                                    <?php echo $value->age; ?>
                                                 </td>
 
 

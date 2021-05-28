@@ -70,10 +70,10 @@
                             <!-- student birth add input modal -->
                             <div class="form-group">
 
-                                <label for="birthday"> Date of birth: <sup>*</sup></label>
-                                <input id="studentbirth" type="text" name="studentbirth" class="form-control form-control-lg
-                        <?php echo (!empty($data['studentbirth_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['studentbirth']; ?>">
-                                <span class="invalid-feedback"> <?php echo $data['studentbirth_error']; ?> </span>
+                                <label for="birthday"> Age: <sup>*</sup></label>
+                                <input id="age" type="text" name="age" class="form-control form-control-lg
+                        <?php echo (!empty($data['age_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['age']; ?>">
+                                <span class="invalid-feedback"> <?php echo $data['age_error']; ?> </span>
                             </div>
 
 
@@ -212,7 +212,7 @@
                                 <th>Classe</th>
                                 <th>Parents</th>
                                 <th>Adresse</th>
-                                <th>Date de naissance</th>
+                                <th>Age</th>
                                 <th>Email</th>
                                 <th>Manager</th>
                             </tr>
@@ -232,7 +232,7 @@
                                     <td><?php echo $student->studentclass; ?></td>
                                     <td> <?php echo $student->stdparents; ?></td>
                                     <td> <?php echo $student->studentadress; ?></td>
-                                    <td> <?php echo $student->studentbirth; ?></td>
+                                    <td> <?php echo $student->age; ?></td>
                                     <td> <?php echo $student->studentemail; ?></td>
 
 
@@ -312,7 +312,7 @@
 
                                                                     <div class="form-group">
 
-                                                                        <label for="studentbirth"> Date of birth: <sup>*</sup></label> <input type="text" name="studentbirth" class="form-control form-control-lg<?php echo (!empty($data['studentbirth_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->studentbirth; ?>"> <span class="invalid-feedback"> <?php echo $data['studentbirth_error']; ?> </span>
+                                                                        <label for="age"> Age: <sup>*</sup></label> <input type="text" name="age" class="form-control form-control-lg<?php echo (!empty($data['age_error'])) ? 'is-invalid' : ''; ?> " value="<?php echo $data['students'][$count]->age; ?>"> <span class="invalid-feedback"> <?php echo $data['age_error']; ?> </span>
                                                                     </div>
 
                                                                     <div class="form-group">

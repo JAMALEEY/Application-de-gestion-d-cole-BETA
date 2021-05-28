@@ -24,14 +24,14 @@
                         $this->db->resultSet();
                         $class2 = $this->db->rowCount();
 
-                        $this->db->query("SELECT * FROM students WHERE `studentclass` = 'NAMELESS'");
+                        $this->db->query("SELECT * FROM students WHERE `studentclass` = 'DailyCoders'");
                         $this->db->resultSet();
                         $class3 = $this->db->rowCount();
 
                         $studentclass = [
                         'classNAMEK' => $class1,
                         'classBABYLONE' => $class2,
-                        'classNAMELESS' => $class3
+                        'classDailyCoders' => $class3
                         ];
                         return $studentclass;
                         }
@@ -47,6 +47,8 @@
                         $result = $this->db->rowCount();
                         return $result;
                         }
+
+
                         public function numberparents()
                         {
                         // we prepare query
@@ -57,6 +59,8 @@
                         $result = $this->db->rowCount();
                         return $result;
                         }
+
+
                         public function numberteachers()
                         {
                         // query preparation
@@ -71,12 +75,25 @@
                         public function genderStudents()
                         {
                         // query preparation
-                        $this->db->query("SELECT * FROM `students` WHERE `studentgender` = 'Homme' ");
+                        $this->db->query("SELECT * FROM `students` WHERE studentgender = 'homme' ");
 
                         // execution of query and fething data as row
                         $this->db->resultSet();
                         $result = $this->db->rowCount();
                         return $result;
                         }
+
+
+
+    public function ageStudents()
+    {
+        // query preparation
+        $this->db->query("SELECT age FROM `students` ");
+
+        // execution of query and fething data as row
+        $this->db->resultSet();
+        $result = $this->db->rowCount();
+        return $result;
+    }
         }
 ?>

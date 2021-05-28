@@ -10,13 +10,13 @@ class Student
     }
 
     public function getStudent(){
-        $this->db->query('SELECT `id`, `studentname`, `studentgender`, `studentclass`, `stdparents`, `studentadress`, `studentbirth`, `studentemail` FROM `students`');
+        $this->db->query('SELECT `id`, `studentname`, `studentgender`, `studentclass`, `stdparents`, `studentadress`, `age`, `studentemail` FROM `students`');
         $this->db->bind(':studentname', 'studentname');
         $this->db->bind(':studentgender', 'studentgender');
         $this->db->bind(':studentclass', 'studentclass');
         $this->db->bind(':stdparents', 'stdparents');
         $this->db->bind(':studentadress', 'studentadress');
-        $this->db->bind(':studentbirth', 'studentbirth');
+        $this->db->bind(':age', 'age');
         $this->db->bind(':studentemail', 'studentemail');
         $results = $this->db->resultSet();
         return $results;
@@ -35,14 +35,14 @@ class Student
     public function creatStudent($data)
     {
         // prepare query
-        $this->db->query('INSERT INTO students (studentname, studentgender, studentclass, stdparents, studentadress, studentbirth, studentemail) VALUES(:studentname, :studentgender, :studentclass, :stdparents, :studentadress, :studentbirth, :studentemail)');
+        $this->db->query('INSERT INTO students (studentname, studentgender, studentclass, stdparents, studentadress, age, studentemail) VALUES(:studentname, :studentgender, :studentclass, :stdparents, :studentadress, :age, :studentemail)');
         // we bind values
         $this->db->bind(':studentname', $data['studentname']);
         $this->db->bind(':studentgender', $data['studentgender']);
         $this->db->bind(':studentclass', $data['studentclass']);
         $this->db->bind(':stdparents', $data['stdparents']);
         $this->db->bind(':studentadress', $data['studentadress']);
-        $this->db->bind(':studentbirth', $data['studentbirth']);
+        $this->db->bind(':age', $data['age']);
         $this->db->bind(':studentemail', $data['studentemail']);
 
         // the execution
@@ -56,7 +56,7 @@ class Student
 
     public function updateStudent($data)
     {
-        $this->db->query('UPDATE students SET studentname = :studentname, studentgender = :studentgender, studentclass = :studentclass, stdparents = :stdparents, studentadress = :studentadress, studentbirth = :studentbirth, studentemail = :studentemail WHERE id = :id');
+        $this->db->query('UPDATE students SET studentname = :studentname, studentgender = :studentgender, studentclass = :studentclass, stdparents = :stdparents, studentadress = :studentadress, age = :age, studentemail = :studentemail WHERE id = :id');
         // we bind values
         $this->db->bind(':id', $data['id']);
         $this->db->bind(':studentname', $data['studentname']);
@@ -64,7 +64,7 @@ class Student
         $this->db->bind(':studentclass', $data['studentclass']);
         $this->db->bind(':stdparents', $data['stdparents']);
         $this->db->bind(':studentadress', $data['studentadress']);
-        $this->db->bind(':studentbirth', $data['studentbirth']);
+        $this->db->bind(':age', $data['age']);
         $this->db->bind(':studentemail', $data['studentemail']);
         //  the execution
         if ($this->db->execute()) {
@@ -102,7 +102,7 @@ class Student
         if (isset($_POST['search'])) {
             $key = $_POST['search'];
 
-            $this->db->query("SELECT * FROM students WHERE students.studentname LIKE '%$key%' OR students.studentgender LIKE '%$key%' OR students.studentclass LIKE '%$key%' OR students.stdparents LIKE '%$key%' OR students.studentadress LIKE '%$key%' OR students.studentbirth LIKE '%$key%' OR students.studentemail LIKE '%$key%'");
+            $this->db->query("SELECT * FROM students WHERE students.studentname LIKE '%$key%' OR students.studentgender LIKE '%$key%' OR students.studentclass LIKE '%$key%' OR students.stdparents LIKE '%$key%' OR students.studentadress LIKE '%$key%' OR students.age LIKE '%$key%' OR students.studentemail LIKE '%$key%'");
 
             $searchresult = $this->db->resultSet();
             return $searchresult;

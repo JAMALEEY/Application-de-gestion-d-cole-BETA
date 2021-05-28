@@ -25,7 +25,7 @@ class Dashboards extends Controller
             'studentclass' => '',
             'stdparents' => '',
             'studentadress' => '',
-            'studentbirth' => '',
+            'age' => '',
             'studentemail' => ''
 
         ];
@@ -52,14 +52,14 @@ class Dashboards extends Controller
                 'studentclass' => trim($_POST['studentclass']),
                 'stdparents' => trim($_POST['stdparents']),
                 'studentadress' => trim($_POST['studentadress']),
-                'studentbirth' => trim($_POST['studentbirth']),
+                'age' => trim($_POST['age']),
                 'studentemail' => trim($_POST['studentemail']),
                 'studentname_error' => '',
                 'studentgender_error' => '',
                 'studentclass_error' => '',
                 'stdparents_error' => '',
                 'studentadress_error' => '',
-                'studentbirth_error' => '',
+                'age_error' => '',
                 'studentemail_error' => ''
             ];
             if (empty($data['studentname'])) {
@@ -78,7 +78,7 @@ class Dashboards extends Controller
                 $data['studentemail_error'] = 'Entrez l\'email du student';
             }
             // make sure theres no errors
-            if (empty($data['studentname_error']) && empty($data['studentgender_error']) && empty($data['studentclass_error']) && empty($data['stdparents_error']) && empty($data['studentadress_error']) && empty($data['studentbirth_error']) && empty($data['studentemail_error'])) {
+            if (empty($data['studentname_error']) && empty($data['studentgender_error']) && empty($data['studentclass_error']) && empty($data['stdparents_error']) && empty($data['studentadress_error']) && empty($data['age_error']) && empty($data['studentemail_error'])) {
                 // validated stuff
                 if ($this->studentModel->creatStudent($data)) {
                     header('location: students');
@@ -96,7 +96,7 @@ class Dashboards extends Controller
                 'studentclass' => '',
                 'theparents' => '',
                 'studentadress' => '',
-                'studentbirth' => '',
+                'age' => '',
                 'studentemail' => ''
             ];
             header('location: students');
@@ -133,14 +133,14 @@ class Dashboards extends Controller
                 'studentclass' => trim($_POST['studentclass']),
                 'stdparents' => trim($_POST['stdparents']),
                 'studentadress' => trim($_POST['studentadress']),
-                'studentbirth' => trim($_POST['studentbirth']),
+                'age' => trim($_POST['age']),
                 'studentemail' => trim($_POST['studentemail']),
                 'studentname_error' => '',
                 'studentgender_error' => '',
                 'studentclass_error' => '',
                 'stdparent_error' => '',
                 'studentadress_error' => '',
-                'studentbirth_error' => '',
+                'age_error' => '',
                 'studentemail_error' => ''
             ];
             if (empty($data['studentname'])) {
@@ -158,14 +158,14 @@ class Dashboards extends Controller
             if (empty($data['studentadress'])) {
                 $data['studentadress_error'] = 'Entrez l\'adresse de l\'etudiant';
             }
-            if (empty($data['studentbirth'])) {
-                $data['studentbirth_error'] = 'Entrez la date de naissance de l\'etudiant';
+            if (empty($data['age'])) {
+                $data['age_error'] = 'Entrez la date de naissance de l\'etudiant';
             }
             if (empty($data['studentemail'])) {
                 $data['studentemail_error'] = 'Entrez l\'E-mail de l\'etudiant';
             }
             // make sure theres no errors
-            if (empty($data['studentgender_error']) && empty($data['studentclass_error']) && empty($data['studentbirth_error']) && empty($data['studentadress_error']) && empty($data['studentbirth_error'])) {
+            if (empty($data['studentgender_error']) && empty($data['studentclass_error']) && empty($data['age_error']) && empty($data['studentadress_error']) && empty($data['age_error'])) {
                 // validated stuff
                 if ($this->studentModel->updateStudent($data)) {
                     header('location: ../students');
@@ -197,7 +197,7 @@ class Dashboards extends Controller
                 'studentclass' =>  $student->studentclass,
                 'theparents' =>  $student->theparents,
                 'studentadress' =>  $student->studentadress,
-                'studentbirth' =>  $student->studentbirth,
+                'age' =>  $student->age,
                 'studentemail' =>  $student->studentemail
             ];
 
@@ -791,6 +791,8 @@ class Dashboards extends Controller
 
         $stats_gender = $this->statModel->genderStudents();
 
+        $stats_age = $this->statModel->ageStudents();
+
         $students = $this->statModel->numberstudents();
 
         $teachers = $this->statModel->numberteachers();
@@ -804,7 +806,8 @@ class Dashboards extends Controller
             'students' => $students,
             'teachers' => $teachers,
             'theparents' => $theparents,
-            'gender_student' => $stats_gender,
+            'studentgender' => $stats_gender,
+            'age' => $stats_age,
             'class_students' => $class_students
         ];
 

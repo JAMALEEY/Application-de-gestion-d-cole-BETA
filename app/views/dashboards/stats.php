@@ -10,13 +10,28 @@
         google.charts.load('current', {
             'packages': ['corechart']
         });
+
+        google.charts.load('current', {
+            'packages': ['bar']
+        });
+
+
+
+        // google.charts.load('current', {
+        //     'packages': ['corechart']
+        // });
+
+
+
+        google.charts.setOnLoadCallback(drawChartNbr);
+        google.charts.setOnLoadCallback(drawChartPie);
         google.charts.setOnLoadCallback(drawChart);
 
-        function drawChart() {
+        function drawChartPie() {
             var data = google.visualization.arrayToDataTable([
                 ['Genre', "Nombre d'étudiant"],
-                ['Hommes', <?php echo $data['gender_student']; ?>],
-                ['Femmes', <?php echo $data['students'] - $data['gender_student']; ?>]
+                ['Hommes', <?php echo $data['studentgender']; ?>],
+                ['Femmes', <?php echo $data['students'] - $data['studentgender']; ?>]
             ]);
 
             var options = {
@@ -28,33 +43,14 @@
 
             chart.draw(data, options);
         }
-    </script>
-</head>
-
-<body>
-
-</body>
-
-</html>
 
 
-
-<html>
-
-<head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['bar']
-        });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
+        function drawChartNbr() {
             var data = google.visualization.arrayToDataTable([
                 ['Classes', "Nombre d'étudiant"],
                 ['NAMEK', <?php echo $data["class_students"]["classNAMEK"] ?>],
                 ['BABYLONE', <?php echo $data["class_students"]["classBABYLONE"] ?>],
-                ['NAMELESS', <?php echo $data["class_students"]["classNAMELESS"] ?>],
+                ['DailyCoders', <?php echo $data["class_students"]["classDailyCoders"] ?>],
             ]);
 
             var options = {
@@ -67,8 +63,15 @@
 
             chart.draw(data, google.charts.Bar.convertOptions(options));
         }
+
+
+
+
+
+
     </script>
 </head>
+
 
 <body>
     <div>
@@ -119,13 +122,13 @@
                     </nav>
                 </aside>
 
-                <div class="table-title py-1 px-4 pt-5">
+                <div class="table-title py-1 px-4 pt-5 col-10">
 
 
 
 
                     <!-- LES PROPRIETES DU TQBLEAU -->
-                    <div class="d-flex justify-content-between" style="background-color: black;">
+                    <div class="d-flex justify-content-between  " style="background-color: black;">
 
                         <div class="py-1 px-4 text-light">
                             <h2>Data <b>Stats</b></h2>
@@ -135,7 +138,7 @@
 
                         <div class="d-flex justify-content-end py-2 px-4">
                             <!-- name add teacher a verifier -->
-                        
+
 
                             <div class="pl-5">
                                 <form action="<?php echo URLROOT; ?>/dashboards/excel" method="post">
@@ -146,18 +149,34 @@
                         </div>
                     </div>
 
-                    <div class=" container col-10 pt-5">
 
 
-                        <div class="d-flex justify-content-center ">
-                            <div class="" id="columnchart_material" style="width: 400px; height: 400px;"></div>
-                            <div id="piechart" style="width: 400px; height: 400px;"></div>
+
+
+                    <div class=" container col-8">
+
+
+                        <div class="pt-4">
+
+                            <div id="chart_div" style="width: 100%; height: 400px;"></div>
 
                         </div>
 
-                        <!-- finish side bar -->
-
                     </div>
+
+                    <div class="d-flex container">
+
+                        <div class="pl-3 py-2 px-4" id="columnchart_material" style="width: 100%; height: 400px;"></div>
+                        <p class=" py-2 px-4"> Pourcentage Hommes/Femmes: </p>
+
+                        <div class="pl-3  py-2 px-4" id="piechart" style="width: 100%; height: 100%;">
+
+                        </div>
+                    </div>
+
+
+
+
                 </div>
             </div>
 
