@@ -790,8 +790,10 @@ class Dashboards extends Controller
     {
 
         $stats_gender = $this->statModel->genderStudents();
+        $stats_parentgender = $this->statModel->genderTheparents();
 
-        $stats_age = $this->statModel->ageStudents();
+
+        // $stats_age = $this->statModel->ageStudents();
 
         $students = $this->statModel->numberstudents();
 
@@ -807,7 +809,8 @@ class Dashboards extends Controller
             'teachers' => $teachers,
             'theparents' => $theparents,
             'studentgender' => $stats_gender,
-            'age' => $stats_age,
+            'theparentgender' => $stats_parentgender,
+            // 'age' => $stats_age,
             'class_students' => $class_students
         ];
 

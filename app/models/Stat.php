@@ -84,16 +84,28 @@
                         }
 
 
+                        public function genderTheparents()
+                        {
+                            // query preparation
+                            $this->db->query("SELECT * FROM `theparents` WHERE parentgender = 'homme' ");
+                            // execution of query and fething data as row
+                            $this->db->resultSet();
+                            $result = $this->db->rowCount();
+                            return $result;
+                        }
 
-    public function ageStudents()
-    {
-        // query preparation
-        $this->db->query("SELECT age FROM `students` ");
 
-        // execution of query and fething data as row
-        $this->db->resultSet();
-        $result = $this->db->rowCount();
-        return $result;
+
+    // public function ageStudents()
+    // {
+    //     // query preparation
+    //     $this->db->query("SELECT age FROM `students` ");
+
+    //     // execution of query and fething data as row
+    //     $this->db->resultSet();
+    //     $result = $this->db->rowCount();
+    //     return $result;
+    // }
     }
-        }
+        
 ?>

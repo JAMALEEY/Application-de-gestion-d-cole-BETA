@@ -27,16 +27,27 @@
         google.charts.setOnLoadCallback(drawChartPie);
         google.charts.setOnLoadCallback(drawChart);
 
+
         function drawChartPie() {
             var data = google.visualization.arrayToDataTable([
                 ['Genre', "Nombre d'étudiant"],
-                ['Hommes', <?php echo $data['studentgender']; ?>],
-                ['Femmes', <?php echo $data['students'] - $data['studentgender']; ?>]
+                ['Hommes', <?php echo $data['theparentgender']; ?>],
+                ['Femmes', <?php echo $data['theparents'] - $data['theparentgender']; ?>]
             ]);
 
             var options = {
-                title: '',
+                title: 'Pourcentage Hommes/Femmes (Parents):',
                 is3D: true,
+                slices: {
+                    0: {
+                        color: 'gray'
+                    },
+
+                    1: {
+                        color: 'black'
+                    },
+
+                }
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -48,16 +59,23 @@
         function drawChartNbr() {
             var data = google.visualization.arrayToDataTable([
                 ['Classes', "Nombre d'étudiant"],
-                ['NAMEK', <?php echo $data["class_students"]["classNAMEK"] ?>],
-                ['BABYLONE', <?php echo $data["class_students"]["classBABYLONE"] ?>],
-                ['DailyCoders', <?php echo $data["class_students"]["classDailyCoders"] ?>],
+                ['NAMEK', <?php echo $data["class_students"]["classNAMEK"] ?>, ],
+                ['BABYLONE', <?php echo $data["class_students"]["classBABYLONE"] ?>,],
+                ['DailyCoders', <?php echo $data["class_students"]["classDailyCoders"] ?>, ]
             ]);
 
             var options = {
                 chart: {
                     title: 'Nombre d\'étudiant par classe',
                     subtitle: 'Statistiques couvrant : 2019-2021',
-                }
+              
+                    series: {
+                        0: {
+                            color: 'black'
+                        }
+                    }
+                },
+
             };
             var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
@@ -65,10 +83,32 @@
         }
 
 
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
 
+                ['Age', '% Age'],
+                ['Hommes', <?php echo $data['studentgender']; ?>],
+                ['Femmes', <?php echo $data['students'] - $data['studentgender']; ?>]
+            ]);
 
+            var options = {
+                title: 'Pourcentage Hommes/Femmes (étudiants):',
+                pieHole: 0.4,
+                slices: {
+                    0: {
+                        color: 'black'
+                    },
 
+                    1: {
+                        color: 'gray'
+                    },
 
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
     </script>
 </head>
 
@@ -153,12 +193,12 @@
 
 
 
-                    <div class=" container col-8">
+                    <div class=" container col-10">
 
 
                         <div class="pt-4">
 
-                            <div id="chart_div" style="width: 100%; height: 400px;"></div>
+                            <div id="donutchart" style="width: 900px; height: 500px;"></div>
 
                         </div>
 
@@ -166,8 +206,8 @@
 
                     <div class="d-flex container">
 
-                        <div class="pl-3 py-2 px-4" id="columnchart_material" style="width: 100%; height: 400px;"></div>
-                        <p class=" py-2 px-4"> Pourcentage Hommes/Femmes: </p>
+                        <div class="pl-3 py-2 px-4" id="columnchart_material" style="width: 1000px; height: 400px;"></div>
+
 
                         <div class="pl-3  py-2 px-4" id="piechart" style="width: 100%; height: 100%;">
 
